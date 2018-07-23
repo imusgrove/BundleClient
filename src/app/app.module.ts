@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { DonorLoginComponent } from './auth/donor-login/donor-login.component';
@@ -15,24 +14,29 @@ import { UserProfileComponent } from './user-dashboard/user-profile/user-profile
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { LayoutComponent } from './ui/layout/layout.component';
-import { MatButtonModule,
-        MatCardModule,
-        MatCheckboxModule,
-        MatButtonToggleModule,
-        MatDialogModule,
-        MatFormFieldModule,
-        MatGridListModule,
-        MatIconModule,
-        MatInputModule,
-        MatMenuModule,
-        MatPaginatorModule,
-        MatRadioModule,
-        MatSidenavModule,
-        MatSlideToggleModule,
-        MatSnackBarModule,
-        MatTableModule,
-        MatToolbarModule,
-        MatTooltipModule, } from "@angular/material";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { 
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatButtonToggleModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatRadioModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatSnackBarModule, 
+} from "@angular/material";
+
 
 @NgModule({
   declarations: [
@@ -71,6 +75,15 @@ import { MatButtonModule,
     MatTableModule,
     MatToolbarModule,
     MatTooltipModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
+  ],
+  exports: [
+    FormsModule,
+    BrowserModule, 
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
