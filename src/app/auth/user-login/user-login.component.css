@@ -4,7 +4,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
-    background-color: #8acfba;
+    background-color: #7cd9d9;
 }
 .userButtons{
     margin-bottom: 5%;
@@ -20,9 +20,12 @@
     background-color: white;
     border: 1px solid #D9514E;
 }
+.userButtons button {
+    background-color: #ff8cff;
+}
 .noaccount a {
     text-decoration: none;
-    color: #D9514E;
+    color: #191919;
 }
 .noaccount a:hover {
     text-decoration: underline;

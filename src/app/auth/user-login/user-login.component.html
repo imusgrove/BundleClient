@@ -2,7 +2,7 @@
   <form [formGroup]="userForm" [hidden]="success" (ngSubmit)="submitHandler()">
   
   <h1>User Login</h1>
-  <hr color="#D9514E" />
+  <hr color="#ff8cff" />
   <div>
     <mat-form-field>
       <input matInput placeholder="username" formControllName="username">
@@ -21,8 +21,8 @@
   </div>
   <!-- <button mat-raised-button [disabled]="employerForm.invalid" color="primary">Submit</button> -->
   <div class="userButtons">
-    <button mat-raised-button class="submit" color="primary">Submit</button>
-    <button mat-raised-button class="donor" color="primary" routerLink='/donorlogin'>I'm a Donor</button>
+    <button mat-raised-button class="submit">Submit</button>
+    <button mat-raised-button class="donor" routerLink='/donorlogin'>I'm a Donor</button>
   </div>
   <div class="noaccount">
       <a routerLink="/usersignup">Don't have an account?</a>
