@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { DonorLoginComponent } from './auth/donor-login/donor-login.component';
@@ -12,6 +11,28 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AppRoutingModule } from '../app-routing.module';
 import { DonorProfileComponent } from './donor-dashboard/donor-profile/donor-profile.component';
 import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { 
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatButtonToggleModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatRadioModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatTooltipModule, 
+} from "@angular/material";
+
 
 @NgModule({
   declarations: [
@@ -24,11 +45,39 @@ import { UserProfileComponent } from './user-dashboard/user-profile/user-profile
     DonorDashboardComponent,
     UserDashboardComponent,
     DonorProfileComponent,
-    UserProfileComponent
+    UserProfileComponent,
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatFormFieldModule, 
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatRadioModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule
+  ],
+  exports: [
+    FormsModule,
+    BrowserModule, 
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
