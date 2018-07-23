@@ -12,6 +12,27 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AppRoutingModule } from '../app-routing.module';
 import { DonorProfileComponent } from './donor-dashboard/donor-profile/donor-profile.component';
 import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
+import { NavbarComponent } from './ui/navbar/navbar.component';
+import { FooterComponent } from './ui/footer/footer.component';
+import { LayoutComponent } from './ui/layout/layout.component';
+import { MatButtonModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatButtonToggleModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        MatGridListModule,
+        MatIconModule,
+        MatInputModule,
+        MatMenuModule,
+        MatPaginatorModule,
+        MatRadioModule,
+        MatSidenavModule,
+        MatSlideToggleModule,
+        MatSnackBarModule,
+        MatTableModule,
+        MatToolbarModule,
+        MatTooltipModule, } from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -24,11 +45,32 @@ import { UserProfileComponent } from './user-dashboard/user-profile/user-profile
     DonorDashboardComponent,
     UserDashboardComponent,
     DonorProfileComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NavbarComponent,
+    FooterComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatRadioModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

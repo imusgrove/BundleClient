@@ -1,0 +1,16 @@
+.navbar {
+    background-color: #7cd9d9;
+}
+
+.flexSpaceFill {
+    flex: 1 1 auto;
+}
+
+.cRight {
+    margin: auto 35%;
+}
+
+a, img {
+    width: 42px;
+    height: 42px
+}
