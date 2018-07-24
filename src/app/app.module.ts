@@ -34,7 +34,8 @@ import {
   MatTableModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatSnackBarModule, 
+  MatSnackBarModule,
+  MatSelectModule, 
 } from "@angular/material";
 
 
@@ -52,7 +53,7 @@ import {
     UserProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,13 +78,15 @@ import {
     MatTooltipModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   exports: [
     FormsModule,
     BrowserModule, 
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
