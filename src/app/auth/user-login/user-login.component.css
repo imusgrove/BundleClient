@@ -5,6 +5,8 @@
     margin-right: auto;
     margin-top: 5%;
     background-color: #7cd9d9;
+    border-radius: 50px;
+    text-align: center;
 }
 .userButtons{
     margin-bottom: 5%;
