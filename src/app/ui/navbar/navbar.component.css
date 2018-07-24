@@ -1,0 +1,23 @@
+.navbar {
+    background-color: #7cd9d9;
+}
+
+.spaceFill {
+    flex: 1 1 auto;
+}
+
+.navButton {
+    background: #7cd9d9;
+    border-top: none;
+    border-bottom: none;
+    height: 100%;
+}
+
+#m1btn {
+    border-left: none;
+    border-right: none;
+}
+
+#m2btn {
+    border-right: none;
+}

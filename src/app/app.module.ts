@@ -11,6 +11,9 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AppRoutingModule } from '../app-routing.module';
 import { DonorProfileComponent } from './donor-dashboard/donor-profile/donor-profile.component';
 import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
+import { NavbarComponent } from './ui/navbar/navbar.component';
+import { FooterComponent } from './ui/footer/footer.component';
+import { LayoutComponent } from './ui/layout/layout.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { 
@@ -30,7 +33,8 @@ import {
   MatSlideToggleModule,
   MatTableModule,
   MatToolbarModule,
-  MatTooltipModule, 
+  MatTooltipModule,
+  MatSnackBarModule, 
 } from "@angular/material";
 
 
@@ -46,18 +50,19 @@ import {
     UserDashboardComponent,
     DonorProfileComponent,
     UserProfileComponent,
-  
+    NavbarComponent,
+    FooterComponent,
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
     MatButtonToggleModule,
     MatDialogModule,
-    MatFormFieldModule, 
+    MatFormFieldModule,
     MatGridListModule,
     MatIconModule,
     MatInputModule,
@@ -66,6 +71,7 @@ import {
     MatRadioModule,
     MatSidenavModule,
     MatSlideToggleModule,
+    MatSnackBarModule,
     MatTableModule,
     MatToolbarModule,
     MatTooltipModule,

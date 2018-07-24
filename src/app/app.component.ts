@@ -7,5 +7,5 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = "Sunshine's Bundles of Joy";
 }
