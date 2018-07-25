@@ -1,0 +1,25 @@
+table {
+    margin-top: 1em;
+    margin-left: 25em;
+    width: 35%;
+}
+
+h2 {
+    margin-top: 4em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+p {
+    margin-top: 0;
+    text-align: center;
+}
+
+button {
+    background-color: #ff8cff;
+    margin-left: 67%;
+}
+
+.cdk-column-quantity {
+    width: 25%;
+}

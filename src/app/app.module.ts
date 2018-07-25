@@ -98,6 +98,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     BrowserAnimationsModule,
     // MatNavListModule,
     
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
