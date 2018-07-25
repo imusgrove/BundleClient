@@ -42,6 +42,8 @@ import {
 } from "@angular/material";
 import { DonorNavComponent } from './donor-nav/donor-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import {AboutComponent} from './ui/about/about.component';
+import {ContactComponent} from './ui/contact/contact.component';
 
 
 @NgModule({
