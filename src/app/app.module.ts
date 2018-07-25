@@ -35,7 +35,13 @@ import {
   MatToolbarModule,
   MatTooltipModule,
   MatSnackBarModule, 
+  MatListModule, 
+  MatOptionModule,
+  MatSelectModule,
+  // MatNavListModule,
 } from "@angular/material";
+import { DonorNavComponent } from './donor-nav/donor-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 @NgModule({
@@ -52,7 +58,8 @@ import {
     UserProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LayoutComponent
+    LayoutComponent,
+    DonorNavComponent
   ],
   imports: [
     BrowserModule,
@@ -77,13 +84,20 @@ import {
     MatTooltipModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatListModule,
+    MatOptionModule,
+    MatSelectModule
+    // MatNavListModule,
   ],
   exports: [
     FormsModule,
     BrowserModule, 
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // MatNavListModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

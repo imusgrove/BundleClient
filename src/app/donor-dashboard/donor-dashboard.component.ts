@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
-export interface DonationList {
-  amount: number;
-  items: string;
-}
+// export interface DonationList {
+//   amount: number;
+//   items: string;
+// }
 
-const DONATION_DATA: DonationList[] = [
-  {amount: 20, items: 'Bottles',},
-  { amount: 5, items: 'Diaperbags'},
-  { amount: 10, items: 'Blankets'}
-]
+// const DONATION_DATA: DonationList[] = [
+//   {amount: 20, items: 'Bottles',},
+//   { amount: 5, items: 'Diaperbags'},
+//   { amount: 10, items: 'Blankets'}
+// ]
 
 @Component({
   selector: 'app-donor-dashboard',
@@ -18,8 +18,10 @@ const DONATION_DATA: DonationList[] = [
 })
 export class DonorDashboardComponent implements OnInit {
 
-  displayedColumns: string[] = ['amount', 'items'];
-  dataSource = DONATION_DATA;
+  // displayedColumns: string[] = ['amount', 'items'];
+  // dataSource = DONATION_DATA;
+  
+
 
   constructor() { }
 
