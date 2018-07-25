@@ -16,13 +16,13 @@ export interface Amount {
 
 const DONATIONDATA: DonationsList[] = [
   {name: "Clothes (outfits)", quantity: 4},
-  {name: "Shoes", quantity: 2},
-  {name: "Baby food (jars)", quantity: 10},
+  {name: "Shoes", quantity: 1},
+  {name: "Baby food (jars)", quantity: 9},
   {name: "Diaper Bags", quantity: 1},
-  {name: "Bottles", quantity: 3},
-  {name: "Pacifiers", quantity: 2},
-  {name: "Diapers (box)", quantity: 1},
-  {name: "Bed", quantity: 1},
+  {name: "Bottles", quantity: 5},
+  {name: "Pacifiers", quantity: 3},
+  {name: "Diapers (box)", quantity: 0},
+  {name: "Bed", quantity: 0},
 ]
 
 @Component({
