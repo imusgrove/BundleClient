@@ -28,7 +28,7 @@ const DONATION_DATA: DonationList[] = [
 })
 export class DonorNavComponent {
 
-  displayedColumns: string[] = ['amount', 'items'];
+  displayedColumns: string[] = ['select','amount', 'items'];
   dataSource = DONATION_DATA;
   options: FormGroup;
 
