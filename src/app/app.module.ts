@@ -40,7 +40,7 @@ import {
   MatSelectModule,
   // MatNavListModule,
 } from "@angular/material";
-import { DonorNavComponent } from './donor-nav/donor-nav.component';
+// import { DonorNavComponent } from './donor-nav/donor-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
 
@@ -59,7 +59,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     NavbarComponent,
     FooterComponent,
     LayoutComponent,
-    DonorNavComponent
+    // DonorNavComponent
   ],
   imports: [
     BrowserModule,
@@ -96,6 +96,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     BrowserModule, 
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatSidenavModule,
     // MatNavListModule,
     
     MatSelectModule

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
-import { MatTableDataSource, MatSelectModule, MatFormFieldModule, MatTableModule } from '@angular/material';
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { MatTableDataSource, MatSelectModule, MatFormFieldModule, MatTableModule, MatSidenavModule } from '@angular/material';
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ReactiveFormsModule, FormsModule, FormBuilder, FormGroup } from "@angular/forms";
 
 
 export interface DonationsList {
@@ -34,6 +37,13 @@ export class UserDashboardComponent implements OnInit {
   displayedColumns: string[] = ["select", "name", "quantity"];
   dataSource = new MatTableDataSource<DonationsList>(DONATIONDATA)
   selection = new SelectionModel<DonationsList>(true, []);
+  options: FormGroup;
+
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+    selectedValue: string;
 
   amounts: Amount[] = [
     {value: 1, viewValue: 1},
@@ -49,7 +59,7 @@ export class UserDashboardComponent implements OnInit {
 
   ];
 
-  constructor() { }
+  constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
   }
