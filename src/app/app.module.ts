@@ -61,7 +61,9 @@ import {ContactComponent} from './ui/contact/contact.component';
     NavbarComponent,
     FooterComponent,
     LayoutComponent,
-    DonorNavComponent
+    DonorNavComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

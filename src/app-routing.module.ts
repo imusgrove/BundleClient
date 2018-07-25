@@ -8,14 +8,18 @@ import { UserSignupComponent } from './app/auth/user-signup/user-signup.componen
 import { DonorSignupComponent } from './app/auth/donor-signup/donor-signup.component';
 import { AppModule } from './app/app.module';
 import { AuthRoutingModule } from './app/auth/auth-routing/auth-routing.module';
-import { DonorDashboardComponent } from './app/donor-dashboard/donor-dashboard.component'
+import { DonorDashboardComponent } from './app/donor-dashboard/donor-dashboard.component';
+import { AboutComponent } from './app/ui/about/about.component';
+import {ContactComponent} from './app/ui/contact/contact.component';
 
 const routes: Routes = [  
   {path: '', redirectTo: 'userlogin', pathMatch: 'full'},
   {path: 'donorlogin', component: DonorLoginComponent},
   {path: 'usersignup', component: UserSignupComponent},
   {path: 'donorsignup', component: DonorSignupComponent},   
-  {path: 'donordashboard', component: DonorDashboardComponent}, 
+  {path: 'donordashboard', component: DonorDashboardComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'contact', component:ContactComponent} 
 ];
 
 @NgModule({
