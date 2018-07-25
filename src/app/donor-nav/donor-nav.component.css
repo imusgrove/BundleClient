@@ -1,0 +1,56 @@
+.sidenav-container {
+  height: 80%;
+}
+
+.sidenav {
+  /* width: 200px; */
+  width: 37%;
+}
+
+.mat-toolbar.mat-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 5em;
+}
+table {
+  width: 30%;
+  height: 50%;
+  margin-top: 5em; 
+  margin-left: 22em;
+}
+#sideNavForm{
+  margin-top: 5em;
+  margin-left: 8em;
+}
+#sideNavAmount{
+  margin-top: 5em;
+  margin-left: 8em;
+}
+#listButton{
+  margin-top: 4em;
+  margin-left: 12em;
+  background-color: #ec528d;
+  color: white;
+}
+#navTitle{
+  margin-top: 2em;
+  margin-left: 5.5em;
+}
+#tableTitle{
+  margin-top: 2em;
+  margin-left: 16em;
+}
+#tableUpdateButton{
+  margin-top: 2em;
+  margin-left: 25em;
+  background-color: #ec528d;
+  color: white;
+}
+#tableDeleteButton{
+  margin-top: 2em;
+  margin-left: 1em;
+  background-color: #ec528d;
+  color: white;
+}
+

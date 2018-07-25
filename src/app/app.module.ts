@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { DonorLoginComponent } from './auth/donor-login/donor-login.component';
@@ -12,8 +11,38 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AppRoutingModule } from '../app-routing.module';
 import { DonorProfileComponent } from './donor-dashboard/donor-profile/donor-profile.component';
 import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
-import {AboutComponent} from './ui/about/about.component';
-import {ContactComponent} from './ui/about/about.component';
+import { NavbarComponent } from './ui/navbar/navbar.component';
+import { FooterComponent } from './ui/footer/footer.component';
+import { LayoutComponent } from './ui/layout/layout.component';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { 
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatButtonToggleModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatMenuModule,
+  MatPaginatorModule,
+  MatRadioModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatTableModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatSnackBarModule, 
+  MatListModule, 
+  MatOptionModule,
+  MatSelectModule,
+  // MatNavListModule,
+} from "@angular/material";
+import { DonorNavComponent } from './donor-nav/donor-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+
 
 @NgModule({
   declarations: [
@@ -26,11 +55,50 @@ import {ContactComponent} from './ui/about/about.component';
     DonorDashboardComponent,
     UserDashboardComponent,
     DonorProfileComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    NavbarComponent,
+    FooterComponent,
+    LayoutComponent,
+    DonorNavComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatButtonToggleModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatRadioModule,
+    MatSidenavModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    MatListModule,
+    MatOptionModule,
+    MatSelectModule
+    // MatNavListModule,
+  ],
+  exports: [
+    FormsModule,
+    BrowserModule, 
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    // MatNavListModule,
+    
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

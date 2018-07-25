@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = "Sunshine's Bundles of Joy";
 }

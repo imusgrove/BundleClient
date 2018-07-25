@@ -1,0 +1,34 @@
+.userCard{
+    height: 50%;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    background-color: #7cd9d9;
+    border-radius: 50px;
+    text-align: center;
+}
+.userButtons{
+    margin-bottom: 5%;
+    display: inline-block;
+    width: 100%;
+    text-align-last: right;
+}
+.userButtons .submit{
+    float: left;
+}
+.userButtons button:hover {
+    color: #D9514E;
+    background-color: white;
+    border: 1px solid #D9514E;
+}
+.userButtons button {
+    background-color: #ff8cff;
+}
+.noaccount a {
+    text-decoration: none;
+    color: #191919;
+}
+.noaccount a:hover {
+    text-decoration: underline;
+}
