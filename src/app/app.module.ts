@@ -12,6 +12,8 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AppRoutingModule } from '../app-routing.module';
 import { DonorProfileComponent } from './donor-dashboard/donor-profile/donor-profile.component';
 import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
+import {AboutComponent} from './ui/about/about.component';
+import {ContactComponent} from './ui/about/about.component';
 
 @NgModule({
   declarations: [
