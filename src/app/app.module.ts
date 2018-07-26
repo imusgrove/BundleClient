@@ -42,6 +42,8 @@ import {
 } from "@angular/material";
 // import { DonorNavComponent } from './donor-nav/donor-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import {AboutComponent} from './ui/about/about.component';
+import {ContactComponent} from './ui/contact/contact.component';
 
 
 @NgModule({
@@ -59,7 +61,13 @@ import { LayoutModule } from '@angular/cdk/layout';
     NavbarComponent,
     FooterComponent,
     LayoutComponent,
+<<<<<<< HEAD
+    DonorNavComponent,
+    AboutComponent,
+    ContactComponent
+=======
     // DonorNavComponent
+>>>>>>> e86f2e8242898cca428d39e93dc9e2d08b0ca683
   ],
   imports: [
     BrowserModule,
