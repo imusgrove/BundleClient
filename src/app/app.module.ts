@@ -40,10 +40,12 @@ import {
   MatSelectModule,
   // MatNavListModule,
 } from "@angular/material";
-import { DonorNavComponent } from './donor-nav/donor-nav.component';
+// import { DonorNavComponent } from './donor-nav/donor-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth/auth.service'
+import {AboutComponent} from './ui/about/about.component';
+import {ContactComponent} from './ui/contact/contact.component';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { AuthService } from './auth/auth.service'
     NavbarComponent,
     FooterComponent,
     LayoutComponent,
-    DonorNavComponent
+    // DonorNavComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -99,10 +103,8 @@ import { AuthService } from './auth/auth.service'
     BrowserModule, 
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    UserSignupComponent,
-    // MatNavListModule,
+    MatSidenavModule,
     
-    MatSelectModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
