@@ -1,5 +1,5 @@
 <mat-card class="cardForSignup" >
-  <form [formGroup]="myForm">
+  <form [formGroup]="myForm" (ngSubmit)="onSignup()" #f="ngForm"> 
   <h1>User Signup</h1>
   <hr color="#D9514E" />
    <div>
@@ -25,7 +25,7 @@
    </div> 
  </form>
  <div class="matButton-signup-card-signup">
- <button mat-raised-button color="primary" >Signup</button>
+ <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Signup</button>
  <button mat-raised-button color="primary" routerLink="/donorsignup">I'm an Donor</button>
  </div>
  <a routerLink="/userlogin">Already have an account?</a>
