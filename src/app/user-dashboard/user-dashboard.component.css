@@ -1,6 +1,6 @@
-table {
+#mainTable {
     margin-top: 1em;
-    margin-left: 22.5em;
+    margin-left: 21em;
     width: 35%;
 }
 
@@ -15,9 +15,10 @@ p {
     text-align: center;
 }
 
-button {
+.addButton {
     background-color: #ff8cff;
     margin-left: 68%;
+    color: #191919;
 }
 
 .cdk-column-quantity {
@@ -26,4 +27,22 @@ button {
 
 mat-sidenav-container {
     height: 90.5%;
+}
+
+mat-sidenav {
+    width: 20em;
+}
+
+.reqButton {
+    background-color: #ff8cff;
+    color: #191919;
+    height: 15%;
+}
+
+.eButton {
+    background-color: rgb(122, 202, 122);
+}
+
+.dButton {
+    background-color: rgb(255, 148, 148);
 }
