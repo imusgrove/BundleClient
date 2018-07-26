@@ -42,6 +42,8 @@ import {
 } from "@angular/material";
 import { DonorNavComponent } from './donor-nav/donor-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './auth/auth.service'
 
 
 @NgModule({
@@ -88,7 +90,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     LayoutModule,
     MatListModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
     // MatNavListModule,
   ],
   exports: [
@@ -96,11 +99,12 @@ import { LayoutModule } from '@angular/cdk/layout';
     BrowserModule, 
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    UserSignupComponent,
     // MatNavListModule,
     
     MatSelectModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
