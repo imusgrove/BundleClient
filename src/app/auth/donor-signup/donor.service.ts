@@ -7,6 +7,8 @@ import { Donor } from './donor';
    providedIn: 'root'
 })
 export class DonorService {
+    url = 'http://localhost:3000'
+
 
   constructor(private http: HttpClient ) { }
   getAll() {
@@ -18,7 +20,7 @@ getById(id: number) {
 }
 
 register(donor: Donor) {
-    return this.http.post(`/donor/createdonor`, donor);
+    return this.http.post(`${this.url}/donor/createdonor`, donor);
 }
 
 update(donor: Donor) {
