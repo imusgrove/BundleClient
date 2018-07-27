@@ -33,10 +33,10 @@ export class UserSignupComponent implements OnInit {
         });
     }
 
-    // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+  //  convenience getter for easy access to form fields
+get f() { return this.registerForm.controls; }
 
-    onSubmit() {
+onSubmit() {
         this.submitted = true;
 
         // stop here if form is invalid
@@ -58,8 +58,8 @@ export class UserSignupComponent implements OnInit {
                 });
     }
   
-  // myForm: FormGroup;
-  // userSignUp: UserSignup
+  myForm: FormGroup;
+  userSignUp: UserSignup
 
   // constructor(public fb: FormBuilder, public authService: AuthService) { }
 
@@ -78,10 +78,10 @@ export class UserSignupComponent implements OnInit {
   //   const email = form.value.email;
   // }
   // onSubmit() {
-    // this.authService.addUser(this.userSignUp)
-    // .subscribe(
-    //   (response) => console.log(response),
-    //   (error) => console.log(error)
-    // )
+  //   this.authService.addUser(this.userSignUp)
+  //   .subscribe(
+  //     (response) => console.log(response),
+  //     (error) => console.log(error)
+  //   )
   // }
 }
