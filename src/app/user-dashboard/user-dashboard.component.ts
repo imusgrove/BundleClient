@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
-import { MatTableDataSource, MatSelectModule, MatFormFieldModule, MatTableModule, MatSidenavModule } from '@angular/material';
+import { MatTableDataSource, MatSelectModule, MatFormFieldModule, MatTableModule, MatSidenavModule, MatTable } from '@angular/material';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -17,6 +17,11 @@ export interface Amount {
   viewValue: number;
 }
 
+export interface BasketInventory {
+  name: string;
+  quantity: number;
+}
+
 const DONATIONDATA: DonationsList[] = [
   {name: "Clothes (outfits)", quantity: 4},
   {name: "Shoes", quantity: 1},
@@ -28,6 +33,9 @@ const DONATIONDATA: DonationsList[] = [
   {name: "Bed", quantity: 0},
 ]
 
+const BASKETDATA: BasketInventory[] = []
+
+
 @Component({
   selector: 'app-user-dashboard',
   templateUrl: './user-dashboard.component.html',
@@ -36,8 +44,11 @@ const DONATIONDATA: DonationsList[] = [
 export class UserDashboardComponent implements OnInit {
   displayedColumns: string[] = ["select", "name", "quantity"];
   dataSource = new MatTableDataSource<DonationsList>(DONATIONDATA)
+  basketDataSource = new MatTableDataSource<BasketInventory>(BASKETDATA)
   selection = new SelectionModel<DonationsList>(true, []);
   options: FormGroup;
+
+  @ViewChild(MatTable) table: MatTable<any>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -59,9 +70,18 @@ export class UserDashboardComponent implements OnInit {
 
   ];
 
+  testFunction(){
+    console.log(this.selection.selected)
+    // this.basketDataSource.data.push(this.selection.selected);
+    // this.table.renderRows();
+    }
+
   constructor(private breakpointObserver: BreakpointObserver) { }
 
   ngOnInit() {
   }
+
+
+  
 
 }

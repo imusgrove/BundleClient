@@ -7,7 +7,7 @@
     <h2>Requested donations</h2>
     
     <div>
-      <table id="sideTable" mat-table [dataSource]="">
+      <table class="sideTable" #sideTable mat-table [dataSource]="basketDataSource">
         
         <ng-container matColumnDef="select">
           <th mat-header-cell *matHeaderCellDef></th>
@@ -20,12 +20,12 @@
         
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef>Item</th>
-          <td mat-cell *matCellDef="let donation"></td>
+          <td mat-cell *matCellDef="let basket">{{basket.name}}</td>
         </ng-container>
         
         <ng-container matColumnDef="quantity">
           <th mat-header-cell *matHeaderCellDef>Quantity</th>
-          <td mat-cell *matCellDef="let donation"></td>
+          <td mat-cell *matCellDef="let basket">{{basket.quantity}}</td>
         </ng-container>
         
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -36,14 +36,15 @@
       <button class="eButton" mat-raised-button>Edit</button>
       <button class="dButton" mat-raised-button>Del</button>
       <button class="reqButton" mat-raised-button>Send request</button>
-    </div>  
+    </div>
+
   </mat-sidenav>
   <mat-sidenav-content>
     <h2>Donated Items</h2>
     <p>Please note all items are subject to availability</p>
       
       <div>
-        <table id="mainTable" mat-table [dataSource]="dataSource">
+        <table class="mainTable" mat-table [dataSource]="dataSource">
           
           <ng-container matColumnDef="select">
             <th mat-header-cell *matHeaderCellDef></th>
@@ -63,7 +64,7 @@
             <th mat-header-cell *matHeaderCellDef>Quantity</th>
             <td mat-cell *matCellDef="let donation">
               <mat-select placeholder="Quantity">
-                <mat-option *ngFor="let amount of amounts" [value]="amount.value">{{amount.viewValue}}</mat-option>
+                <mat-option *ngFor="let amount of amounts" [value]="donation.quantity">{{amount.viewValue}}</mat-option>
               </mat-select> 
             </td>
           </ng-container>
@@ -74,7 +75,7 @@
       </div>
       
       <div class="button">
-        <button class="addButton" mat-raised-button>Add items</button>
+        <button class="addButton" mat-raised-button (click)="testFunction()">Add items</button>
       </div>
       
   </mat-sidenav-content>
