@@ -43,9 +43,12 @@ import {
 // import { DonorNavComponent } from './donor-nav/donor-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthService } from './auth/auth.service'
+import { AuthService } from './auth/auth.service';
+import { DonorAuthService } from './donorAuth/donorAuth.service'
+import { DonorService } from './auth/donor-signup/donor.service'
 import {AboutComponent} from './ui/about/about.component';
 import {ContactComponent} from './ui/contact/contact.component';
+import { EditComponent } from './donor-dashboard/edit/edit.component';
 
 
 @NgModule({
@@ -65,7 +68,8 @@ import {ContactComponent} from './ui/contact/contact.component';
     LayoutComponent,
     // DonorNavComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +110,7 @@ import {ContactComponent} from './ui/contact/contact.component';
     MatSidenavModule,
     
   ],
-  providers: [AuthService],
+  providers: [AuthService, DonorAuthService, DonorService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

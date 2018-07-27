@@ -1,5 +1,41 @@
 <mat-card class="donorCard">
-  <form [formGroup]="donorForm" [hidden]="success" (ngSubmit)="submitHandler()">
+    <h2>Login</h2>
+    <hr color="#ff8cff" />
+    <form [formGroup]="donorForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <mat-form-field>
+            <!-- <label for="username">Username</label> -->
+            <input matInput type="text"
+            placeholder="Username" 
+            formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field>
+            <!-- <label for="password">Password</label> -->
+            <input matInput type="password" 
+            placeholder="Password"
+            formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <mat-error *ngIf="f.password.errors.required">Password is required</mat-error>
+            </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <button mat-raised-button [disabled]="loading" class="btn btn-primary">Login</button>
+            <button mat-raised-button class="user" routerLink='/userlogin'>I'm a User</button>
+        </div>
+        <div class="noaccount">
+            <a routerLink="/donorsignup">Don't have an account?</a>
+        </div>
+    </form>
+  </mat-card>
+  
+  <!-- [disabled]="employerForm.invalid" -->
+  <!-- <form [formGroup]="donorForm" [hidden]="success" (ngSubmit)="submitHandler()">
   
   <h1>Donor Login</h1>
   <hr color="#D9514E" />
@@ -26,7 +62,4 @@
   <div class="noaccount">
     <a routerLink="/donorsignup">Don't have an account?</a>
   </div>
-  </form>
-  </mat-card>
-  
-  <!-- [disabled]="employerForm.invalid" -->
+  </form> -->

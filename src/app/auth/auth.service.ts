@@ -1,31 +1,55 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError,  tap } from 'rxjs/operators';
 import { UserSignupComponent } from './user-signup/user-signup.component'
 // import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 import { UserSignup } from './user-signup/user-signup'
+import { map } from 'rxjs/operators';
 
-const httpOptions = {
-  headers: new HttpHeaders({ 
-    'Content-Type': 'application/json',
-    'Authorization': 'my-auth-token'
-  
-  })
-};
-
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
+    constructor(private http: HttpClient) { }
+
+    login(username: string, password: string) {
+        return this.http.post<any>(`/userlogin`, { username: username, password: password })
+            .pipe(map(user => {
+                // login successful if there's a jwt token in the response
+                if (user && user.token) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                }
+
+                return user;
+            }));
+    }
+
+    logout() {
+        // remove user from local storage to log user out
+        localStorage.removeItem('currentUser');
+    }
+}
+
+// const httpOptions = {
+//   headers: new HttpHeaders({ 
+//     'Content-Type': 'application/json',
+//     'Authorization': 'my-auth-token'
+  
+//   })
+// };
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class AuthService {
   // private authUrl = 'https://localhost3000/user/api/createuser';
-  authUrl = 'https://localhost3000/user/api/createuser'
+  // authUrl = 'https://localhost3000/user/api/createuser'
   // private  handleError: HandleError;
 
-  constructor(
-    private http: HttpClient,
+  // constructor(
+  //   private http: HttpClient,
     //  httpErrorHandler: HttpErrorHandler 
-  ) {
+  // ) {
     //   thishandleError = httpErrorHandler.createHandleError('AuthService');
     // }
   // userSignUp(userSignUp: any[]) {
@@ -78,5 +102,5 @@ export class AuthService {
 
 
     
- } 
-}
+//  } 
+ 

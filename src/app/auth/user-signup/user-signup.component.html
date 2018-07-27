@@ -1,32 +1,79 @@
 <mat-card class="cardForSignup" >
-  <form [formGroup]="myForm" (ngSubmit)="onSignup()" #f="ngForm"> 
-  <h1>User Signup</h1>
-  <hr color="#D9514E" />
-   <div>
-   <mat-form-field class="user-signup-component">
-     <input matInput placeholder="Username" formControlName="Username" required>
-   </mat-form-field>
-   </div>
-   <div>
-     <mat-form-field class="user-signup-component">
-       <input matInput placeholder="Email" formControlName="Email" required>
-     </mat-form-field>
-   </div>
- 
-   <div>
-     <mat-form-field class="user-signup-component">
-       <input matInput placeholder="Password" formControlName="Password"required>
-     </mat-form-field>
-   </div>   
-   <div>
-     <mat-form-field class="student-signup-component">
-       <input matInput placeholder="Confirm Password" formControlName="Password" required>
-     </mat-form-field>
-   </div> 
- </form>
- <div class="matButton-signup-card-signup">
- <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Signup</button>
- <button mat-raised-button color="primary" routerLink="/donorsignup">I'm an Donor</button>
- </div>
- <a routerLink="/userlogin">Already have an account?</a>
+    <h2>User Signup</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <mat-form-field>
+            <!-- <label for="firstName">First Name</label> -->
+            <input matInput placeholder="First Name"  type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <mat-error *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <mat-error *ngIf="f.firstName.errors.required">First Name is required</mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+            <!-- <label for="lastName">Last Name</label> -->
+            <mat-form-field>
+            <input matInput placeholder="Last Name" type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <mat-error *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <mat-error *ngIf="f.lastName.errors.required">Last Name is required</mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+            <!-- <label for="username">Username</label> -->
+            <mat-form-field>
+            <input matInput placeholder="Username" type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+            <!-- <label for="password">Password</label> -->
+            <mat-form-field>
+            <input matInput placeholder="Password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <mat-error *ngIf="f.password.errors.required">Password is required</mat-error>
+                <mat-error *ngIf="f.password.errors.minlength">Password must be at least 6 characters</mat-error>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="matButton-signup-card-signup">
+            <button mat-raised-button [disabled]="loading" class="btn btn-primary">Signup</button> 
+            <button mat-raised-button color="primary" routerLink="/donorsignup">I'm an Donor</button>
+        </div>
+        <a routerLink="/userlogin">Already have an account?</a> 
+    </form>
+    
  </mat-card>
+
+ <!-- <form [formGroup]="myForm" (ngSubmit)="onSignup()" #f="ngForm"> 
+    <h1>User Signup</h1>
+    <hr color="#D9514E" />
+     <div>
+     <mat-form-field class="user-signup-component">
+       <input matInput placeholder="Username" formControlName="Username" required>
+     </mat-form-field>
+     </div>
+     <div>
+       <mat-form-field class="user-signup-component">
+         <input matInput placeholder="Email" formControlName="Email" required>
+       </mat-form-field>
+     </div>
+   
+     <div>
+       <mat-form-field class="user-signup-component">
+         <input matInput placeholder="Password" formControlName="Password"required>
+       </mat-form-field>
+     </div>   
+     <div>
+       <mat-form-field class="student-signup-component">
+         <input matInput placeholder="Confirm Password" formControlName="Password" required>
+       </mat-form-field>
+     </div> 
+   </form>
+   <div class="matButton-signup-card-signup">
+   <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Signup</button>
+   <button mat-raised-button color="primary" routerLink="/donorsignup">I'm an Donor</button>
+   </div>
+   <a routerLink="/userlogin">Already have an account?</a> -->

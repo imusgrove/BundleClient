@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { Router, ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { DonorAuthService } from '../../donorAuth/donorAuth.service';
+
+
 
 @Component({
   selector: 'app-donor-login',
@@ -10,39 +14,53 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 export class DonorLoginComponent implements OnInit {
 
   donorForm: FormGroup;
-  //Form State
   loading = false;
-  success = false;
+  submitted = false;
+  returnUrl: string;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+      private formBuilder: FormBuilder,
+      private route: ActivatedRoute,
+      private router: Router,
+      private donorAuthService: DonorAuthService,
+      // private alertService: AlertService
+    ) {}
 
   ngOnInit() {
-    this.donorForm = this.fb.group({
-      username: ['', [
-        Validators.required
-      ]],
-      password: ['', [
-        Validators.required
-      ]]
-    });
-    }
-    get username() {
-      return this.donorForm.get('username')
-    }
-    get password() {
-      return this.donorForm.get('password')
-    }
-    // async submitHandler(){
-    //   this.loading = true;
+      this.donorForm = this.formBuilder.group({
+          username: ['', Validators.required],
+          password: ['', Validators.required]
+      });
 
-    //   const formValue = this.employerForm.value;
-    //   try{
-    //     await this.backend.collection('').add(formValue);
-    //     this.success = true;
-    //   }catch(err){
-    //     console.log(err)
-    //   }
-    //   this.loading = false;
-    // }
+      // reset login status
+      this.donorAuthService.logout();
+
+      // get return url from route parameters or default to '/'
+      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.donorForm.controls; }
+
+  onSubmit() {
+      this.submitted = true;
+
+      // stop here if form is invalid
+      if (this.donorForm.invalid) {
+          return;
+      }
+
+      this.loading = true;
+      this.donorAuthService.login(this.f.username.value, this.f.password.value)
+          .pipe(first())
+          .subscribe(
+              data => {
+                  this.router.navigate([this.returnUrl]);
+              },
+              error => {
+                  // this.alertService.error(error);
+                  this.loading = false;
+              });
+  }
   }
 
