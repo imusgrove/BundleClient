@@ -68,8 +68,12 @@ import { EditComponent } from './donor-dashboard/edit/edit.component';
     LayoutComponent,
     // DonorNavComponent,
     AboutComponent,
+<<<<<<< HEAD
     ContactComponent,
     EditComponent
+=======
+    ContactComponent
+>>>>>>> 502f4145b77c5fb75dea03e3f2893c657f306130
   ],
   imports: [
     BrowserModule,
