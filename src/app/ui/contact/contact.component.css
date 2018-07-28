@@ -1,0 +1,14 @@
+.contactForm {
+    margin-top: 5em;
+    text-align: center;
+    margin-bottom: 5em;
+}
+
+textarea {
+    background-color: whitesmoke;
+    height: 18em;
+}
+
+.messageEntry {
+    width: 50%;
+}

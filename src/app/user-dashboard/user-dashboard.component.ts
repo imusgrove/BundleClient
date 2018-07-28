@@ -5,11 +5,12 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ReactiveFormsModule, FormsModule, FormBuilder, FormGroup } from "@angular/forms";
+import { JsonPipe } from '../../../node_modules/@angular/common';
 
 
-export interface DonationsList {
-  name: string;
-  quantity: number;
+export interface Request {
+  value: string;
+  viewValue: string;
 }
 
 export interface Amount {
@@ -22,16 +23,16 @@ export interface BasketInventory {
   quantity: number;
 }
 
-const DONATIONDATA: DonationsList[] = [
-  {name: "Clothes (outfits)", quantity: 4},
-  {name: "Shoes", quantity: 1},
-  {name: "Baby food (jars)", quantity: 9},
-  {name: "Diaper Bags", quantity: 1},
-  {name: "Bottles", quantity: 5},
-  {name: "Pacifiers", quantity: 3},
-  {name: "Diapers (box)", quantity: 0},
-  {name: "Bed", quantity: 0},
-]
+// const DONATIONDATA: DonationsList[] = [
+//   {name: "Clothes (outfits)", quantity: 4},
+//   {name: "Shoes", quantity: 1},
+//   {name: "Baby food (jars)", quantity: 9},
+//   {name: "Diaper Bags", quantity: 1},
+//   {name: "Bottles", quantity: 5},
+//   {name: "Pacifiers", quantity: 3},
+//   {name: "Diapers (box)", quantity: 0},
+//   {name: "Bed", quantity: 0},
+// ]
 
 const BASKETDATA: BasketInventory[] = []
 
@@ -43,18 +44,28 @@ const BASKETDATA: BasketInventory[] = []
 })
 export class UserDashboardComponent implements OnInit {
   displayedColumns: string[] = ["select", "name", "quantity"];
-  dataSource = new MatTableDataSource<DonationsList>(DONATIONDATA)
+  // dataSource = new MatTableDataSource<DonationsList>(DONATIONDATA)
   basketDataSource = new MatTableDataSource<BasketInventory>(BASKETDATA)
-  selection = new SelectionModel<DonationsList>(true, []);
+  selection = new SelectionModel<Request>(true, []);
   options: FormGroup;
 
   @ViewChild(MatTable) table: MatTable<any>;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches)
-    );
-    selectedValue: string;
+  // isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  //   .pipe(
+  //     map(result => result.matches)
+  //   );
+  //   selectedValue: string;
+  requests: Request[] = [
+    {value: 'used_clothing', viewValue: 'Clothes (outfit)'},
+    {value: 'used_shoes', viewValue: 'Shoes'},
+    {value: 'baby_food', viewValue: 'Baby Food (jar)'},
+    {value: 'diaper_bags', viewValue: 'Diaper Bags'},
+    {value: 'bottles', viewValue: 'Bottles'},
+    {value: 'pacifiers', viewValue: 'Pacifiers'},
+    {value: 'diapers_boxes', viewValue: 'Diapers (box)'},
+    {value: 'beds', viewValue: 'Bed'},
+  ];
 
   amounts: Amount[] = [
     {value: 1, viewValue: 1},
@@ -71,12 +82,12 @@ export class UserDashboardComponent implements OnInit {
   ];
 
   testFunction(){
-    console.log(this.selection.selected)
-    // this.basketDataSource.data.push(this.selection.selected);
-    // this.table.renderRows();
+    // console.log(this.selection.selected)
+    this.basketDataSource.data.push();
+    this.table.renderRows();
     }
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(/*private breakpointObserver: BreakpointObserver*/) { }
 
   ngOnInit() {
   }

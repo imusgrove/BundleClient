@@ -29,7 +29,7 @@
         </ng-container>
         
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
     <div class="sideButtons">
@@ -43,35 +43,13 @@
     <h2>Donated Items</h2>
     <p>Please note all items are subject to availability</p>
       
-      <div>
-        <table class="mainTable" mat-table [dataSource]="dataSource">
-          
-          <ng-container matColumnDef="select">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <mat-checkbox></mat-checkbox>
-            <td mat-cell *matCellDef="let row">
-              <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null">
-              </mat-checkbox>
-            </td>
-          </ng-container>
-          
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef>Item</th>
-            <td mat-cell *matCellDef="let donation">{{donation.name}}</td>
-          </ng-container>
-          
-          <ng-container matColumnDef="quantity">
-            <th mat-header-cell *matHeaderCellDef>Quantity</th>
-            <td mat-cell *matCellDef="let donation">
-              <mat-select placeholder="Quantity">
-                <mat-option *ngFor="let amount of amounts" [value]="donation.quantity">{{amount.viewValue}}</mat-option>
-              </mat-select> 
-            </td>
-          </ng-container>
-          
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></tr>
-        </table>
+      <div class="choices">
+        <mat-select class="itemField" placeholder="Item(s)">
+          <mat-option *ngFor="let request of requests" [(value)]="requestedItem">{{request.viewValue}}</mat-option>
+        </mat-select>
+        <mat-select class="amountField" placeholder="Quantity">
+          <mat-option *ngFor="let amount of amounts" [(value)]="requestedAmount">{{amount.value}}</mat-option>
+        </mat-select> 
       </div>
       
       <div class="button">
