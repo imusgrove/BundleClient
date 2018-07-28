@@ -23,13 +23,12 @@ export class DonorLoginComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private donorAuthService: DonorAuthService,
-      // private alertService: AlertService
     ) {}
 
   ngOnInit() {
       this.donorForm = this.formBuilder.group({
-          username: ['', Validators.required],
-          password: ['', Validators.required]
+          donor_username: ['', Validators.required],
+          donor_password: ['', Validators.required]
       });
 
       // reset login status
@@ -51,7 +50,7 @@ export class DonorLoginComponent implements OnInit {
       }
 
       this.loading = true;
-      this.donorAuthService.login(this.f.username.value, this.f.password.value)
+      this.donorAuthService.login(this.f.donor_username.value, this.f.donor_password.value)
           .pipe(first())
           .subscribe(
               data => {
