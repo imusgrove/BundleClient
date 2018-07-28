@@ -48,8 +48,7 @@ import { DonorAuthService } from './donorAuth/donorAuth.service'
 import { DonorService } from './auth/donor-signup/donor.service'
 import {AboutComponent} from './ui/about/about.component';
 import {ContactComponent} from './ui/contact/contact.component';
-import { EditComponent } from './donor-dashboard/edit/edit.component';
-
+import { DialogDataExampleDialog } from './donor-dashboard/donor-dashboard.component'
 
 @NgModule({
   declarations: [
@@ -68,12 +67,8 @@ import { EditComponent } from './donor-dashboard/edit/edit.component';
     LayoutComponent,
     // DonorNavComponent,
     AboutComponent,
-<<<<<<< HEAD
     ContactComponent,
-    EditComponent
-=======
-    ContactComponent
->>>>>>> 502f4145b77c5fb75dea03e3f2893c657f306130
+    DialogDataExampleDialog
   ],
   imports: [
     BrowserModule,
@@ -115,6 +110,7 @@ import { EditComponent } from './donor-dashboard/edit/edit.component';
     
   ],
   providers: [AuthService, DonorAuthService, DonorService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ DialogDataExampleDialog ]
 })
 export class AppModule { }

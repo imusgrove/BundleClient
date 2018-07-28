@@ -35,7 +35,7 @@ export class UserLoginComponent implements OnInit {
       this.authService.logout();
 
       // get return url from route parameters or default to '/'
-      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+      this.returnUrl = this.route.snapshot.queryParams['/about'] || '/';
   }
 
   // convenience getter for easy access to form fields

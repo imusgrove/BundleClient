@@ -18,7 +18,7 @@ getById(id: number) {
 }
 
 register(donor: Donor) {
-    return this.http.post(`/donor/createdonor`, donor);
+    return this.http.post('/donor/createdonor', donor);
 }
 
 update(donor: Donor) {

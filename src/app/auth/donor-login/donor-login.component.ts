@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { DonorAuthService } from '../../donorAuth/donorAuth.service';
+import { AuthGuard } from '../authGuard/auth.guard';
 
 
 
@@ -36,7 +37,7 @@ export class DonorLoginComponent implements OnInit {
       this.donorAuthService.logout();
 
       // get return url from route parameters or default to '/'
-      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+      this.returnUrl = this.route.snapshot.queryParams['/about'] || '/';
   }
 
   // convenience getter for easy access to form fields
