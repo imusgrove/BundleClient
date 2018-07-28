@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, subscribeOn } from 'rxjs/operators';
 import {FormBuilder, FormGroup} from '@angular/forms';
-
+import { Donor } from './donor'
+import { DonorDashboardService } from './donor-dashboard.service'
 export interface DonationList {
   amount: number;
   items: string;
@@ -26,6 +27,10 @@ const DONATION_DATA: DonationList[] = [
   styleUrls: ['./donor-dashboard.component.css']
 })
 export class DonorDashboardComponent implements OnInit {
+
+  
+  donor: Donor;
+  // editDonor: Donor; // the hero currently being edited
  
   displayedColumns: string[] = ['select','amount', 'items'];
   dataSource = DONATION_DATA;
@@ -49,15 +54,41 @@ export class DonorDashboardComponent implements OnInit {
     {value: 'MISC', viewValue: 'MISC'}
   ];
     
-  constructor(private breakpointObserver: BreakpointObserver,fb: FormBuilder) {
-    this.options = fb.group({
+  constructor(private breakpointObserver: BreakpointObserver,formBuilder: FormBuilder, private donordashboardService: DonorDashboardService) {
+    this.options = formBuilder.group({
       bottom: 0,
       fixed: false,
       top: 65
     });
   }
+  addForm: FormGroup;
 
   ngOnInit() {
+    this.donordashboardService.getDonations()
+    .subscribe( data => {
+      this.donor = data
+      // this.addForm = this.formBuilder.group({
+      //   id: [],
+      //   email: [''],
+      //   firstName: [''],
+      //   lastName: ['']
+    });
   }
+  deleteDonation(donors: Donor): void {
+    this.donordashboardService.deleteDonation(donors.id)
+      .subscribe( data => {
+        // this.donor = this.donor.filter(d => d !== donors);
+      })
+  };
+  editDonation(donors: Donor): void {
+    localStorage.removeItem("editDonorId");
+    localStorage.setItem("editDonorId", donors.id.toString());
+    // this.router.navigate(['edit-donor']);
+  };
+  addDonation(): void {
+    this.donordashboardService.createDonation(this.addForm.value)
+    .subscribe( data => {
 
+    })
+  }
 }

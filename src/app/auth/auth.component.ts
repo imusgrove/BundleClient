@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth.service'
 
 
 @Component({
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
+
 
   ngOnInit() {
+    
+  }
+  onSubmit() {
+    
   }
 
 }

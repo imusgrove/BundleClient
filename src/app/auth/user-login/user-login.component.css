@@ -8,21 +8,21 @@
     border-radius: 50px;
     text-align: center;
 }
-.userButtons{
+#userButtons{
     margin-bottom: 5%;
     display: inline-block;
     width: 100%;
     text-align-last: right;
 }
-.userButtons .submit{
+#userButtons .submit{
     float: left;
 }
-.userButtons button:hover {
+#userButtons button:hover {
     color: #D9514E;
     background-color: white;
     border: 1px solid #D9514E;
 }
-.userButtons button {
+#userButtons button {
     background-color: #ff8cff;
 }
 .noaccount a {

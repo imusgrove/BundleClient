@@ -42,8 +42,13 @@ import {
 } from "@angular/material";
 // import { DonorNavComponent } from './donor-nav/donor-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './auth/auth.service';
+import { DonorAuthService } from './donorAuth/donorAuth.service'
+import { DonorService } from './auth/donor-signup/donor.service'
 import {AboutComponent} from './ui/about/about.component';
 import {ContactComponent} from './ui/contact/contact.component';
+import { EditComponent } from './donor-dashboard/edit/edit.component';
 
 
 @NgModule({
@@ -63,7 +68,12 @@ import {ContactComponent} from './ui/contact/contact.component';
     LayoutComponent,
     // DonorNavComponent,
     AboutComponent,
+<<<<<<< HEAD
+    ContactComponent,
+    EditComponent
+=======
     ContactComponent
+>>>>>>> 502f4145b77c5fb75dea03e3f2893c657f306130
   ],
   imports: [
     BrowserModule,
@@ -92,7 +102,8 @@ import {ContactComponent} from './ui/contact/contact.component';
     LayoutModule,
     MatListModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
     // MatNavListModule,
   ],
   exports: [
@@ -101,11 +112,9 @@ import {ContactComponent} from './ui/contact/contact.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    // MatNavListModule,
     
-    MatSelectModule
   ],
-  providers: [],
+  providers: [AuthService, DonorAuthService, DonorService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
