@@ -29,6 +29,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
       <h2 id="tableTitle">My Donations</h2>
+      <button mat-raised-button class="submit" [routerLink]="['/profile']" id="profileButton">Donor Profile</button>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="donationTable" > 
   
         <ng-container matColumnDef="amount">
@@ -52,8 +53,8 @@
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table> 
-        <button mat-raised-button class="submit" id="tableUpdateButton">Edit Item</button>
+        </table>
+        <button mat-raised-button (click)="openDialog()" id="tableUpdateButton">Edit Item</button>
         <button mat-raised-button class="submit" id="tableDeleteButton">Delete Item</button>
   </mat-sidenav-content>
 </mat-sidenav-container>

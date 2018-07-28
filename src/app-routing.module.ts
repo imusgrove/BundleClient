@@ -12,7 +12,8 @@ import { AuthRoutingModule } from './app/auth/auth-routing/auth-routing.module';
 import { DonorDashboardComponent } from './app/donor-dashboard/donor-dashboard.component';
 import { AboutComponent } from './app/ui/about/about.component';
 import {ContactComponent} from './app/ui/contact/contact.component';
-import { UserDashboardComponent } from './app/user-dashboard/user-dashboard.component';
+import { UserDashboardComponent } from './app/user-dashboard/user-dashboard.component'; 
+import { DonorProfileComponent } from './app/donor-dashboard/donor-profile/donor-profile.component'
 
 const routes: Routes = [  
   {path: '', redirectTo: 'userlogin', pathMatch: 'full'},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component:ContactComponent},
   {path: 'userdashboard', component: UserDashboardComponent}, 
+  {path: 'profile', component: DonorProfileComponent}
 ];
 
 @NgModule({
