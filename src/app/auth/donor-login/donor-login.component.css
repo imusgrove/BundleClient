@@ -14,17 +14,28 @@
     width: 100%;
     text-align-last: right;
 }
-.donorButtons button:hover {
+.loginBtn {
     color: black;
     background-color: #ff8cff;
-    border: 1px solid #D9514E;
 }
+
+.userBtn {
+    color: black;
+    background-color: #ff8cff;
+}
+
+button:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid #ff8cff;
+}
+
 .donorButtons .submit {
     float: left;
 }
 .noaccount a {
     text-decoration: none;
-    color: #D9514E;
+    color: #191919;
 }
 .noaccount a:hover {
     text-decoration: underline;

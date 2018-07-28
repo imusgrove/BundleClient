@@ -8,21 +8,23 @@
     border-radius: 50px;
     text-align: center;
 }
+
 .cardForSignup a {
     text-decoration: none;
-    color: #D9514E;
+    color: black;
 }
+
 .cardForSignup a:hover {
     text-decoration: underline;
 }
-.matButton-signup-card-signup student{
-    float: right;
+
+button {
+    background-color: #ff8cff;
+    color: black;
 }
-.matButton-signup-card-signup button{
-    margin: 1%
-}
-.matButton-signup-card-signup button:hover{
-    color: #D9514E;
+
+button:hover{
+    color: black;
     background-color: white;
-    border: 1px solid #D9514E;
+    border: 1px solid #ff8cff;
 }

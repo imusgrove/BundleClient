@@ -1,8 +1,8 @@
 <div class="container">
   <mat-card class="cardForSignup">
-      <h1>Donor Signup</h1>
+      <h2>Donor Signup</h2>
       <form [formGroup]="registerForm">
-      <hr color="#D9514E" />
+      <hr color="#ff8cff" />
       <div class="registerForm">
           <mat-form-field>
           <!-- <label for="firstName">First Name</label> -->
@@ -57,8 +57,8 @@
     </form>
     
     <div class="matButton-signup-card-signup">
-      <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit() color="primary" >Signup</button>
-      <button mat-raised-button class="student" color="primary" routerLink="/usersignup">I'm a User</button>
+      <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit()>Signup</button>
+      <button mat-raised-button class="student" routerLink="/usersignup">I'm a User</button>
     </div>
     <a routerLink="/donorlogin">Already have an account?</a>
   </mat-card>

@@ -8,27 +8,22 @@
     border-radius: 50px;
     text-align: center;
 }
-#userButtons{
-    margin-bottom: 5%;
-    display: inline-block;
-    width: 100%;
-    text-align-last: right;
-}
-#userButtons .submit{
-    float: left;
-}
-#userButtons button:hover {
-    color: #D9514E;
+
+button:hover {
+    color: black;
     background-color: white;
-    border: 1px solid #D9514E;
+    border: 1px solid #ff8cff;
 }
-#userButtons button {
+
+button {
     background-color: #ff8cff;
 }
-.noaccount a {
+
+a {
     text-decoration: none;
     color: #191919;
 }
-.noaccount a:hover {
+
+a:hover {
     text-decoration: underline;
 }
