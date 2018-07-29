@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, subscribeOn } from 'rxjs/operators';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { Donor } from './donor'
 import { DonorDashboardService } from './donor-dashboard.service'
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 export interface DonationList {
   amount: number;
   items: string;
@@ -12,6 +13,9 @@ export interface DonationList {
 export interface Donation {
   value: string;
   viewValue: string;
+}
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
 }
 
 
@@ -54,7 +58,7 @@ export class DonorDashboardComponent implements OnInit {
     {value: 'MISC', viewValue: 'MISC'}
   ];
     
-  constructor(private breakpointObserver: BreakpointObserver,formBuilder: FormBuilder, private donordashboardService: DonorDashboardService) {
+  constructor(private breakpointObserver: BreakpointObserver,formBuilder: FormBuilder, private donordashboardService: DonorDashboardService,public dialog: MatDialog) {
     this.options = formBuilder.group({
       bottom: 0,
       fixed: false,
@@ -75,6 +79,14 @@ export class DonorDashboardComponent implements OnInit {
       //   lastName: ['']
     });
   }
+<<<<<<< HEAD
+  openDialog() {
+    this.dialog.open(DialogDataExampleDialog, {
+      data: {
+        animal: 'panda'
+      }
+    });
+=======
   //delete donations
   deleteDonation(donors: Donor): void {
     this.donordashboardService.deleteDonation(donors.id)
@@ -94,5 +106,30 @@ export class DonorDashboardComponent implements OnInit {
     .subscribe( data => {
 
     })
+>>>>>>> icd
   }
+  // deleteDonation(donors: Donor): void {
+  //   this.donordashboardService.deleteDonation(donors.id)
+  //     .subscribe( data => {
+  //       // this.donor = this.donor.filter(d => d !== donors);
+  //     })
+  // };
+  // editDonation(donors: Donor): void {
+  //   localStorage.removeItem("editDonorId");
+  //   localStorage.setItem("editDonorId", donors.id.toString());
+  //   // this.router.navigate(['edit-donor']);
+  // };
+  // addDonation(): void {
+  //   this.donordashboardService.createDonation(this.addForm.value)
+  //   .subscribe( data => {
+
+  //   })
+  // }
+}
+@Component({
+  selector: 'dialog-data-example-dialog',
+  templateUrl: 'donor-dashboard-edit.html',
+})
+export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

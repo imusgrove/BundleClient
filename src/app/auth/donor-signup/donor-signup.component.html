@@ -1,8 +1,14 @@
 <div class="container">
   <mat-card class="cardForSignup">
+<<<<<<< HEAD
+      <h2>Donor Signup</h2>
+      <form [formGroup]="registerForm">
+      <hr color="#ff8cff" />
+=======
     <h1>Donor Signup</h1>
     <form [formGroup]="registerForm">
       <hr color="#D9514E" />
+>>>>>>> icd
       <div class="registerForm">
         <!-- first name -->
         <mat-form-field>
@@ -102,6 +108,16 @@
           <input matInput placeholder="Confirm Password" formControlName="Password" required>
         </mat-form-field>
       </div>  -->
+<<<<<<< HEAD
+    </form>
+    
+    <div class="matButton-signup-card-signup">
+      <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit()>Signup</button>
+      <button mat-raised-button class="student" routerLink="/usersignup">I'm a User</button>
+    </div>
+    <a routerLink="/donorlogin">Already have an account?</a>
+  </mat-card>
+=======
 </form>
 
 <div class="matButton-signup-card-signup">
@@ -110,4 +126,5 @@
 </div>
 <a routerLink="/donorlogin">Already have an account?</a>
 </mat-card>
+>>>>>>> icd
 </div>

@@ -1,7 +1,25 @@
-<form method="POST" action="https://formspree.io/ieshaduff@yahoo.com">
-  <input type="name" name="name" placeholder="Your name">
-  <input type="phone" name="phone" placeholder="Your phone number">
-  <input type="email" name="email" placeholder="Your email">
-  <textarea name="message" placeholder="Your message"></textarea>
-  <button type="submit">Send</button>
-</form>
+<div class="contactForm">
+  <h2>Contact</h2>  
+
+  <form (submit)="onSubmit();" method="POST" action="https://formspree.io/ieshaduff@yahoo.com">
+    <div class="infoFields">
+      <mat-form-field>
+        <input matInput type="name" name="name" placeholder="Your name">
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput type="phone" name="phone" placeholder="Your phone number">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="emailField">
+        <input matInput type="email" name="email" placeholder="Your email">
+      </mat-form-field>
+    </div>
+    <br>
+    <mat-form-field class="messageEntry" appearance="outline">
+      <textarea matInput name="message" placeholder="Your message"></textarea>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button type="submit">Send</button>
+  </form>
+</div>

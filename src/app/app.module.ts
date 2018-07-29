@@ -48,10 +48,14 @@ import { DonorAuthService } from './donorAuth/donorAuth.service'
 import { DonorService } from './auth/donor-signup/donor.service'
 import {AboutComponent} from './ui/about/about.component';
 import {ContactComponent} from './ui/contact/contact.component';
+<<<<<<< HEAD
+import { DialogDataExampleDialog } from './donor-dashboard/donor-dashboard.component'
+=======
 import { EditComponent } from './donor-dashboard/edit/edit.component';
 import {UserService} from '../app/auth/user-signup/user.service';
 import { AuthGuard } from './auth/authGuard/auth.guard';
 
+>>>>>>> icd
 
 @NgModule({
   declarations: [
@@ -71,8 +75,12 @@ import { AuthGuard } from './auth/authGuard/auth.guard';
     // DonorNavComponent,
     AboutComponent,
     ContactComponent,
+<<<<<<< HEAD
+    DialogDataExampleDialog
+=======
     EditComponent,
     ContactComponent
+>>>>>>> icd
   ],
   imports: [
     BrowserModule,
@@ -113,7 +121,13 @@ import { AuthGuard } from './auth/authGuard/auth.guard';
     MatSidenavModule,
     
   ],
+<<<<<<< HEAD
+  providers: [AuthService, DonorAuthService, DonorService ],
+  bootstrap: [AppComponent],
+  entryComponents: [ DialogDataExampleDialog ]
+=======
   providers: [AuthService, DonorAuthService, DonorService, UserService, AuthGuard ],
   bootstrap: [AppComponent]
+>>>>>>> icd
 })
 export class AppModule { }

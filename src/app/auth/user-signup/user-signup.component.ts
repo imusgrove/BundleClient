@@ -29,7 +29,11 @@ export class UserSignupComponent implements OnInit {
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             username: ['', Validators.required],
+<<<<<<< HEAD
+            email:    ['', Validators.required],
+=======
             email: ['', Validators.required],
+>>>>>>> icd
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
     }

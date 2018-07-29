@@ -1,0 +1,24 @@
+.contactForm {
+    margin-top: 5em;
+    text-align: center;
+    margin-bottom: 5em;
+}
+
+textarea {
+    background-color: whitesmoke;
+    height: 18em;
+}
+
+.messageEntry {
+    width: 50%;
+}
+
+button {
+    color: black;
+    background-color: #ff8cff;
+}
+
+button:hover {
+    background-color: white;
+    border: solid 1px #ff8cff;
+}
