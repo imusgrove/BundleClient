@@ -21,7 +21,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DonorDashboardService { 
-  donorUrl = 'https://localhost3000/donor/api';  // URL to web api
+  donorUrl = 'https://localhost3000/donations';  // URL to web api
 
   constructor(private http: HttpClient,) {}
 
@@ -32,7 +32,7 @@ export class DonorDashboardService {
     return this.http.get<Donor>(this.donorUrl + '/' + id);
   }
   createDonation(donor: Donor[]) {
-    return this.http.post(this.donorUrl,donor);
+    return this.http.post(this.donorUrl + 'createdonor/' ,donor);
   }
   updateDonation(donor: Donor){
     return this.http.put(this.donorUrl + '/' + donor.id, donor)

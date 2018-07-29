@@ -6,13 +6,16 @@ import { UserSignupComponent } from './user-signup/user-signup.component'
 // import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 import { UserSignup } from './user-signup/user-signup'
 import { map } from 'rxjs/operators';
+import {UserLoginComponent} from './user-login/user-login.component';
 
 @Injectable()
 export class AuthService {
     constructor(private http: HttpClient) { }
 
+    url = 'http://localhost:3000';
+
     login(username: string, password: string) {
-        return this.http.post<any>(`/userlogin`, { username: username, password: password })
+        return this.http.post<any>(`${this.url}/user/login`, { username: username, password: password })
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.token) {

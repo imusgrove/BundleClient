@@ -1,59 +1,114 @@
 <div class="container">
   <mat-card class="cardForSignup">
+<<<<<<< HEAD
       <h2>Donor Signup</h2>
       <form [formGroup]="registerForm">
       <hr color="#ff8cff" />
+=======
+    <h1>Donor Signup</h1>
+    <form [formGroup]="registerForm">
+      <hr color="#D9514E" />
+>>>>>>> icd
       <div class="registerForm">
-          <mat-form-field>
+        <!-- first name -->
+        <mat-form-field>
           <!-- <label for="firstName">First Name</label> -->
-          <input matInput placeholder="First Name"  type="text" formControlName="donor_fname" class="registerForm" />
+          <input matInput placeholder="First Name" type="text" formControlName="donor_fname" class="registerForm" />
           <!-- <mat-error *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
               <mat-error *ngIf="f.firstName.errors.required">First Name is required</mat-error>
           </mat-error> -->
         </mat-form-field>
       </div>
+      <!-- last name -->
       <div class="registerForm">
-          <!-- <label for="lastName">Last Name</label> -->
-          <mat-form-field>
+        <!-- <label for="lastName">Last Name</label> -->
+        <mat-form-field>
           <input matInput placeholder="Last Name" type="text" formControlName="donor_lname" class="registerForm" />
           <!-- <mat-error *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
               <mat-error *ngIf="f.lastName.errors.required">Last Name is required</mat-error>
           </mat-error> -->
         </mat-form-field>
       </div>
-      <div class="registerForm"> 
+      <!-- address -->
+      <div class="registerForm">
       <mat-form-field class="donor-signup-component">
-        <input matInput placeholder="Username" type="text" formControlName="donor_username" class="registerForm"  >
+        <input matInput placeholder="Address" type="text" formControlName="donor_address" class="registerForm">
         <!-- <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
             <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
         </mat-error> -->
       </mat-form-field>
-      </div>
-
-      <div class="registerForm">
-        <mat-form-field class="donor-signup-component">
-          <input matInput placeholder="Email" formControlName="donor_email" class="registerForm"  />
-          <!-- <mat-error *ngIf="submitted && f.email.errors" class="invalid-feedback">
+</div>
+<!-- city -->
+<div class="registerForm">
+<mat-form-field class="donor-signup-component">
+  <input matInput placeholder="City" type="text" formControlName="donor_city" class="registerForm">
+  <!-- <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
+        </mat-error> -->
+</mat-form-field>
+</div>
+<!-- state -->
+<div class="registerForm">
+<mat-form-field class="donor-signup-component">
+  <input matInput placeholder="State" type="text" formControlName="donor_state" class="registerForm">
+  <!-- <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
+        </mat-error> -->
+</mat-form-field>
+</div>
+<!-- zip code -->
+<div class="registerForm">
+<mat-form-field class="donor-signup-component">
+  <input matInput placeholder="Zip Code" type="text" formControlName="donor_zipCode" class="registerForm">
+  <!-- <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
+        </mat-error> -->
+</mat-form-field>
+</div>
+<!-- phone numbeer -->
+<div class="registerForm">
+<mat-form-field class="donor-signup-component">
+  <input matInput placeholder="Phone Number" type="tel" formControlName="donor_phoneNumber" class="registerForm">
+  <!-- <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
+        </mat-error> -->
+</mat-form-field>
+</div>
+<!-- username -->
+<div class="registerForm">
+  <mat-form-field class="donor-signup-component">
+    <input matInput placeholder="Username" type="text" formControlName="donor_username" class="registerForm">
+    <!-- <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
+        </mat-error> -->
+  </mat-form-field>
+</div>
+<!-- email -->
+<div class="registerForm">
+  <mat-form-field class="donor-signup-component">
+    <input matInput placeholder="Email" formControlName="donor_email" class="registerForm" />
+    <!-- <mat-error *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <mat-error *ngIf="f.email.errors.required">Email is required</mat-error>
           </mat-error> -->
-        </mat-form-field>
-      </div>
-    
-      <div class="registerForm">
-        <mat-form-field class="donor-signup-component">
-          <input matInput placeholder="Password" formControlName="donor_password" class="registerForm" />
-          <!-- <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
+  </mat-form-field>
+</div>
+<!-- password -->
+<div class="registerForm">
+  <mat-form-field class="donor-signup-component">
+    <input matInput placeholder="Password" formControlName="donor_password" class="registerForm" />
+    <!-- <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
               <mat-error *ngIf="f.password.errors.required">Password is required</mat-error>
               <mat-error *ngIf="f.password.errors.minlength">Password must be at least 6 characters</mat-error>
           </mat-error> -->
-        </mat-form-field>
-      </div>   
-      
-      <!-- <div>
+  </mat-form-field>
+</div>
+
+<!-- <div>
         <mat-form-field class="donor-signup-component">
           <input matInput placeholder="Confirm Password" formControlName="Password" required>
         </mat-form-field>
       </div>  -->
+<<<<<<< HEAD
     </form>
     
     <div class="matButton-signup-card-signup">
@@ -62,4 +117,14 @@
     </div>
     <a routerLink="/donorlogin">Already have an account?</a>
   </mat-card>
+=======
+</form>
+
+<div class="matButton-signup-card-signup">
+  <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit() color="primary">Signup</button>
+  <button mat-raised-button class="student" color="primary" routerLink="/usersignup">I'm a User</button>
+</div>
+<a routerLink="/donorlogin">Already have an account?</a>
+</mat-card>
+>>>>>>> icd
 </div>
