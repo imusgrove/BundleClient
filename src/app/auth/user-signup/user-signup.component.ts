@@ -58,31 +58,4 @@ export class UserSignupComponent implements OnInit {
                     this.loading = false;
                 });
     }
-  
-  // myForm: FormGroup;
-  // userSignUp: UserSignup
-
-  // constructor(public fb: FormBuilder, public authService: AuthService) { }
-
-  // ngOnInit() {
-  //   this.myForm = this.fb.group({
-  //     id: '',
-  //     Username: '',
-  //     Email: '',
-  //     Password: '',
-  //   })
-  //   this.myForm.valueChanges.subscribe(console.log)
-  // }
-  // onSignup(form: NgForm){
-  //   const username = form.value.username;
-  //   const password = form.value.password;
-  //   const email = form.value.email;
-  // }
-  // onSubmit() {
-    // this.authService.addUser(this.userSignUp)
-    // .subscribe(
-    //   (response) => console.log(response),
-    //   (error) => console.log(error)
-    // )
-  // }
 }

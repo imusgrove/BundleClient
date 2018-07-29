@@ -38,9 +38,7 @@ import {
   MatListModule, 
   MatOptionModule,
   MatSelectModule,
-  // MatNavListModule,
 } from "@angular/material";
-// import { DonorNavComponent } from './donor-nav/donor-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
@@ -65,7 +63,6 @@ import { DialogDataExampleDialog } from './donor-dashboard/donor-dashboard.compo
     NavbarComponent,
     FooterComponent,
     LayoutComponent,
-    // DonorNavComponent,
     AboutComponent,
     ContactComponent,
     DialogDataExampleDialog
@@ -99,7 +96,6 @@ import { DialogDataExampleDialog } from './donor-dashboard/donor-dashboard.compo
     MatOptionModule,
     MatSelectModule,
     HttpClientModule
-    // MatNavListModule,
   ],
   exports: [
     FormsModule,

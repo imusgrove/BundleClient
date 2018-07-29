@@ -26,3 +26,8 @@
 #m2btn {
     border-right: none;
 }
+
+a {
+    color: black;
+    text-decoration: none;
+}
