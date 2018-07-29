@@ -8,7 +8,12 @@ import { User } from './user'
 })
 export class UserService {
 
+    url = 'http://localhost:3000'
+
   constructor(private http: HttpClient ) { }
+
+
+
   getAll() {
     return this.http.get<User[]>(`/users`);
 }
@@ -18,7 +23,7 @@ getById(id: number) {
 }
 
 register(user: User) {
-    return this.http.post(`/users/register`, user);
+    return this.http.post(`${this.url}/user/createuser`, user);
 }
 
 update(user: User) {
@@ -28,4 +33,5 @@ update(user: User) {
 delete(id: number) {
     return this.http.delete(`/users/` + id);
 }
+
 }

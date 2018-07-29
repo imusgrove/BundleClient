@@ -24,7 +24,13 @@ export class DonorSignupComponent implements OnInit {
       donor_email: ['', Validators.required],
       donor_lname: ['', Validators.required],
       donor_username: ['', Validators.required],
-      donor_password: ['', [Validators.required, Validators.minLength(6)]]
+      donor_password: ['', [Validators.required, Validators.minLength(6)]],
+      donor_address: ['', Validators.required],
+      donor_city: ['', Validators.required],
+      donor_state: ['', Validators.required],
+      donor_zipCode: ['', Validators.required],
+      donor_phoneNumber: ['', Validators.required],
+
     });
   }
 

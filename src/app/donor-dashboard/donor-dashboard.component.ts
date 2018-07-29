@@ -20,9 +20,9 @@ export interface DialogData {
 
 
 const DONATION_DATA: DonationList[] = [
-  {amount: 20, items: 'Bottles',},
-  { amount: 5, items: 'Diaperbags'},
-  { amount: 10, items: 'Blankets'}
+  // {amount: 20, items: 'Bottles',},
+  // { amount: 5, items: 'Diaperbags'},
+  // { amount: 10, items: 'Blankets'}
 ]
 
 @Component({
@@ -68,7 +68,8 @@ export class DonorDashboardComponent implements OnInit {
   addForm: FormGroup;
 
   ngOnInit() {
-    this.donordashboardService.getDonations()
+    //get all donations
+    this.donordashboardService.getDonationById(this.donor.id)
     .subscribe( data => {
       this.donor = data
       // this.addForm = this.formBuilder.group({
@@ -78,12 +79,34 @@ export class DonorDashboardComponent implements OnInit {
       //   lastName: ['']
     });
   }
+<<<<<<< HEAD
   openDialog() {
     this.dialog.open(DialogDataExampleDialog, {
       data: {
         animal: 'panda'
       }
     });
+=======
+  //delete donations
+  deleteDonation(donors: Donor): void {
+    this.donordashboardService.deleteDonation(donors.id)
+      .subscribe( data => {
+        // this.donor = this.donor.filter(d => d !== donors);
+      })
+  };
+  //edit donations
+  editDonation(donors: Donor): void {
+    localStorage.removeItem("editDonorId");
+    localStorage.setItem("editDonorId", donors.id.toString());
+    // this.router.navigate(['edit-donor']);
+  };
+  //add donations
+  addDonation(): void {
+    this.donordashboardService.createDonation(this.addForm.value)
+    .subscribe( data => {
+
+    })
+>>>>>>> icd
   }
   // deleteDonation(donors: Donor): void {
   //   this.donordashboardService.deleteDonation(donors.id)
