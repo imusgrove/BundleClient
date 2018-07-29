@@ -50,6 +50,7 @@ import {AboutComponent} from './ui/about/about.component';
 import {ContactComponent} from './ui/contact/contact.component';
 import { EditComponent } from './donor-dashboard/edit/edit.component';
 import {UserService} from '../app/auth/user-signup/user.service';
+import { AuthGuard } from './auth/authGuard/auth.guard';
 
 
 @NgModule({
@@ -112,7 +113,7 @@ import {UserService} from '../app/auth/user-signup/user.service';
     MatSidenavModule,
     
   ],
-  providers: [AuthService, DonorAuthService, DonorService, UserService ],
+  providers: [AuthService, DonorAuthService, DonorService, UserService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
