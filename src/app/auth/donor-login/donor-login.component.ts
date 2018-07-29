@@ -36,11 +36,7 @@ export class DonorLoginComponent implements OnInit {
       this.donorAuthService.logout();
 
       // get return url from route parameters or default to '/'
-<<<<<<< HEAD
-      this.returnUrl = this.route.snapshot.queryParams['/about'] || '/';
-=======
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/donordashboard';
->>>>>>> icd
   }
 
   // convenience getter for easy access to form fields
