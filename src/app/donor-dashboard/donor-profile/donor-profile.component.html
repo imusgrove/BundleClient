@@ -1,58 +1,59 @@
 <div class="container">
+  <div> *ngIf='profileForm'>
     <mat-card class="cardForProfile">
-        <form [formGroup]="registerForm">
+        <form [formGroup]="profileForm">
             <h1>Donor Profile</h1>
-        <div class="registerForm">
+        <div class="profileGroup">
             <mat-form-field>
-            <input matInput placeholder="First Name"  type="text" formControlName="donor_fname" class="registerForm" />
+            <input matInput placeholder="First Name"  type="text" formControlName="donor_fname" class="profileForm" />
           </mat-form-field>
         </div>
-        <div class="registerForm">
+        <div class="profileForm">
             <mat-form-field>
-            <input matInput placeholder="Last Name" type="text" formControlName="donor_lname" class="registerForm" />
+            <input matInput placeholder="Last Name" type="text" formControlName="donor_lname" class="profileForm" />
           </mat-form-field>
         </div>
-        <div class="registerForm"> 
+        <div class="profileForm"> 
         <mat-form-field class="donor-signup-component">
-          <input matInput placeholder="Username" type="text" formControlName="donor_username" class="registerForm"  >
+          <input matInput placeholder="Username" type="text" formControlName="donor_username" class="profileForm"  >
         </mat-form-field>
         </div>
   
-        <div class="registerForm">
+        <div class="profileForm">
           <mat-form-field class="donor-signup-component">
-            <input matInput placeholder="Email" formControlName="donor_email" class="registerForm"  />
+            <input matInput placeholder="Email" formControlName="donor_email" class="profileForm"  />
           </mat-form-field>
         </div>
       
-        <div class="registerForm">
+        <div class="profileForm">
           <mat-form-field class="donor-signup-component">
-            <input matInput placeholder="Password" formControlName="donor_password" class="registerForm" />
+            <input matInput placeholder="Password" formControlName="donor_password" class="profileForm" />
           </mat-form-field>
         </div>  
-        <div class="registerForm">
+        <div class="profileForm">
             <mat-form-field>
-            <input matInput placeholder="Address"  type="text" formControlName="donor_address" class="registerForm" />
+            <input matInput placeholder="Address"  type="text" formControlName="donor_address" class="profileForm" />
           </mat-form-field>
           </div>
-          <div class="registerForm">
+          <div class="profileForm">
               <mat-form-field>
-              <input matInput placeholder="City"  type="text" formControlName="donor_city" class="registerForm" />
+              <input matInput placeholder="City"  type="text" formControlName="donor_city" class="profileForm" />
             </mat-form-field>
             </div>
-            <div class="registerForm">
+            <div class="profileForm">
                 <mat-form-field>
-                <input matInput placeholder="State"  type="text" formControlName="donor_state" class="registerForm" />
+                <input matInput placeholder="State"  type="text" formControlName="donor_state" class="profileForm" />
               </mat-form-field>
               </div>
       
-              <div class="registerForm">
+              <div class="profileForm">
                   <mat-form-field>
-                  <input matInput placeholder="ZipCode"  type="text" formControlName="donor_zipcode" class="registerForm" />
+                  <input matInput placeholder="ZipCode"  type="text" formControlName="donor_zipcode" class="profileForm" />
                 </mat-form-field>
                 </div>
-                <div class="registerForm">
+                <div class="profileForm">
                     <mat-form-field>
-                    <input matInput placeholder="Phone Number"  type="text" formControlName="donor_phonenumber" class="registerForm" />
+                    <input matInput placeholder="Phone Number"  type="text" formControlName="donor_phonenumber" class="profileForm" />
                   </mat-form-field> 
                   </div>
       </form>
@@ -61,6 +62,7 @@
         <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit() color="primary" >Update</button>
       </div>
     </mat-card>
+  </div>
   </div>
 
  

@@ -4,18 +4,18 @@ import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { DonorLoginComponent } from './auth/donor-login/donor-login.component';
 import { DonorSignupComponent } from './auth/donor-signup/donor-signup.component';
-import { UserLoginComponent } from './auth/user-login/user-login.component';
-import { UserSignupComponent } from './auth/user-signup/user-signup.component';
+// import { UserLoginComponent } from './auth/user-login/user-login.component';
+// import { UserSignupComponent } from './auth/user-signup/user-signup.component';
 import { DonorDashboardComponent } from './donor-dashboard/donor-dashboard.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { DonorProfileComponent } from './donor-dashboard/donor-profile/donor-profile.component';
-import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
+// import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
 import { NavbarComponent } from './ui/navbar/navbar.component';
 import { FooterComponent } from './ui/footer/footer.component';
 import { LayoutComponent } from './ui/layout/layout.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, FormControlName } from '@angular/forms';
 import { 
   MatButtonModule,
   MatCardModule,
@@ -48,14 +48,12 @@ import { DonorAuthService } from './donorAuth/donorAuth.service'
 import { DonorService } from './auth/donor-signup/donor.service'
 import {AboutComponent} from './ui/about/about.component';
 import {ContactComponent} from './ui/contact/contact.component';
-<<<<<<< HEAD
 import { DialogDataExampleDialog } from './donor-dashboard/donor-dashboard.component'
-=======
-import { EditComponent } from './donor-dashboard/edit/edit.component';
-import {UserService} from '../app/auth/user-signup/user.service';
 import { AuthGuard } from './auth/authGuard/auth.guard';
+// import { UserService } from './auth/user-signup/user.service';
+import { DonorProfileService } from './donor-dashboard/donor-profile/donor-profile.service';
+import { DonorDashboardService } from './donor-dashboard/donor-dashboard.service';
 
->>>>>>> icd
 
 @NgModule({
   declarations: [
@@ -63,24 +61,19 @@ import { AuthGuard } from './auth/authGuard/auth.guard';
     AuthComponent,
     DonorLoginComponent,
     DonorSignupComponent,
-    UserLoginComponent,
-    UserSignupComponent,
+    // UserLoginComponent,
+    // UserSignupComponent,
     DonorDashboardComponent,
     UserDashboardComponent,
     DonorProfileComponent,
-    UserProfileComponent,
+    // UserProfileComponent,
     NavbarComponent,
     FooterComponent,
     LayoutComponent,
     // DonorNavComponent,
     AboutComponent,
     ContactComponent,
-<<<<<<< HEAD
-    DialogDataExampleDialog
-=======
-    EditComponent,
-    ContactComponent
->>>>>>> icd
+    DialogDataExampleDialog,
   ],
   imports: [
     BrowserModule,
@@ -119,15 +112,12 @@ import { AuthGuard } from './auth/authGuard/auth.guard';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    
+
   ],
-<<<<<<< HEAD
-  providers: [AuthService, DonorAuthService, DonorService ],
+  providers: [AuthService, DonorAuthService, DonorService, 
+    AuthGuard, DonorProfileService, DonorDashboardService, DonorAuthService ],
   bootstrap: [AppComponent],
   entryComponents: [ DialogDataExampleDialog ]
-=======
-  providers: [AuthService, DonorAuthService, DonorService, UserService, AuthGuard ],
-  bootstrap: [AppComponent]
->>>>>>> icd
+
 })
 export class AppModule { }

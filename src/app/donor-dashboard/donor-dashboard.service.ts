@@ -1,38 +1,46 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-
-
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 
 import { Donor } from './donor';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 import { DonorDashboardComponent } from './donor-dashboard.component';
+// import { HttpModule } from '@angular/http'
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
-  })
-};
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DonorDashboardService { 
-  donorUrl = 'https://localhost3000/donations';  // URL to web api
 
-  constructor(private http: HttpClient,) {}
-
+  constructor(private http: HttpClient) {}
+  donorUrl = 'http://localhost:3000/donation/createdonation';  // URL to web api
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'currentUser'
+    })
+  };
   getDonations() {
     return this.http.get<Donor>(this.donorUrl);
   }
   getDonationById(id: number) {
-    return this.http.get<Donor>(this.donorUrl + '/' + id);
+    return this.http.get<Donor>(this.donorUrl + '/' + id)  ;
   }
-  createDonation(donor: Donor[]) {
-    return this.http.post(this.donorUrl + 'createdonor/' ,donor);
+  // createDonation(donor: Donor[]) {
+  //   return this.http.post(this.donorUrl + '/createdonation' ,donor);
+  // }
+  // createDonation (donor: Donor): Observable<any> {
+  //       return this.http.post<Donor>(this.donorUrl, donor, this.httpOptions)
+  //         // .pipe( 
+  //         //   // tap((donor:Donor) => this.log(`added donor w/ id=${donor.id}`)),
+  //         //   catchError(this.handleError<Donor>('createDonation'))
+  //         // );
+  //     }
+  createDonation (donation: Donor): Observable<Donor> {
+    return this.http.post<Donor>(this.donorUrl, donation, this.httpOptions)
+      // .pipe(
+      //   catchError(this.handleError('createDonation', donation))
+      // );
   }
   updateDonation(donor: Donor){
     return this.http.put(this.donorUrl + '/' + donor.id, donor)
