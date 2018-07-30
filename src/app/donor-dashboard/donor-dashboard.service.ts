@@ -32,7 +32,7 @@ export class DonorDashboardService {
     return this.http.get<Donor>(this.donorUrl + '/' + id);
   }
   createDonation(donor: Donor[]) {
-    return this.http.post(this.donorUrl + 'createdonor/' ,donor);
+    return this.http.post(this.donorUrl + 'createdonation/' ,donor);
   }
   updateDonation(donor: Donor){
     return this.http.put(this.donorUrl + '/' + donor.id, donor)

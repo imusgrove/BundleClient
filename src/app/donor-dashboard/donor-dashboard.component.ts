@@ -79,14 +79,12 @@ export class DonorDashboardComponent implements OnInit {
       //   lastName: ['']
     });
   }
-<<<<<<< HEAD
   openDialog() {
-    this.dialog.open(DialogDataExampleDialog, {
+    this.dialog.open(this.DialogDataExampleDialog, {
       data: {
         animal: 'panda'
       }
     });
-=======
   //delete donations
   deleteDonation(donors: Donor): void {
     this.donordashboardService.deleteDonation(donors.id)
@@ -106,7 +104,6 @@ export class DonorDashboardComponent implements OnInit {
     .subscribe( data => {
 
     })
->>>>>>> icd
   }
   // deleteDonation(donors: Donor): void {
   //   this.donordashboardService.deleteDonation(donors.id)
