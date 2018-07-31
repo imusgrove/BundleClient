@@ -36,11 +36,7 @@ export class DonorLoginComponent implements OnInit {
       this.donorAuthService.logout();
 
       // get return url from route parameters or default to '/'
-<<<<<<< HEAD
-      this.returnUrl = this.route.snapshot.queryParams['/about'] || '/';
-=======
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/donordashboard';
->>>>>>> icd
   }
 
   // convenience getter for easy access to form fields
@@ -56,9 +52,10 @@ export class DonorLoginComponent implements OnInit {
 
       this.loading = true;
       this.donorAuthService.login(this.f.donor_username.value, this.f.donor_password.value)
-          .pipe(first())
+        //   .pipe(first())
           .subscribe(
               data => {
+                localStorage.setItem("token", data.sessionToken)
                   this.router.navigate([this.returnUrl]);
               },
               error => {
@@ -67,4 +64,4 @@ export class DonorLoginComponent implements OnInit {
               });
   }
   }
-
+  

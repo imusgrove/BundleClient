@@ -9,12 +9,11 @@ import { DonorLoginComponent } from './app/auth/donor-login/donor-login.componen
 import { DonorSignupComponent } from './app/auth/donor-signup/donor-signup.component';
 import { AppModule } from './app/app.module';
 import { AuthRoutingModule } from './app/auth/auth-routing/auth-routing.module';
-// import { UserDashboardComponent } from './app/user-dashboard/user-dashboard.component'; 
-import { DonorProfileComponent } from './app/donor-dashboard/donor-profile/donor-profile.component'
-import { DonorDashboardComponent } from './app/donor-dashboard/donor-dashboard.component'
+import { DonorDashboardComponent } from './app/donor-dashboard/donor-dashboard.component';
 import { AboutComponent } from './app/ui/about/about.component';
-import { ContactComponent } from './app/ui/contact/contact.component';
-import { UserDashboardComponent } from './app/user-dashboard/user-dashboard.component';
+import {ContactComponent} from './app/ui/contact/contact.component';
+import { DonorProfileComponent } from './app/donor-dashboard/donor-profile/donor-profile.component'
+
 
 const routes: Routes = [  
   {path: '', redirectTo: 'donorlogin', pathMatch: 'full'},
