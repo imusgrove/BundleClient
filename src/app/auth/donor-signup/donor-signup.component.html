@@ -4,28 +4,35 @@
       <form [formGroup]="registerForm">
       <hr color="#ff8cff" />
       <div class="registerForm">
-        <!-- first name -->
-        <mat-form-field>
-          <!-- <label for="firstName">First Name</label> -->
-          <input matInput placeholder="First Name" type="text" formControlName="donor_fname" class="registerForm" />
-          <!-- <mat-error *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-              <mat-error *ngIf="f.firstName.errors.required">First Name is required</mat-error>
-          </mat-error> -->
+          <mat-form-field>
+          <input matInput placeholder="First Name"  type="text" formControlName="donor_fname" class="registerForm" />
         </mat-form-field>
       </div>
       <!-- last name -->
       <div class="registerForm">
-        <!-- <label for="lastName">Last Name</label> -->
-        <mat-form-field>
+          <mat-form-field>
           <input matInput placeholder="Last Name" type="text" formControlName="donor_lname" class="registerForm" />
-          <!-- <mat-error *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-              <mat-error *ngIf="f.lastName.errors.required">Last Name is required</mat-error>
-          </mat-error> -->
         </mat-form-field>
       </div>
       <!-- address -->
       <div class="registerForm">
       <mat-form-field class="donor-signup-component">
+        <input matInput placeholder="Username" type="text" formControlName="donor_username" class="registerForm"  >
+      </mat-form-field>
+      </div>
+
+      <div class="registerForm">
+        <mat-form-field class="donor-signup-component">
+          <input matInput placeholder="Email" formControlName="donor_email" class="registerForm"  />
+        </mat-form-field>
+      </div>
+    
+      <div class="registerForm">
+        <mat-form-field class="donor-signup-component">
+          <input matInput placeholder="Password" formControlName="donor_password" class="registerForm" />
+        </mat-form-field>
+      </div>   
+
         <input matInput placeholder="Address" type="text" formControlName="donor_address" class="registerForm">
         <!-- <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
             <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
@@ -106,7 +113,22 @@
     
     <div class="matButton-signup-card-signup">
       <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit()>Signup</button>
+<<<<<<< HEAD
       <!-- <button mat-raised-button class="student" routerLink="/usersignup">I'm a User</button> -->
    </div>
     <a routerLink="/donorlogin">Already have an account?</a>
   </mat-card>
+=======
+    </div>
+    <a routerLink="/donorlogin">Already have an account?</a>
+  </mat-card>
+</form>
+
+<div class="matButton-signup-card-signup">
+  <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit() color="primary">Signup</button>
+  <button mat-raised-button class="student" color="primary" routerLink="/usersignup">I'm a User</button>
+</div>
+<a routerLink="/donorlogin">Already have an account?</a>
+</mat-card>
+</div>
+>>>>>>> eaba1b3f226dfa2b63db00d38d162d19a3dc511e

@@ -1,8 +1,10 @@
 <mat-toolbar class="navbar">
-  <h3>Sunshine's Bundles of Joy</h3>
+  <a routerLink="">
+    <h3>Sunshine's Bundles of Joy</h3>
+  </a>
   <span class="spaceFill"></span>
   <button mat-stroked-button class="navButton" routerLink="/about">About</button>
   <button mat-stroked-button class="navButton" id="m1btn" routerLink="/contact">Contact</button>
   <button mat-stroked-button class="navButton" id="m2btn" routerLink="/donordashboard">Dashboard </button>
-  <button mat-stroked-button class="navButton"  [routerLink]="['/userlogin']">Logout</button>
+  <button mat-stroked-button class="navButton"  [routerLink]="['/donorlogin']">Logout</button>
 </mat-toolbar>

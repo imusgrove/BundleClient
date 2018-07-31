@@ -5,7 +5,6 @@
       <hr color="#ff8cff" />
       <div class="form-group">
         <mat-form-field>
-            <!-- <label for="firstName">First Name</label> -->
           <input matInput placeholder="First Name"  type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
           <mat-error *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
             <mat-error *ngIf="f.firstName.errors.required">First Name is required</mat-error>
@@ -22,7 +21,6 @@
           </mat-form-field>
         </div>
         <div class="form-group">
-            <!-- <label for="username">Username</label> -->
             <mat-form-field>
             <input matInput placeholder="Username" type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
             <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
@@ -31,7 +29,6 @@
           </mat-form-field>
         </div>
         <div class="form-group">
-          <!-- <label for="username">Username</label> -->
           <mat-form-field>
           <input matInput placeholder="Email" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
           <mat-error *ngIf="submitted && f.email.errors" class="invalid-feedback">
@@ -40,7 +37,6 @@
         </mat-form-field>
       </div>
         <div class="form-group">
-            <!-- <label for="password">Password</label> -->
             <mat-form-field>
             <input matInput placeholder="Password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
             <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
@@ -62,34 +58,3 @@
       <a routerLink="/userlogin">Already have an account?</a> 
   </mat-card>
 </div>
-
- <!-- <form [formGroup]="myForm" (ngSubmit)="onSignup()" #f="ngForm"> 
-    <h1>User Signup</h1>
-    <hr color="#D9514E" />
-     <div>
-     <mat-form-field class="user-signup-component">
-       <input matInput placeholder="Username" formControlName="Username" required>
-     </mat-form-field>
-     </div>
-     <div>
-       <mat-form-field class="user-signup-component">
-         <input matInput placeholder="Email" formControlName="Email" required>
-       </mat-form-field>
-     </div>
-   
-     <div>
-       <mat-form-field class="user-signup-component">
-         <input matInput placeholder="Password" formControlName="Password"required>
-       </mat-form-field>
-     </div>   
-     <div>
-       <mat-form-field class="student-signup-component">
-         <input matInput placeholder="Confirm Password" formControlName="Password" required>
-       </mat-form-field>
-     </div> 
-   </form>
-   <div class="matButton-signup-card-signup">
-   <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Signup</button>
-   <button mat-raised-button color="primary" routerLink="/donorsignup">I'm an Donor</button>
-   </div>
-   <a routerLink="/userlogin">Already have an account?</a> -->
