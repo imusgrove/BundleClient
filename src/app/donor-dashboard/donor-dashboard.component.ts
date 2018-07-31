@@ -62,6 +62,7 @@ export class DonorDashboardComponent implements OnInit {
     { value: "beds", viewValue: "Beds" },
     { value: "misc_item", viewValue: "MISC" }
   ];
+  
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -95,9 +96,9 @@ export class DonorDashboardComponent implements OnInit {
       id: [],
       item: [""],
       amount: []
+    });
       //     .subscribe( data => {
       //       // this.donor = this.donor.filter(d => d !== donors);
-    });
     // editDonation(donors: Donor): void {
     //   localStorage.removeItem("editDonorId");
     //   localStorage.setItem("editDonorId", donors.id.toString());
@@ -109,13 +110,17 @@ export class DonorDashboardComponent implements OnInit {
 
     //   })
     // }
+    console.log(this.addForm);
   }
   // convenience getter for easy access to form fields
   // get f() { return this.addForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-
+    console.log(this.addForm.value);
+    const donation = {
+      used_shoes: parseInt(this.addForm.value.amount)
+    }
     // stop here if form is invalid
     if (this.addForm.invalid) {
       return;
@@ -124,7 +129,7 @@ export class DonorDashboardComponent implements OnInit {
     this.loading = true;
     console.log("test");
     this.donordashboardService
-      .createDonation(this.addForm.value)
+      .createDonation(donation)
       // this.donordashboardService.createDonation(this.addForm.value)
       .pipe(first())
       .subscribe(

@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-
 import { Donor } from './donor';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
-import { DonorDashboardComponent } from './donor-dashboard.component';
+import { DonorDashboardComponent, Donation } from './donor-dashboard.component';
+
 // import { HttpModule } from '@angular/http'
 
 
@@ -36,8 +36,8 @@ export class DonorDashboardService {
   //         //   catchError(this.handleError<Donor>('createDonation'))
   //         // );
   //     }
-  createDonation (donation: Donor): Observable<Donor> {
-    return this.http.post<Donor>(this.donorUrl, donation, this.httpOptions)
+  createDonation (donation: Donor): Observable<Donation> {
+    return this.http.post<Donation>(this.donorUrl, donation, this.httpOptions)
       // .pipe(
       //   catchError(this.handleError('createDonation', donation))
       // );

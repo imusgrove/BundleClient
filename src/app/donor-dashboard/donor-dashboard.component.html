@@ -12,7 +12,7 @@
     <h2 id="navTitle">Add Donations</h2>
     <form id="sideNavForm" [formGroup]="addForm" >
         <mat-form-field>
-          <mat-select placeholder="Donation Options" [(ngModel)]="selectedValue" name="donation" formControlName="item">
+          <mat-select placeholder="Donation Options" [(ngModel)]="selectedValue" name="donations" formControlName="item">
             <mat-option *ngFor="let donation of donations" [value]="donation.value" >
               {{donation.viewValue}}
             </mat-option>
@@ -22,7 +22,7 @@
       </form>
       <form id="sideNavAmount" [formGroup]="addForm">
           <mat-form-field class="donation-amount">
-            <input matInput placeholder="Donation Amount"  [value]="" formControlName="amount">
+            <input matInput placeholder="Donation Amount" name="amount" (value)= "amount" formControlName="amount">
           </mat-form-field>
         </form>
       <button mat-raised-button class="submit" (click)=onSubmit() id="listButton">Add to List</button>
