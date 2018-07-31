@@ -7,24 +7,21 @@ import { UserSignupComponent } from './user-signup/user-signup.component'
 import { UserSignup } from './user-signup/user-signup'
 import { map } from 'rxjs/operators';
 import {UserLoginComponent} from './user-login/user-login.component';
+import { AppRoutingModule } from '../../app-routing.module';
 
 @Injectable()
 export class AuthService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private router: AppRoutingModule) { }
 
     url = 'http://localhost:3000';
 
     login(username: string, password: string) {
         return this.http.post<any>(`${this.url}/user/login`, { username: username, password: password })
-            .pipe(map(user => {
-                // login successful if there's a jwt token in the response
-                if (user && user.token) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem('currentUser', JSON.stringify(user));
-                }
-
-                return user;
-            }));
+        .subscribe((res) => {
+            localStorage.setItem("token", res.sessionToken)
+        },
+            err => console.log(err)
+        );
     }
 
     logout() {

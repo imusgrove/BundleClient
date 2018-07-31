@@ -1,4 +1,4 @@
-export interface Donor {
+export interface Donation {
   id: number;
   used_clothing: string;
   used_shoes: string;

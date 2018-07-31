@@ -5,7 +5,7 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ReactiveFormsModule, FormsModule, FormBuilder, FormGroup } from "@angular/forms";
-import { JsonPipe } from '../../../node_modules/@angular/common';
+import { JsonPipe } from '@angular/common';
 
 
 export interface Request {

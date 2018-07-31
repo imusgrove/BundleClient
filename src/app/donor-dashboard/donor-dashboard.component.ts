@@ -3,14 +3,26 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { Observable } from 'rxjs';
 import { map, subscribeOn } from 'rxjs/operators';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import { Donor } from './donor'
+import { Donation } from './donation'
 import { DonorDashboardService } from './donor-dashboard.service'
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+
 export interface DonationList {
   amount: number;
   items: string;
 }
-export interface Donation {
+export interface Donations {
+  used_clothing: string;
+  used_shoes: string;
+  baby_food: string;
+  diaper_bag: string;
+  bottles: string;
+  pacifiers: string;
+  diapers: string;
+  beds: string;
+}
+
+export interface DonationOptions {
   value: string;
   viewValue: string;
 }
@@ -34,7 +46,7 @@ export class DonorDashboardComponent implements OnInit {
 
   
   donor: Donor;
-  // editDonor: Donor; // the hero currently being edited
+  // editDonor: Donor;
  
   displayedColumns: string[] = ['select','amount', 'items'];
   dataSource = DONATION_DATA;
@@ -46,15 +58,15 @@ export class DonorDashboardComponent implements OnInit {
     );
     selectedValue: string;
 
-  donations: Donation[] = [
-    {value: 'Clothes', viewValue: 'Clothes'},
-    {value: 'Shoes', viewValue: 'Shoes'},
-    {value: 'Baby Food', viewValue: 'Baby Food'},
-    {value: 'Diaper Bags', viewValue: 'Diaper Bags'},
-    {value: 'Bottles', viewValue: 'Bottles'},
-    {value: 'Pacifiers', viewValue: 'Pacifiers'},
-    {value: 'Diapers', viewValue: 'Boxes of Diapers'},
-    {value: 'Beds', viewValue: 'Beds'},
+  donationOptions: DonationOptions[] = [
+    {value: 'used_clothing', viewValue: 'Clothing'},
+    {value: 'used_shoes', viewValue: 'Shoes'},
+    {value: 'baby_food', viewValue: 'Baby Food'},
+    {value: 'diaper_bag', viewValue: 'Diaper Bags'},
+    {value: 'bottles', viewValue: 'Bottles'},
+    {value: 'pacifiers', viewValue: 'Pacifiers'},
+    {value: 'diapers', viewValue: 'Boxes of Diapers'},
+    {value: 'beds', viewValue: 'Beds'},
     {value: 'MISC', viewValue: 'MISC'}
   ];
     
@@ -69,40 +81,48 @@ export class DonorDashboardComponent implements OnInit {
 
   ngOnInit() {
     //get all donations
-    this.donordashboardService.getDonationById(this.donor.id)
+    
+    }
+
+    getDonations(): void {
+      this.donordashboardService.getDonations()
+      .subscribe(donations => this.donations = donations);
+    }
+
+    getDonationByUserId(): void {
+    this.donordashboardService.getDonationByUserId(this.donor.id)
     .subscribe( data => {
       this.donor = data
-      // this.addForm = this.formBuilder.group({
-      //   id: [],
-      //   email: [''],
-      //   firstName: [''],
-      //   lastName: ['']
     });
   }
+
   openDialog() {
     this.dialog.open(this.DialogDataExampleDialog, {
       data: {
         animal: 'panda'
       }
-    });
+    })
+  };
+
   //delete donations
-  deleteDonation(donors: Donor): void {
-    this.donordashboardService.deleteDonation(donors.id)
+  deleteDonation(donation: Donation): void {
+    this.donordashboardService.deleteDonation(donation.id)
       .subscribe( data => {
         // this.donor = this.donor.filter(d => d !== donors);
       })
   };
+
   //edit donations
-  editDonation(donors: Donor): void {
-    localStorage.removeItem("editDonorId");
-    localStorage.setItem("editDonorId", donors.id.toString());
+  editDonation(donation: Donation): void {
+    localStorage.removeItem("editDonationId");
+    localStorage.setItem("editDonationId", donation.id.toString());
     // this.router.navigate(['edit-donor']);
   };
+
   //add donations
-  addDonation(): void {
+  createDonation(): void {
     this.donordashboardService.createDonation(this.addForm.value)
     .subscribe( data => {
-
     })
   }
   // deleteDonation(donors: Donor): void {
