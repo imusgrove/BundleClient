@@ -20,11 +20,7 @@ getById(id: number) {
 }
 
 register(donor: Donor) {
-<<<<<<< HEAD
-    return this.http.post('/donor/createdonor', donor);
-=======
     return this.http.post(`${this.url}/donor/createdonor`, donor);
->>>>>>> icd
 }
 
 update(donor: Donor) {

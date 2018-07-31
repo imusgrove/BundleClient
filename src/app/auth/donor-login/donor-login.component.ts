@@ -52,9 +52,10 @@ export class DonorLoginComponent implements OnInit {
 
       this.loading = true;
       this.donorAuthService.login(this.f.donor_username.value, this.f.donor_password.value)
-          .pipe(first())
+        //   .pipe(first())
           .subscribe(
               data => {
+                localStorage.setItem("token", data.sessionToken)
                   this.router.navigate([this.returnUrl]);
               },
               error => {
@@ -63,4 +64,4 @@ export class DonorLoginComponent implements OnInit {
               });
   }
   }
-
+  
