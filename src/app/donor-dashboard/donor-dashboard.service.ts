@@ -22,10 +22,10 @@ export class DonorDashboardService {
     })
   };
   getDonations() {
-    return this.http.get<Donor>(`{APIURL}/donation/`);
+    return this.http.get<Donor>(`${APIURL}/donation/`);
   }
   getDonationById(id: number) {
-    return this.http.get<Donor>(`{APIURL}/donation/${id}`, this.httpOptions)  ;
+    return this.http.get<Donor>(`${APIURL}/donation/${id}`, this.httpOptions)  ;
   }
   // createDonation(donor: Donor[]) {
   //   return this.http.post(this.donorUrl + '/createdonation' ,donor);

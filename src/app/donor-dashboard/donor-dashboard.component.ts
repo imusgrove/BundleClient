@@ -12,6 +12,7 @@ import { DonorDashboardService } from "./donor-dashboard.service";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { Router } from "@angular/router";
 import { first } from "rxjs/operators";
+import { DonorStateServiceService } from "../services/donor-state-service.service";
 export interface DonationList {
   amount: number;
   items: string;
@@ -28,6 +29,7 @@ const DONATION_DATA: DonationList[] = [
   // { amount: 5, items: 'Diaperbags'},
   // { amount: 10, items: 'Blankets'}
 ];
+
 
 @Component({
   selector: "app-donor-dashboard",
@@ -63,13 +65,15 @@ export class DonorDashboardComponent implements OnInit {
     { value: "misc_item", viewValue: "MISC" }
   ];
 
-  userDonations: Donation[] = [];
+  //setting donations to empty arry
+  userDonations: DonationList[] = [];
   
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private formBuilder: FormBuilder,
     private donordashboardService: DonorDashboardService,
+    public donorStateService: DonorStateServiceService,
     public dialog: MatDialog,
     private router: Router
   ) {
@@ -81,20 +85,28 @@ export class DonorDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-      // this.donordashboardService.getDonationById(this.donor.id)
+    console.log(this.donorStateService);
+
+    this.donordashboardService.getDonations()
+    .subscribe(data =>{
+      console.log(data)
+      // this.userDonations = []
+    })
+    
+      // this.donordashboardService.getDonationById(this.donorStateService.donor.id)
       // .subscribe( data => {
       //   console.log(data);
-      //   this.donor = data
+      //   // this.donor = data
       // })
     
 
-        //  this.addForm = this.formBuilder.group({
-        //   id: [],
-        //    item: [''],
-        //   amount: []
+    //      this.addForm = this.formBuilder.group({
+    //       id: [],
+    //        item: [''],
+    //       amount: []
     //     .subscribe( data => {
     //       // this.donor = this.donor.filter(d => d !== donors);
-        // })
+    //     })
     // });
     this.addForm = this.formBuilder.group({
       id: [],

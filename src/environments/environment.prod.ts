@@ -2,7 +2,8 @@ export const environment = {
   production: true
 };
 
-export let APIURL = '//localhost:3000';
+export let APIURL = ""
+// export let APIURL = '//localhost:3000';
 
 switch (window.location.hostname) {
     // this is the deployed angular application
