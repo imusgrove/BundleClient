@@ -4,8 +4,9 @@ import { Observable, of } from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 // import { UserSignupComponent } from './user-signup/user-signup.component'
 // import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
-import { UserSignup } from './user-signup/user-signup'
+import { UserSignup } from './user-signup/user-signup';
 import { map } from 'rxjs/operators';
+import { AppRoutingModule } from '../../app-routing.module';
 // import {UserLoginComponent} from './user-login/user-login.component';
 
 @Injectable()

@@ -7,7 +7,7 @@ import {
 import { Observable } from "rxjs";
 import { map, subscribeOn } from "rxjs/operators";
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { Donor } from "./donor";
+import { Donor } from "./donation";
 import { DonorDashboardService } from "./donor-dashboard.service";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { Router } from "@angular/router";
@@ -62,7 +62,7 @@ export class DonorDashboardComponent implements OnInit {
     .pipe(map(result => result.matches));
   selectedValue: string;
 
-  donations: Donation[] = [
+  donations: DonationOptions[] = [
     { value: "used_clothes", viewValue: "Clothes" },
     { value: "used_shoes", viewValue: "Shoes" },
     { value: "baby_food", viewValue: "Baby Food" },

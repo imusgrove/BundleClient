@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { Donor } from './donor';
+import { Donor } from './donation';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
-import { DonorDashboardComponent, Donation } from './donor-dashboard.component';
+import { DonorDashboardComponent, Donations } from './donor-dashboard.component';
 
 // import { HttpModule } from '@angular/http'
 
@@ -36,8 +36,8 @@ export class DonorDashboardService {
   //         //   catchError(this.handleError<Donor>('createDonation'))
   //         // );
   //     }
-  createDonation (donation: Donor): Observable<Donation> {
-    return this.http.post<Donation>(this.donorUrl, donation, this.httpOptions)
+  createDonation (donation: Donor): Observable<Donations> {
+    return this.http.post<Donations>(this.donorUrl, donation, this.httpOptions)
       // .pipe(
       //   catchError(this.handleError('createDonation', donation))
       // );
@@ -45,8 +45,8 @@ export class DonorDashboardService {
 //////// Save methods //////////
 
   
-  createDonation (donation: Donation): Observable<Donation> {
-    return this.http.post<Donation>(this.donorUrl, donation, httpOptions)
+  createDonation (donation: Donations): Observable<Donations> {
+    return this.http.post<Donations>(this.donorUrl, donation, httpOptions)
       .pipe(
         catchError(this.handleError('createDonation', donation))
       );
@@ -62,7 +62,7 @@ export class DonorDashboardService {
   }
 
   
-  updateDonation (donation: Donation): Observable<Donation> {
+  updateDonation (donation: Donations): Observable<Donations> {
     httpOptions.headers =
       httpOptions.headers.set('Authorization', 'my-new-auth-token');
 
