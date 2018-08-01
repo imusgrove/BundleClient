@@ -21,9 +21,12 @@ export class DonorDashboardService {
       'Authorization': 'currentUser'
     })
   };
-  getDonations() {
+  //get all donations by donor id
+  getDonations(id) {
     return this.http.get<Donor>(`${APIURL}/donation/`);
   }
+
+
   getDonationById(id: number) {
     return this.http.get<Donor>(`${APIURL}/donation/${id}`, this.httpOptions)  ;
   }
@@ -38,7 +41,7 @@ export class DonorDashboardService {
   //         // );
   //     }
   createDonation (donation: Donor): Observable<Donation> {
-    return this.http.post<Donation>(`{APIURL}/donation/createdonation`,donation, this.httpOptions)
+    return this.http.post<Donation>(`${APIURL}/donation/createdonation`,donation, this.httpOptions)
       // .pipe(
       //   catchError(this.handleError('createDonation', donation))
       // );

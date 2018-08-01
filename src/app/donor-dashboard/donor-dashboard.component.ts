@@ -87,8 +87,9 @@ export class DonorDashboardComponent implements OnInit {
   ngOnInit() {
     console.log(this.donorStateService);
 
-    this.donordashboardService.getDonations()
+    this.donordashboardService.getDonations(this.donor)
     .subscribe(data =>{
+      this.userDonations = []
       console.log(data)
       // this.userDonations = []
     })
@@ -154,7 +155,7 @@ export class DonorDashboardComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          // this.alertService.success('Registration successful', true);
+          //push into donations
           console.log(data);
           this.router.navigate(["/donordashboard"]);
         },
