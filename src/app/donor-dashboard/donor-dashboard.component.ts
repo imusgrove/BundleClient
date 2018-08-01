@@ -62,6 +62,8 @@ export class DonorDashboardComponent implements OnInit {
     { value: "beds", viewValue: "Beds" },
     { value: "misc_item", viewValue: "MISC" }
   ];
+
+  userDonations: Donation[] = [];
   
 
   constructor(
@@ -79,24 +81,27 @@ export class DonorDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    //get all donations
-    //   this.donordashboardService.getDonationById(this.donor.id)
-    //   .subscribe( data => {
-    //     this.donor = data
+      // this.donordashboardService.getDonationById(this.donor.id)
+      // .subscribe( data => {
+      //   console.log(data);
+      //   this.donor = data
+      // })
+    
 
-    //     //  this.addForm = this.formBuilder.group({
-    //     //   id: [],
-    //     //    item: [''],
-    //     //   amount: []
-    // //     .subscribe( data => {
-    // //       // this.donor = this.donor.filter(d => d !== donors);
-    //     // })
+        //  this.addForm = this.formBuilder.group({
+        //   id: [],
+        //    item: [''],
+        //   amount: []
+    //     .subscribe( data => {
+    //       // this.donor = this.donor.filter(d => d !== donors);
+        // })
     // });
     this.addForm = this.formBuilder.group({
       id: [],
       item: [""],
       amount: []
     });
+  
       //     .subscribe( data => {
       //       // this.donor = this.donor.filter(d => d !== donors);
     // editDonation(donors: Donor): void {
@@ -112,6 +117,7 @@ export class DonorDashboardComponent implements OnInit {
     // }
     console.log(this.addForm);
   }
+      
   // convenience getter for easy access to form fields
   // get f() { return this.addForm.controls; }
 
@@ -125,6 +131,8 @@ export class DonorDashboardComponent implements OnInit {
     if (this.addForm.invalid) {
       return;
     }
+
+    
 
     this.loading = true;
     console.log("test");
@@ -142,7 +150,12 @@ export class DonorDashboardComponent implements OnInit {
           // this.alertService.error(error);
           this.loading = false;
         }
+        
       );
+      this.donordashboardService.getDonationById(this.donor.id)
+    .subscribe( data => {
+      this.donor = data
+    })
   }
 }
 @Component({

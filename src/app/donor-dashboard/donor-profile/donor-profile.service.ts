@@ -1,30 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {Donor} from "./donor-profile"
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import {Donor} from "./donor-profile";
+import { Observable } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import {APIURL} from '../../../environments/environment.prod'
 
 
 @Injectable()
 export class DonorProfileService {
   constructor(private http: HttpClient) { }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'currentUser'
+    })
+  };
   baseUrl: string = 'http://localhost:3000/donor';
 
   getDonors() {
     return this.http.get<Donor[]>(this.baseUrl);
   }
 
-  getDonorById(id: number) {
-    return this.http.get<Donor>(this.baseUrl + '/' + id);
+  getDonorById(id: number): Observable<Donor>{
+    return this.http.get<Donor>(`{APIURL}/donation/editdonor`, this.httpOptions);
   }
 
-  createDonor(donor: Donor) {
-    return this.http.post(this.baseUrl, donor);
+  updateDonor(donor: Donor): Observable<Donor> {
+    return this.http.put<Donor>(`{APIURL}/donation/editdonor`, this.httpOptions)
   }
-
-  updateDonor(donor: Donor) {
-    return this.http.put(this.baseUrl + '/editdonor' + donor.id, donor);
-  }
-
   deleteDonor(id: number) {
-    return this.http.delete(this.baseUrl + '/delete' + id);
+    return this.http.delete(`{APIURL}/donation/editdonor`, this.httpOptions);
   }
 }

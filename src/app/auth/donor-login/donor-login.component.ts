@@ -55,6 +55,7 @@ export class DonorLoginComponent implements OnInit {
         //   .pipe(first())
           .subscribe(
               data => {
+                console.log(data)
                 localStorage.setItem("token", data.sessionToken)
                   this.router.navigate([this.returnUrl]);
               },

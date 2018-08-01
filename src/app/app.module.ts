@@ -47,10 +47,6 @@ import { DonorService } from './auth/donor-signup/donor.service'
 import {AboutComponent} from './ui/about/about.component';
 import {ContactComponent} from './ui/contact/contact.component';
 import { DialogDataExampleDialog } from './donor-dashboard/donor-dashboard.component'
-<<<<<<< HEAD
-import {UserService} from '../app/auth/user-signup/user.service';
-=======
->>>>>>> icd
 import { AuthGuard } from './auth/authGuard/auth.guard';
 // import { UserService } from './auth/user-signup/user.service';
 import { DonorProfileService } from './donor-dashboard/donor-profile/donor-profile.service';
@@ -75,10 +71,8 @@ import { DonorDashboardService } from './donor-dashboard/donor-dashboard.service
     AboutComponent,
     ContactComponent,
     DialogDataExampleDialog,
-<<<<<<< HEAD
     ContactComponent
-=======
->>>>>>> icd
+
   ],
   imports: [
     BrowserModule,
