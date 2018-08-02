@@ -7,12 +7,14 @@ import {
 import { Observable } from "rxjs";
 import { map, subscribeOn } from "rxjs/operators";
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { Donor } from "./donor";
+import { Donor } from "./donation";
 import { DonorDashboardService } from "./donor-dashboard.service";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { Router } from "@angular/router";
 import { first } from "rxjs/operators";
 import { DonorStateServiceService } from "../services/donor-state-service.service";
+import { DataSource } from "../../../node_modules/@angular/cdk/table";
+// import { disconnect } from "cluster";
 export interface DonationList {
   amount: number;
   items: string;
@@ -28,6 +30,7 @@ const DONATION_DATA: DonationList[] = [
   // {amount: 20, items: 'Bottles',},
   // { amount: 5, items: 'Diaperbags'},
   // { amount: 10, items: 'Blankets'}
+  {amount: 0 , items: '',}
 ];
 
 
@@ -41,11 +44,11 @@ export class DonorDashboardComponent implements OnInit {
   loading = false;
   submitted = false;
 
-  donor: Donor;
+  donor: Donor[];
   // editDonor: Donor; // the hero currently being edited
 
-  displayedColumns: string[] = ["select", "amount", "items"];
-  dataSource = DONATION_DATA;
+  displayedColumns: string[] = [ "amount", "items", "editbutton", "deletebutton"];
+  dataSource = new TableDataSource(this.donordashboardService);
   options: FormGroup;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
@@ -65,8 +68,8 @@ export class DonorDashboardComponent implements OnInit {
     { value: "misc_item", viewValue: "MISC" }
   ];
 
-  //setting donations to empty arry
-  userDonations: DonationList[] = [];
+  // //setting donations to empty arry
+  // userDonations: DonationList[] = [];
   
 
   constructor(
@@ -87,13 +90,26 @@ export class DonorDashboardComponent implements OnInit {
   ngOnInit() {
     console.log(this.donorStateService);
     
+<<<<<<< HEAD
 
     this.donordashboardService.getDonations(this.donor)
     .subscribe(data =>{
       this.userDonations = []
       console.log(data)
+=======
+    // this.donordashboardService.getDonations()
+    // .subscribe(data =>{
+    //   // this.userDonations.push();
+    //   const newObject = data;
+    //   for (let prop in newObject) {
+    //     console.log(typeof(prop));
+    //     this.displayedColumns.push(prop)
+    // }
+    
+    //   console.log(newObject)
+>>>>>>> cd00bf115725cb0507c0682649aee1bdb5b2c759
       // this.userDonations = []
-    })
+    // })
     
       // this.donordashboardService.getDonationById(this.donorStateService.donor.id)
       // .subscribe( data => {
@@ -140,6 +156,7 @@ export class DonorDashboardComponent implements OnInit {
     console.log(this.addForm.value);
     const donation = {
       used_shoes: parseInt(this.addForm.value.amount),
+<<<<<<< HEAD
       used_clothes: parseInt(this.addForm.value.amount),
       baby_food: parseInt(this.addForm.value.amount),
       diaper_bags: parseInt(this.addForm.value.amount),
@@ -148,6 +165,9 @@ export class DonorDashboardComponent implements OnInit {
       diaper_boxes: parseInt(this.addForm.value.amount),
       beds: parseInt(this.addForm.value.amount),
       misc_item: parseInt(this.addForm.value.amount)
+=======
+      used_clothing: parseInt(this.addForm.value.amount)
+>>>>>>> cd00bf115725cb0507c0682649aee1bdb5b2c759
     }
     // stop here if form is invalid
     if (this.addForm.invalid) {
@@ -174,11 +194,25 @@ export class DonorDashboardComponent implements OnInit {
         }
         
       );
-      this.donordashboardService.getDonationById(this.donor.id)
-    .subscribe( data => {
-      this.donor = data
-    })
+    //   this.donordashboardService.getDonationById(this.donations)
+    // .subscribe( data => {
+    //   this.donor = data
+    // })
   }
+}
+export class TableDataSource extends DataSource<any> {
+  constructor(private donorDashboardService: DonorDashboardService) {
+    super();
+  }
+  connect(): Observable<Donor[]> {
+  return this.donorDashboardService.getDonations();
+  //const newObject = Donor.data;
+    //   for (let prop in newObject) {
+    //     console.log(typeof(prop));
+    //     this.displayedColumns.push(prop)
+    // }
+}
+disconnect() {}
 }
 @Component({
   selector: "dialog-data-example-dialog",

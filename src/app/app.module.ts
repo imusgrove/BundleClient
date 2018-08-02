@@ -63,8 +63,7 @@ import { UiModule } from './ui/ui.module';
     DonorProfileComponent,
     // UserProfileComponent,
     DialogDataExampleDialog,
-    
-    
+  
   ],
   imports: [
     BrowserModule,
@@ -95,7 +94,8 @@ import { UiModule } from './ui/ui.module';
     MatOptionModule,
     MatSelectModule,
     UiModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   exports: [
     FormsModule,
@@ -103,10 +103,11 @@ import { UiModule } from './ui/ui.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    
 
   ],
   providers: [AuthService, DonorAuthService, DonorService, 
-    AuthGuard, DonorProfileService, DonorDashboardService, DonorAuthService ],
+    AuthGuard, DonorProfileService, DonorDashboardService, DonorAuthService, FormControlName ],
   bootstrap: [AppComponent],
   entryComponents: [ DialogDataExampleDialog ]
 
