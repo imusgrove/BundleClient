@@ -12,23 +12,23 @@ export class DonorService {
 
 
   constructor(private http: HttpClient ) { }
-  getAll() {
+    getAll() {
     return this.http.get<Donor[]>(`/donors`);
-}
+    }
 
-getById(id: number) {
-    return this.http.get(`/donor/` + id);
-}
+    getById(id: number) {
+        return this.http.get(`/donor/` + id);
+    }
 
-register(donor: Donor) {
-    return this.http.post(`${APIURL}/donor/createdonor`, donor);
-}
+    register(donor: Donor) {
+        return this.http.post(`${APIURL}/donor/createdonor`, donor);
+    }
 
-update(donor: Donor) {
-    return this.http.put(`/donor/` + donor.id, donor);
-}
+    update(donor: Donor) {
+        return this.http.put(`/donor/` + donor.id, donor);
+    }
 
-delete(id: number) {
-    return this.http.delete(`/donor/` + id);
-}
+    delete(id: number) {
+        return this.http.delete(`/donor/` + id);
+    }
 }

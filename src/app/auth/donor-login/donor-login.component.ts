@@ -15,56 +15,19 @@ import { DonorStateServiceService } from '../../services/donor-state-service.ser
 })
 export class DonorLoginComponent implements OnInit {
 
-  donorForm: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
+    donor_username: string;
+    donor_password: string;
 
-  constructor(
-      private formBuilder: FormBuilder,
-      private route: ActivatedRoute,
-      private router: Router,
-      private donorAuthService: DonorAuthService,
-      public donorStateService: DonorStateServiceService
-    ) {}
+  constructor(private donorAuthService: DonorAuthService) {}
 
-  ngOnInit() {
-      this.donorForm = this.formBuilder.group({
-          donor_username: ['', Validators.required],
-          donor_password: ['', Validators.required]
-      });
-
-      // reset login status
-      this.donorAuthService.logout();
-
-      // get return url from route parameters or default to '/'
-      this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/donordashboard';
-  }
-
-  // convenience getter for easy access to form fields
-  get f() { return this.donorForm.controls; }
+  ngOnInit() {}
 
   onSubmit() {
-      this.submitted = true;
-
-      // stop here if form is invalid
-      if (this.donorForm.invalid) {
-          return;
-      }
-
-      this.loading = true;
-      this.donorAuthService.login(this.f.donor_username.value, this.f.donor_password.value)
-        //   .pipe(first())
-          .subscribe(
-              data => {
-                this.donorStateService.donor = data.donor;
-                localStorage.setItem("token", data.sessionToken)
-                  this.router.navigate([this.returnUrl]);
-              },
-              error => {
-                  // this.alertService.error(error);
-                  this.loading = false;
-              });
+      var loginInfo = { donor: {
+          donor_username: this.donor_username,
+          donor_password: this.donor_password
+      }}
+      this.donorAuthService.login(loginInfo);
   }
-  }
+}
   

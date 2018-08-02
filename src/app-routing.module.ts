@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Route, RouterModule, Routes } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 
 
 import { AuthComponent } from './app/auth/auth.component';
@@ -16,7 +16,7 @@ import { ContactComponent } from './app/ui/contact/contact.component';
 import { DonorProfileComponent } from './app/donor-dashboard/donor-profile/donor-profile.component'
 
 
-const routes: Routes = [  
+const routes: Route[] = [  
   {path: '', redirectTo: 'donorlogin', pathMatch: 'full'},
   // {path: 'userlogin', component: UserLoginComponent},
   {path: 'donorlogin', component: DonorLoginComponent},

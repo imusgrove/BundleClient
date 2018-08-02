@@ -1,59 +1,59 @@
 <div class="container">
-  <div> *ngIf='profileForm'>
+  <div>
     <mat-card class="cardForProfile">
-        <form [formGroup]="profileForm">
+        <form>
             <h1>Donor Profile</h1>
         <div class="profileGroup">
             <mat-form-field>
-            <input matInput placeholder="First Name"  type="text" formControlName="donor_fname" class="profileForm" />
+            <input matInput placeholder="First Name"  type="text" [(ngModel)]="firstname" name="firstname" class="profileForm" />
           </mat-form-field>
         </div>
         <div class="profileForm">
             <mat-form-field>
-            <input matInput placeholder="Last Name" type="text" formControlName="donor_lname" class="profileForm" />
+            <input matInput placeholder="Last Name" type="text" [(ngModel)]="lastname" name="lastname" class="profileForm" />
           </mat-form-field>
         </div>
         <div class="profileForm"> 
         <mat-form-field class="donor-signup-component">
-          <input matInput placeholder="Username" type="text" formControlName="donor_username" class="profileForm"  >
+          <input matInput placeholder="Username" type="text" [(ngModel)]="username" name="username" class="profileForm"  >
         </mat-form-field>
         </div>
   
         <div class="profileForm">
           <mat-form-field class="donor-signup-component">
-            <input matInput placeholder="Email" formControlName="donor_email" class="profileForm"  />
+            <input matInput placeholder="Email" type="text" [(ngModel)]="email" name="email" class="profileForm"  />
           </mat-form-field>
         </div>
       
         <div class="profileForm">
           <mat-form-field class="donor-signup-component">
-            <input matInput placeholder="Password" formControlName="donor_password" class="profileForm" />
+            <input matInput placeholder="Password" type="password" class="profileForm" />
           </mat-form-field>
         </div>  
         <div class="profileForm">
             <mat-form-field>
-            <input matInput placeholder="Address"  type="text" formControlName="donor_address" class="profileForm" />
+            <input matInput placeholder="Address"  type="text" class="profileForm" />
           </mat-form-field>
           </div>
           <div class="profileForm">
               <mat-form-field>
-              <input matInput placeholder="City"  type="text" formControlName="donor_city" class="profileForm" />
+              <input matInput placeholder="City"  type="text" class="profileForm" />
             </mat-form-field>
             </div>
             <div class="profileForm">
                 <mat-form-field>
-                <input matInput placeholder="State"  type="text" formControlName="donor_state" class="profileForm" />
+                <input matInput placeholder="State"  type="text" class="profileForm" />
               </mat-form-field>
               </div>
       
               <div class="profileForm">
                   <mat-form-field>
-                  <input matInput placeholder="ZipCode"  type="text" formControlName="donor_zipCode" class="profileForm" />
+                  <input matInput placeholder="ZipCode"  type="text" class="profileForm" />
                 </mat-form-field>
                 </div>
                 <div class="profileForm">
                     <mat-form-field>
-                    <input matInput placeholder="Phone Number"  type="text" formControlName="donor_phoneNumber" class="profileForm" />
+                    <input matInput placeholder="Phone Number"  type="text" class="profileForm" />
                   </mat-form-field> 
                   </div>
       </form>
@@ -62,10 +62,8 @@
         <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit()>Update</button>
       </div>
       <div class="matButton-profile-delete">
-        <button mat-raised-button [disabled]="loading" class="submit" (click)=onDelete()>Delete Account</button>
+        <button mat-raised-button (click)=onDelete()>Delete Account</button>
       </div>
     </mat-card>
   </div>
   </div>
-
- 
