@@ -86,6 +86,7 @@ export class DonorDashboardComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.donorStateService);
+    
 
     this.donordashboardService.getDonations(this.donor)
     .subscribe(data =>{
@@ -138,7 +139,15 @@ export class DonorDashboardComponent implements OnInit {
     this.submitted = true;
     console.log(this.addForm.value);
     const donation = {
-      used_shoes: parseInt(this.addForm.value.amount)
+      used_shoes: parseInt(this.addForm.value.amount),
+      used_clothes: parseInt(this.addForm.value.amount),
+      baby_food: parseInt(this.addForm.value.amount),
+      diaper_bags: parseInt(this.addForm.value.amount),
+      bottles: parseInt(this.addForm.value.amount),
+      pacifiers: parseInt(this.addForm.value.amount),
+      diaper_boxes: parseInt(this.addForm.value.amount),
+      beds: parseInt(this.addForm.value.amount),
+      misc_item: parseInt(this.addForm.value.amount)
     }
     // stop here if form is invalid
     if (this.addForm.invalid) {
