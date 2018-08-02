@@ -34,12 +34,12 @@
   
         <ng-container matColumnDef="amount">
           <th mat-header-cell *matHeaderCellDef>Amount</th>
-          <td mat-cell *matCellDef="let donation"> {{ donation.amount }}</td>
+          <td mat-cell *matCellDef="let Donor"> {{ Donor.amount }}</td>
         </ng-container>
       
         <ng-container matColumnDef="items">
           <th mat-header-cell *matHeaderCellDef>Items</th>
-          <td mat-cell *ngFor="let object of newObject"> {{ object }}</td>
+          <td mat-cell *matCellDef="let Donor" > {{ Donor.item }}</td>
         </ng-container>
           
       <ng-container matColumnDef="select">

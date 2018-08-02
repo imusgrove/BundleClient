@@ -22,8 +22,8 @@ export class DonorDashboardService {
     })
   };
   //get all donations by donor id
-  getDonations() {
-    return this.http.get(`${APIURL}/donation/`, this.httpOptions);
+  getDonations(): Observable<Donor[]> {
+    return this.http.get<Donor[]>(`${APIURL}/donation/`, this.httpOptions);
   }
 
 

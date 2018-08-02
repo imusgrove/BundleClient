@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import {MatToolbarModule, MatButtonModule, MatCardModule, MatCheckboxModule, MatButtonToggleModule, MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatMenuModule, MatRadioModule, MatSlideToggleModule, MatSnackBarModule, MatTableModule, MatTooltipModule, MatListModule, MatOptionModule, MatSelectModule, MatSidenavModule } from '@angular/material';
+import { AppRoutingModule } from '../../app-routing.module';
 
 
 
@@ -35,6 +36,7 @@ import {MatToolbarModule, MatButtonModule, MatCardModule, MatCheckboxModule, Mat
     MatListModule,
     MatOptionModule,
     MatSelectModule,
+    AppRoutingModule
   ],
   declarations: [NavbarComponent, FooterComponent, LayoutComponent, AboutComponent, ContactComponent],
 

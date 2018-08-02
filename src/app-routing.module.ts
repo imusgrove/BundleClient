@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Route, RouterModule, Routes } from '@angular/router';
 
+
 import { AuthComponent } from './app/auth/auth.component';
 import { DonorLoginComponent } from './app/auth/donor-login/donor-login.component';
 // import { UserLoginComponent } from './app/auth/user-login/user-login.component';
@@ -23,7 +24,7 @@ const routes: Routes = [
   {path: 'donorsignup', component: DonorSignupComponent},   
   {path: 'donordashboard', component: DonorDashboardComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'contact', component:ContactComponent},
+  {path: 'contact', component: ContactComponent},
   // {path: 'userdashboard', component: UserDashboardComponent}, 
   {path: 'profile', component: DonorProfileComponent}
 ];

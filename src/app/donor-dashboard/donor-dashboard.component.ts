@@ -13,6 +13,8 @@ import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { Router } from "@angular/router";
 import { first } from "rxjs/operators";
 import { DonorStateServiceService } from "../services/donor-state-service.service";
+import { DataSource } from "../../../node_modules/@angular/cdk/table";
+// import { disconnect } from "cluster";
 export interface DonationList {
   amount: number;
   items: string;
@@ -28,6 +30,7 @@ const DONATION_DATA: DonationList[] = [
   // {amount: 20, items: 'Bottles',},
   // { amount: 5, items: 'Diaperbags'},
   // { amount: 10, items: 'Blankets'}
+  {amount: 0 , items: '',}
 ];
 
 
@@ -41,11 +44,11 @@ export class DonorDashboardComponent implements OnInit {
   loading = false;
   submitted = false;
 
-  donor: Donor;
+  donor: Donor[];
   // editDonor: Donor; // the hero currently being edited
 
   displayedColumns: string[] = ["select", "amount", "items"];
-  dataSource = DONATION_DATA;
+  dataSource = new TableDataSource(this.donordashboardService);
   options: FormGroup;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
@@ -65,8 +68,8 @@ export class DonorDashboardComponent implements OnInit {
     { value: "misc_item", viewValue: "MISC" }
   ];
 
-  //setting donations to empty arry
-  userDonations: DonationList[] = [];
+  // //setting donations to empty arry
+  // userDonations: DonationList[] = [];
   
 
   constructor(
@@ -86,14 +89,20 @@ export class DonorDashboardComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.donorStateService);
+    console.log(TableDataSource)
 
-    this.donordashboardService.getDonations()
-    .subscribe(data =>{
-      // this.userDonations.push();
-      const newObject = data;
-      console.log(newObject)
+    // this.donordashboardService.getDonations()
+    // .subscribe(data =>{
+    //   // this.userDonations.push();
+    //   const newObject = data;
+    //   for (let prop in newObject) {
+    //     console.log(typeof(prop));
+    //     this.displayedColumns.push(prop)
+    // }
+    
+    //   console.log(newObject)
       // this.userDonations = []
-    })
+    // })
     
       // this.donordashboardService.getDonationById(this.donorStateService.donor.id)
       // .subscribe( data => {
@@ -172,6 +181,15 @@ export class DonorDashboardComponent implements OnInit {
     //   this.donor = data
     // })
   }
+}
+export class TableDataSource extends DataSource<any> {
+  constructor(private donorDashboardService: DonorDashboardService) {
+    super();
+  }
+  connect(): Observable<Donor[]> {
+  return this.donorDashboardService.getDonations();
+}
+disconnect() {}
 }
 @Component({
   selector: "dialog-data-example-dialog",
