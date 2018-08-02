@@ -87,10 +87,11 @@ export class DonorDashboardComponent implements OnInit {
   ngOnInit() {
     console.log(this.donorStateService);
 
-    this.donordashboardService.getDonations(this.donor)
+    this.donordashboardService.getDonations()
     .subscribe(data =>{
-      this.userDonations = []
-      console.log(data)
+      // this.userDonations.push();
+      const newObject = data;
+      console.log(newObject)
       // this.userDonations = []
     })
     
@@ -138,7 +139,8 @@ export class DonorDashboardComponent implements OnInit {
     this.submitted = true;
     console.log(this.addForm.value);
     const donation = {
-      used_shoes: parseInt(this.addForm.value.amount)
+      used_shoes: parseInt(this.addForm.value.amount),
+      used_clothing: parseInt(this.addForm.value.amount)
     }
     // stop here if form is invalid
     if (this.addForm.invalid) {
@@ -165,10 +167,10 @@ export class DonorDashboardComponent implements OnInit {
         }
         
       );
-      this.donordashboardService.getDonationById(this.donor.id)
-    .subscribe( data => {
-      this.donor = data
-    })
+    //   this.donordashboardService.getDonationById(this.donations)
+    // .subscribe( data => {
+    //   this.donor = data
+    // })
   }
 }
 @Component({
