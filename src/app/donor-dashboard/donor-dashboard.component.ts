@@ -47,7 +47,7 @@ export class DonorDashboardComponent implements OnInit {
   donor: Donor[];
   // editDonor: Donor; // the hero currently being edited
 
-  displayedColumns: string[] = ["select", "amount", "items"];
+  displayedColumns: string[] = [ "amount", "items", "editbutton", "deletebutton"];
   dataSource = new TableDataSource(this.donordashboardService);
   options: FormGroup;
 
@@ -187,6 +187,11 @@ export class TableDataSource extends DataSource<any> {
   }
   connect(): Observable<Donor[]> {
   return this.donorDashboardService.getDonations();
+  //const newObject = Donor.data;
+    //   for (let prop in newObject) {
+    //     console.log(typeof(prop));
+    //     this.displayedColumns.push(prop)
+    // }
 }
 disconnect() {}
 }
