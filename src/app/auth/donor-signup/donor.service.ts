@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Donor } from './donor';
+import { APIURL } from '../../../environments/environment.prod'
 
 @Injectable({
    providedIn: 'root'
@@ -20,7 +21,7 @@ getById(id: number) {
 }
 
 register(donor: Donor) {
-    return this.http.post(`${this.url}/donor/createdonor`, donor);
+    return this.http.post(`${APIURL}/donor/createdonor`, donor);
 }
 
 update(donor: Donor) {

@@ -11,9 +11,6 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AppRoutingModule } from '../app-routing.module';
 import { DonorProfileComponent } from './donor-dashboard/donor-profile/donor-profile.component';
 // import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
-import { NavbarComponent } from './ui/navbar/navbar.component';
-import { FooterComponent } from './ui/footer/footer.component';
-import { LayoutComponent } from './ui/layout/layout.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ReactiveFormsModule, FormsModule, FormControlName } from '@angular/forms';
 import { 
@@ -44,17 +41,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
 import { DonorAuthService } from './donorAuth/donorAuth.service'
 import { DonorService } from './auth/donor-signup/donor.service'
-import {AboutComponent} from './ui/about/about.component';
-import {ContactComponent} from './ui/contact/contact.component';
 import { DialogDataExampleDialog } from './donor-dashboard/donor-dashboard.component'
-<<<<<<< HEAD
-import {UserService} from '../app/auth/user-signup/user.service';
-=======
->>>>>>> icd
 import { AuthGuard } from './auth/authGuard/auth.guard';
 // import { UserService } from './auth/user-signup/user.service';
 import { DonorProfileService } from './donor-dashboard/donor-profile/donor-profile.service';
 import { DonorDashboardService } from './donor-dashboard/donor-dashboard.service';
+import { UiModule } from './ui/ui.module';
+
 
 
 @NgModule({
@@ -69,16 +62,8 @@ import { DonorDashboardService } from './donor-dashboard/donor-dashboard.service
     UserDashboardComponent,
     DonorProfileComponent,
     // UserProfileComponent,
-    NavbarComponent,
-    FooterComponent,
-    LayoutComponent,
-    AboutComponent,
-    ContactComponent,
     DialogDataExampleDialog,
-<<<<<<< HEAD
-    ContactComponent
-=======
->>>>>>> icd
+  
   ],
   imports: [
     BrowserModule,
@@ -104,10 +89,11 @@ import { DonorDashboardService } from './donor-dashboard/donor-dashboard.service
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    LayoutModule,
+    // LayoutModule,
     MatListModule,
     MatOptionModule,
     MatSelectModule,
+    UiModule,
     HttpClientModule
   ],
   exports: [

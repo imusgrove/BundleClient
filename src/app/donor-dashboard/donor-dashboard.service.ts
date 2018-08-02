@@ -4,7 +4,8 @@ import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Donor } from './donation';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
-import { DonorDashboardComponent, Donations } from './donor-dashboard.component';
+import { DonorDashboardComponent, Donation } from './donor-dashboard.component';
+import {APIURL} from '../../environments/environment.prod';
 
 // import { HttpModule } from '@angular/http'
 
@@ -13,18 +14,21 @@ import { DonorDashboardComponent, Donations } from './donor-dashboard.component'
 export class DonorDashboardService { 
 
   constructor(private http: HttpClient) {}
-  donorUrl = 'http://localhost:3000/donation/createdonation';  // URL to web api
+  // donorUrl = 'http://localhost:3000/donation/createdonation';  // URL to web api
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
       'Authorization': 'currentUser'
     })
   };
-  getDonations() {
-    return this.http.get<Donor>(this.donorUrl);
+  //get all donations by donor id
+  getDonations(id) {
+    return this.http.get<Donor>(`${APIURL}/donation/`);
   }
+
+
   getDonationById(id: number) {
-    return this.http.get<Donor>(this.donorUrl + '/' + id)  ;
+    return this.http.get<Donor>(`${APIURL}/donation/${id}`, this.httpOptions)  ;
   }
   // createDonation(donor: Donor[]) {
   //   return this.http.post(this.donorUrl + '/createdonation' ,donor);
@@ -36,13 +40,18 @@ export class DonorDashboardService {
   //         //   catchError(this.handleError<Donor>('createDonation'))
   //         // );
   //     }
-  createDonation (donation: Donor): Observable<Donations> {
-    return this.http.post<Donations>(this.donorUrl, donation, this.httpOptions)
+  createDonation (donation: Donor): Observable<Donation> {
+    return this.http.post<Donation>(`${APIURL}/donation/createdonation`,donation, this.httpOptions)
       // .pipe(
       //   catchError(this.handleError('createDonation', donation))
       // );
   }
-//////// Save methods //////////
+  updateDonation(donation: Donor): Observable<Donation> {
+    return this.http.put<Donation>(`{APIURL}/donation/updatedonation`, donation.id , this.httpOptions)
+  }
+  deleteDonation(donation: Donor):  Observable<Donation> {
+    return this.http.delete<Donation>(`{APIURL}/donation/deletedonation`, this.httpOptions);
+  }
 
   
   createDonation (donation: Donations): Observable<Donations> {
