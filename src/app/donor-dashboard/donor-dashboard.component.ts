@@ -12,6 +12,7 @@ import { DonorDashboardService } from "./donor-dashboard.service";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { Router } from "@angular/router";
 import { first } from "rxjs/operators";
+import { DonorStateServiceService } from "../services/donor-state-service.service";
 export interface DonationList {
   amount: number;
   items: string;
@@ -28,6 +29,7 @@ const DONATION_DATA: DonationList[] = [
   // { amount: 5, items: 'Diaperbags'},
   // { amount: 10, items: 'Blankets'}
 ];
+
 
 @Component({
   selector: "app-donor-dashboard",
@@ -62,12 +64,16 @@ export class DonorDashboardComponent implements OnInit {
     { value: "beds", viewValue: "Beds" },
     { value: "misc_item", viewValue: "MISC" }
   ];
+
+  //setting donations to empty arry
+  userDonations: DonationList[] = [];
   
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private formBuilder: FormBuilder,
     private donordashboardService: DonorDashboardService,
+    public donorStateService: DonorStateServiceService,
     public dialog: MatDialog,
     private router: Router
   ) {
@@ -79,24 +85,36 @@ export class DonorDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    //get all donations
-    //   this.donordashboardService.getDonationById(this.donor.id)
-    //   .subscribe( data => {
-    //     this.donor = data
+    console.log(this.donorStateService);
 
-    //     //  this.addForm = this.formBuilder.group({
-    //     //   id: [],
-    //     //    item: [''],
-    //     //   amount: []
-    // //     .subscribe( data => {
-    // //       // this.donor = this.donor.filter(d => d !== donors);
-    //     // })
+    this.donordashboardService.getDonations(this.donor)
+    .subscribe(data =>{
+      this.userDonations = []
+      console.log(data)
+      // this.userDonations = []
+    })
+    
+      // this.donordashboardService.getDonationById(this.donorStateService.donor.id)
+      // .subscribe( data => {
+      //   console.log(data);
+      //   // this.donor = data
+      // })
+    
+
+    //      this.addForm = this.formBuilder.group({
+    //       id: [],
+    //        item: [''],
+    //       amount: []
+    //     .subscribe( data => {
+    //       // this.donor = this.donor.filter(d => d !== donors);
+    //     })
     // });
     this.addForm = this.formBuilder.group({
       id: [],
       item: [""],
       amount: []
     });
+  
       //     .subscribe( data => {
       //       // this.donor = this.donor.filter(d => d !== donors);
     // editDonation(donors: Donor): void {
@@ -112,6 +130,7 @@ export class DonorDashboardComponent implements OnInit {
     // }
     console.log(this.addForm);
   }
+      
   // convenience getter for easy access to form fields
   // get f() { return this.addForm.controls; }
 
@@ -126,6 +145,8 @@ export class DonorDashboardComponent implements OnInit {
       return;
     }
 
+    
+
     this.loading = true;
     console.log("test");
     this.donordashboardService
@@ -134,7 +155,7 @@ export class DonorDashboardComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          // this.alertService.success('Registration successful', true);
+          //push into donations
           console.log(data);
           this.router.navigate(["/donordashboard"]);
         },
@@ -142,7 +163,12 @@ export class DonorDashboardComponent implements OnInit {
           // this.alertService.error(error);
           this.loading = false;
         }
+        
       );
+      this.donordashboardService.getDonationById(this.donor.id)
+    .subscribe( data => {
+      this.donor = data
+    })
   }
 }
 @Component({

@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { DonorAuthService } from '../../donorAuth/donorAuth.service';
 import { AuthGuard } from '../authGuard/auth.guard';
+import { DonorStateServiceService } from '../../services/donor-state-service.service';
 
 
 
@@ -24,6 +25,7 @@ export class DonorLoginComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private donorAuthService: DonorAuthService,
+      public donorStateService: DonorStateServiceService
     ) {}
 
   ngOnInit() {
@@ -55,6 +57,7 @@ export class DonorLoginComponent implements OnInit {
         //   .pipe(first())
           .subscribe(
               data => {
+                this.donorStateService.donor = data.donor;
                 localStorage.setItem("token", data.sessionToken)
                   this.router.navigate([this.returnUrl]);
               },

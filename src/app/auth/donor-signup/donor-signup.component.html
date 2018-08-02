@@ -31,8 +31,9 @@
         <mat-form-field class="donor-signup-component">
           <input matInput placeholder="Password" type="password" formControlName="donor_password" class="registerForm" />
         </mat-form-field>
-      </div>   
-
+      </div>  
+      <div class="registerForm"> 
+      <mat-form-field class="donor-signup-component">
         <input matInput placeholder="Address" type="text" formControlName="donor_address" class="registerForm">
         <!-- <mat-error *ngIf="submitted && f.username.errors" class="invalid-feedback">
             <mat-error *ngIf="f.username.errors.required">Username is required</mat-error>
@@ -113,15 +114,7 @@
     
     <div class="matButton-signup-card-signup">
       <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit()>Signup</button>
-    </div>
+      <!-- <button mat-raised-button class="student" routerLink="/usersignup">I'm a User</button> -->
+   </div>
     <a routerLink="/donorlogin">Already have an account?</a>
   </mat-card>
-</form>
-
-<div class="matButton-signup-card-signup">
-  <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit() color="primary">Signup</button>
-  <button mat-raised-button class="student" color="primary" routerLink="/usersignup">I'm a User</button>
-</div>
-<a routerLink="/donorlogin">Already have an account?</a>
-</mat-card>
-</div>
