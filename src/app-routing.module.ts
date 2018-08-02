@@ -11,7 +11,7 @@ import { AppModule } from './app/app.module';
 import { AuthRoutingModule } from './app/auth/auth-routing/auth-routing.module';
 import { DonorDashboardComponent } from './app/donor-dashboard/donor-dashboard.component';
 import { AboutComponent } from './app/ui/about/about.component';
-import {ContactComponent} from './app/ui/contact/contact.component';
+import { ContactComponent } from './app/ui/contact/contact.component';
 import { DonorProfileComponent } from './app/donor-dashboard/donor-profile/donor-profile.component'
 
 

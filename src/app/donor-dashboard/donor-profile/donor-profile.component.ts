@@ -3,7 +3,8 @@ import {FormBuilder, FormGroup, FormControlName, Validators,} from '@angular/for
 import { Router } from '@angular/router';
 import{DonorProfileService} from './donor-profile.service';
 import { first } from 'rxjs/operators';
-
+import { DonorStateServiceService } from '../../services/donor-state-service.service';
+import { Donor } from '../../auth/donor-signup/donor';
 
 @Component({
   selector: 'app-donor-profile',
@@ -11,46 +12,48 @@ import { first } from 'rxjs/operators';
   styleUrls: ['./donor-profile.component.css']
 })
 export class DonorProfileComponent implements OnInit {
-  profileGroup: FormGroup;
+  profileForm: FormGroup;
   loading = false;
-    submitted = false;
+  submitted = false;
+  donor: Donor
 
   constructor(private formBuilder: FormBuilder,private router: Router, private donorProfileservice: DonorProfileService, private FormControlName: FormControlName) { }
 
   ngOnInit() {
+    console.log(this.donorProfileservice);
     
-    // this.profileGroup = this.formBuilder.group({
-    //   donor_fname: [''],
-    //   donor_email: [''],
-    //   donor_lname: [''],
-    //   donor_username: [''],
-    //   donor_password: [''],
-    //   donor_address: [''],
-    //   donor_city: [''],
-    //   donor_state: [''],
-    //   donor_zipCode: [''],
-    //   donor_phoneNumber: [''],
+    this.profileForm = this.formBuilder.group({
+      donor_fname: [''],
+      donor_lname: [''],
+      donor_username: [''],
+      donor_email: [''],
+      donor_password: [''],
+      donor_address: [''],
+      donor_city: [''],
+      donor_state: [''],
+      donor_zipCode: [''],
+      donor_phoneNumber: [''],
 
-    // });
-    this.profileGroup = new FormGroup({
-      donor_fname:FormControlName['donor_fname']
-   });
+    });
+  //   this.profileForm = new FormGroup({
+  //     donor_fname:FormControlName['donor_fname']
+  //  });
     
   }
 // convenience getter for easy access to form fields
-get f() { return this.profileGroup.controls; }
+get f() { return this.profileForm.controls; }
 
 
 onSubmit() {
   this.submitted = true;
 
   // stop here if form is invalid
-  if (this.profileGroup.invalid) {
+  if (this.profileForm.invalid) {
       return;
   }
 
   this.loading = true;
-  this.donorProfileservice.updateDonor(this.profileGroup.value)
+  this.donorProfileservice.updateDonor(this.profileForm.value)
       .pipe(first())
       .subscribe(
           data => {
@@ -62,5 +65,6 @@ onSubmit() {
               // this.alertService.error(error);
               this.loading = false;
           });
+          
 }
 }
