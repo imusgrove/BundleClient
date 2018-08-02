@@ -39,7 +39,7 @@
       
         <ng-container matColumnDef="items">
           <th mat-header-cell *matHeaderCellDef>Items</th>
-          <td mat-cell *matCellDef="let donation"> {{ donation.item }}</td>
+          <td mat-cell *ngFor="let object of newObject"> {{ object }}</td>
         </ng-container>
           
       <ng-container matColumnDef="select">
