@@ -29,7 +29,7 @@
   </mat-sidenav>
   <mat-sidenav-content>
       <h2 id="tableTitle">My Donations</h2>
-      <button mat-raised-button class="submit" [routerLink]="['/profile']" id="profileButton">Donor Profile</button>
+      <button mat-raised-button class="submit" routerLink="/profile" id="profileButton">Edit Profile</button>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="donationTable" > 
   
         <ng-container matColumnDef="amount">

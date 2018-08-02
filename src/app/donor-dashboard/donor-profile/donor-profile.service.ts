@@ -16,19 +16,19 @@ export class DonorProfileService {
     })
   };
   baseUrl: string = 'http://localhost:3000/donor';
-
+  donor: Donor
   getDonors() {
     return this.http.get<Donor[]>(this.baseUrl);
   }
 
   getDonorById(id: number): Observable<Donor>{
-    return this.http.get<Donor>(`{APIURL}/donation/editdonor`, this.httpOptions);
+    return this.http.get<Donor>(`${APIURL}/donation/getdonor/` + id, this.httpOptions);
   }
 
-  updateDonor(donor: Donor): Observable<Donor> {
-    return this.http.put<Donor>(`{APIURL}/donation/editdonor`, this.httpOptions)
+  updateDonor(id: number): Observable<Donor> {
+    return this.http.put<Donor>(`${APIURL}/donation/editdonor/` + id, this.httpOptions)
   }
   deleteDonor(id: number) {
-    return this.http.delete(`{APIURL}/donation/editdonor`, this.httpOptions);
+    return this.http.delete(`${APIURL}/donation/editdonor`, this.httpOptions);
   }
 }

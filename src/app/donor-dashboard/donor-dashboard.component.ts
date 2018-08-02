@@ -7,7 +7,7 @@ import {
 import { Observable } from "rxjs";
 import { map, subscribeOn } from "rxjs/operators";
 import { FormBuilder, FormGroup } from "@angular/forms";
-import { Donor } from "./donor";
+import { Donor } from "./donation";
 import { DonorDashboardService } from "./donor-dashboard.service";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { Router } from "@angular/router";
@@ -89,8 +89,7 @@ export class DonorDashboardComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.donorStateService);
-    console.log(TableDataSource)
-
+    
     // this.donordashboardService.getDonations()
     // .subscribe(data =>{
     //   // this.userDonations.push();

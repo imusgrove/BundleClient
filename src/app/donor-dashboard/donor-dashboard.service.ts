@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { Donor } from './donor';
+import { Donor } from './donation';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
 import { DonorDashboardComponent, Donation } from './donor-dashboard.component';
 import {APIURL} from '../../environments/environment.prod';
@@ -52,48 +52,4 @@ export class DonorDashboardService {
   deleteDonation(donation: Donor):  Observable<Donation> {
     return this.http.delete<Donation>(`{APIURL}/donation/deletedonation`, this.httpOptions);
   }
-
-//   /** GET heroes from the server */
-//   getDonations (): Observable<Donor[]> {
-//     return this.http.get<Donor[]>(this.donorUrl)
-//       .pipe(
-//         catchError(this.handleError('getDonations', []))
-//       );
-//   }
-// //////// Save methods //////////
-
-//   /** POST: add a new hero to the database */
-//   addDonation (donor: Donor): Observable<Donor> {
-//     return this.http.post<Donor>(this.donorUrl, donor, httpOptions)
-//       .pipe(
-//         catchError(this.handleError('addDonation', donor))
-//       );
-//   }
-
-//   /** DELETE: delete the hero from the server */
-//   deleteDonation (id: number): Observable<{}> {
-//     const url = `${this.donorUrl}/${id}`; // DELETE api/heroes/42
-//     return this.http.delete(url, httpOptions)
-//       .pipe(
-//         catchError(this.handleError('deleteDonation'))
-//       );
-//   }
-
-//   /** PUT: update the hero on the server. Returns the updated hero upon success. */
-//   updateDonation (donor: Donor): Observable<Donor> {
-//     httpOptions.headers =
-//       httpOptions.headers.set('Authorization', 'my-new-auth-token');
-
-//     return this.http.put<Donor>(this.donorUrl, donor, httpOptions)
-//       .pipe(
-//         catchError(this.handleError('updateDonation', donor))
-//       );
-//       }
- }
-      
-
-
-  
-  
-
-  
+}
