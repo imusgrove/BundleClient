@@ -22,14 +22,14 @@ export class DonorDashboardService {
     })
   };
   //get all donations by donor id
-  getDonations(id) {
-    return this.http.get<Donor>(`${APIURL}/donation/`);
+  getDonations() {
+    return this.http.get(`${APIURL}/donation/`, this.httpOptions);
   }
 
 
-  getDonationById(id: number) {
-    return this.http.get<Donor>(`${APIURL}/donation/${id}`, this.httpOptions)  ;
-  }
+  // getDonationById(id: number) {
+  //   return this.http.get<Donor>(`${APIURL}/donation/${id}`, this.httpOptions)  ;
+  // }
   // createDonation(donor: Donor[]) {
   //   return this.http.post(this.donorUrl + '/createdonation' ,donor);
   // }
@@ -41,13 +41,13 @@ export class DonorDashboardService {
   //         // );
   //     }
   createDonation (donation: Donor): Observable<Donation> {
-    return this.http.post<Donation>(`${APIURL}/donation/createdonation`,donation, this.httpOptions)
+    return this.http.post<Donation>(`${APIURL}/donation/createdonation`, donation,this.httpOptions)
       // .pipe(
       //   catchError(this.handleError('createDonation', donation))
       // );
   }
   updateDonation(donation: Donor): Observable<Donation> {
-    return this.http.put<Donation>(`{APIURL}/donation/updatedonation`, donation.id , this.httpOptions)
+    return this.http.put<Donation>(`{APIURL}/donation/updatedonation`, donation, this.httpOptions)
   }
   deleteDonation(donation: Donor):  Observable<Donation> {
     return this.http.delete<Donation>(`{APIURL}/donation/deletedonation`, this.httpOptions);
