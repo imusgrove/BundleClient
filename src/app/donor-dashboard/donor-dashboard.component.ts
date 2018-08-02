@@ -13,6 +13,7 @@ import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
 import { Router } from "@angular/router";
 import { first } from "rxjs/operators";
 import { DonorStateServiceService } from "../services/donor-state-service.service";
+
 export interface DonationList {
   amount: number;
   items: string;
@@ -28,10 +29,11 @@ export interface Donations {
   beds: string;
 }
 
-export interface DonationOptions {
+export interface Donation {
   value: string;
   viewValue: string;
 }
+
 export interface DialogData {
   animal: "panda" | "unicorn" | "lion";
 }
@@ -64,7 +66,7 @@ export class DonorDashboardComponent implements OnInit {
     .pipe(map(result => result.matches));
   selectedValue: string;
 
-  donations: DonationOptions[] = [
+  donations: Donation[] = [
     { value: "used_clothes", viewValue: "Clothes" },
     { value: "used_shoes", viewValue: "Shoes" },
     { value: "baby_food", viewValue: "Baby Food" },
