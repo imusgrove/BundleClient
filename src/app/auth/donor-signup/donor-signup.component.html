@@ -23,13 +23,13 @@
 
       <div class="registerForm">
         <mat-form-field class="donor-signup-component">
-          <input matInput placeholder="Email" formControlName="donor_email" class="registerForm"  />
+          <input matInput placeholder="Email" type="email" formControlName="donor_email" class="registerForm"  />
         </mat-form-field>
       </div>
     
       <div class="registerForm">
         <mat-form-field class="donor-signup-component">
-          <input matInput placeholder="Password" formControlName="donor_password" class="registerForm" />
+          <input matInput placeholder="Password" type="password" formControlName="donor_password" class="registerForm" />
         </mat-form-field>
       </div>   
 
@@ -96,7 +96,7 @@
 <!-- password -->
 <div class="registerForm">
   <mat-form-field class="donor-signup-component">
-    <input matInput placeholder="Password" formControlName="donor_password" class="registerForm" />
+    <input matInput placeholder="Password" type="password" class="registerForm" />
     <!-- <mat-error *ngIf="submitted && f.password.errors" class="invalid-feedback">
               <mat-error *ngIf="f.password.errors.required">Password is required</mat-error>
               <mat-error *ngIf="f.password.errors.minlength">Password must be at least 6 characters</mat-error>
@@ -113,12 +113,6 @@
     
     <div class="matButton-signup-card-signup">
       <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit()>Signup</button>
-<<<<<<< HEAD
-      <!-- <button mat-raised-button class="student" routerLink="/usersignup">I'm a User</button> -->
-   </div>
-    <a routerLink="/donorlogin">Already have an account?</a>
-  </mat-card>
-=======
     </div>
     <a routerLink="/donorlogin">Already have an account?</a>
   </mat-card>
@@ -131,4 +125,3 @@
 <a routerLink="/donorlogin">Already have an account?</a>
 </mat-card>
 </div>
->>>>>>> eaba1b3f226dfa2b63db00d38d162d19a3dc511e
