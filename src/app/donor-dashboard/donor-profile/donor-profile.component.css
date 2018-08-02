@@ -10,15 +10,6 @@
     text-align: center;
 }
 
-.cardForProfile a {
-    text-decoration: none;
-    color: #D9514E;
-}
-
-.cardForProfile a:hover {
-    text-decoration: underline;
-}
-
 button{
     float: right;
     margin: 1%;
@@ -30,4 +21,8 @@ button:hover{
     background-color: white;
     border: 1px solid #ff8cff;
 
+}
+
+.matButton-profile-delete {
+    float: left;
 }

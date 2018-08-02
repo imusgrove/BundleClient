@@ -15,20 +15,22 @@ export class DonorProfileService {
       'Authorization': 'currentUser'
     })
   };
-  baseUrl: string = 'http://localhost:3000/donor';
+  
   donor: Donor
+  
   getDonors() {
-    return this.http.get<Donor[]>(this.baseUrl);
+    return this.http.get<Donor[]>(`${APIURL}/donor/`);
   }
 
   getDonorById(id: number): Observable<Donor>{
-    return this.http.get<Donor>(`${APIURL}/donation/getdonor/` + id, this.httpOptions);
+    return this.http.get<Donor>(`${APIURL}/donor/getdonor/` + id, this.httpOptions);
   }
 
   updateDonor(id: number): Observable<Donor> {
-    return this.http.put<Donor>(`${APIURL}/donation/editdonor/` + id, this.httpOptions)
+    return this.http.put<Donor>(`${APIURL}/donor/editdonor/` + id, this.httpOptions)
   }
+
   deleteDonor(id: number) {
-    return this.http.delete(`${APIURL}/donation/editdonor`, this.httpOptions);
+    return this.http.delete(`${APIURL}/donor/deletedonor/` + id, this.httpOptions);
   }
 }

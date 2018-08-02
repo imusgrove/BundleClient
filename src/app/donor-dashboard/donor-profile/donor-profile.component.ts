@@ -16,12 +16,14 @@ export class DonorProfileComponent implements OnInit {
   loading = false;
   submitted = false;
   donor: Donor
-
-  constructor(private formBuilder: FormBuilder,private router: Router, private donorProfileservice: DonorProfileService, private FormControlName: FormControlName) { }
+  
+  constructor(private formBuilder: FormBuilder,private router: Router, private donorProfileservice: DonorProfileService, private FormControlName: FormControlName, public donorInfo: DonorStateServiceService) { }
+  
 
   ngOnInit() {
-    console.log(this.donorProfileservice);
-    
+    console.log(this.donorInfo);
+    console.log(this.donor);
+
     this.profileForm = this.formBuilder.group({
       donor_fname: [''],
       donor_lname: [''],
@@ -64,7 +66,22 @@ onSubmit() {
           error => {
               // this.alertService.error(error);
               this.loading = false;
+              console.log(error);
           });
           
-}
+  }
+
+  onDelete() {
+    this.donorProfileservice.deleteDonor(this.donor.id)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log(data);
+          this.router.navigate(['/donorlogin']);
+        },
+        error => {
+          console.log(error);
+        }
+      )
+  }
 }
