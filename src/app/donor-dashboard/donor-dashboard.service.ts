@@ -52,39 +52,4 @@ export class DonorDashboardService {
   deleteDonation(donation: Donor):  Observable<Donation> {
     return this.http.delete<Donation>(`{APIURL}/donation/deletedonation`, this.httpOptions);
   }
-
-  
-  createDonation (donation: Donations): Observable<Donations> {
-    return this.http.post<Donations>(this.donorUrl, donation, httpOptions)
-      .pipe(
-        catchError(this.handleError('createDonation', donation))
-      );
-  }
-
-  
-  deleteDonation (id: number): Observable<{}> {
-    const url = `${this.donorUrl}/${id}`;
-    return this.http.delete(url, httpOptions)
-      .pipe(
-        catchError(this.handleError('deleteDonation'))
-      );
-  }
-
-  
-  updateDonation (donation: Donations): Observable<Donations> {
-    httpOptions.headers =
-      httpOptions.headers.set('Authorization', 'my-new-auth-token');
-
-    return this.http.put<Donation>(this.donorUrl, donation, httpOptions)
-      .pipe(
-        catchError(this.handleError('updateDonation', donation))
-      );
-      }
- }
-      
-
-
-  
-  
-
-  
+}
