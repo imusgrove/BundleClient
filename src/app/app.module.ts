@@ -43,10 +43,11 @@ import { DonorAuthService } from './donorAuth/donorAuth.service'
 import { DonorService } from './auth/donor-signup/donor.service'
 import { DialogDataExampleDialog } from './donor-dashboard/donor-dashboard.component'
 import { AuthGuard } from './auth/authGuard/auth.guard';
-// import { UserService } from './auth/user-signup/user.service';
+import { UserService } from './auth/user-signup/user.service';
 import { DonorProfileService } from './donor-dashboard/donor-profile/donor-profile.service';
 import { DonorDashboardService } from './donor-dashboard/donor-dashboard.service';
 import { UiModule } from './ui/ui.module';
+import { UserProfileComponent } from './user-dashboard/user-profile/user-profile.component';
 
 
 
@@ -61,7 +62,7 @@ import { UiModule } from './ui/ui.module';
     DonorDashboardComponent,
     UserDashboardComponent,
     DonorProfileComponent,
-    // UserProfileComponent,
+    UserProfileComponent,
     DialogDataExampleDialog,
   
   ],
