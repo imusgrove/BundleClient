@@ -50,30 +50,6 @@ export class DonorProfileComponent implements OnInit {
     })
   }
 
-// onSubmit() {
-//   this.submitted = true;
-
-//   // stop here if form is invalid
-//   if (this.profileForm.invalid) {
-//       return;
-//   }
-
-//   this.loading = true;
-//   this.donorProfileservice.updateDonor(this.profileForm.value)
-//       .pipe(first())
-//       .subscribe(
-//           data => {
-//               // this.alertService.success('Registration successful', true);
-//               console.log(data);
-//               this.router.navigate(['/donorlogin']);
-//           },
-//           error => {
-//               // this.alertService.error(error);
-//               this.loading = false;
-//               console.log(error);
-//           });     
-//   }
-
   onDelete() {
     this.donorAuthService.deleteDonor(localStorage.id).subscribe(data => {
       this.array.push(data);
@@ -84,7 +60,7 @@ export class DonorProfileComponent implements OnInit {
   }
 
   onUpdate() {
-    var newInfo = { donor: {
+    var editDonor = { donor: {
       donor_fname: this.firstname,
       donor_lname: this.lastname,
       donor_username: this.username,
@@ -95,9 +71,9 @@ export class DonorProfileComponent implements OnInit {
       donor_zipCode: this.zipcode,
       donor_phoneNumber: this.phonenumber
     }}
-    this.donorProfileService.updateDonor(localStorage.id, newInfo).subscribe(data => {
-      console.log(data);
-      // this.array.push(data);
+    this.donorAuthService.updateDonor(localStorage.id, editDonor).subscribe(data => {
+      this.array.push(data);
+      location.reload();
     })
     this.router.navigate(["/donordashboard"]);
   }

@@ -27,6 +27,10 @@ export class DonorAuthService {
       return this.http.get(`${APIURL}/donor/getdonor/${id}`)
   }
 
+  updateDonor(id, donorInfo) {
+      return this.http.put(`${APIURL}/donor/editdonor/${id}`, donorInfo)
+  }
+
   deleteDonor(id) {
       return this.http.delete(`${APIURL}/donor/deletedonor/${id}`)
   }
