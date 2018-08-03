@@ -49,7 +49,7 @@ export class DonorDashboardService {
     return this.http.put<Donation>(`${APIURL}/donation/updatedonation`, donation, this.httpOptions)
   }
 
-  deleteDonation(id) {
-    return this.http.delete(`${APIURL}/donation/deletedonation/${id}`);
+  deleteDonation(id:number) {
+    return this.http.delete(`${APIURL}/donation/deletedonation/${id}`, this.httpOptions);
   }
 }

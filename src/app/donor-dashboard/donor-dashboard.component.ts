@@ -1,10 +1,10 @@
-import { Component, OnInit, Inject, Injector, Injectable} from "@angular/core";
+import { Component, OnInit, Inject, Injector, Injectable } from "@angular/core";
 import {
   BreakpointObserver,
   Breakpoints,
   BreakpointState
 } from "@angular/cdk/layout";
-import { Observable } from "rxjs";
+import { Observable, identity } from "rxjs";
 import { map, subscribeOn } from "rxjs/operators";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Donor } from "./donation";
@@ -27,20 +27,17 @@ export interface DialogData {
   animal: "panda" | "unicorn" | "lion";
 }
 export interface CustomDonor {
-  id: number,
-  donationItem: string,
-  donationAmount: number
+  id: number;
+  donationItem: string;
+  donationAmount: number;
 }
-
-
 
 const DONATION_DATA: DonationList[] = [
   // {amount: 20, items: 'Bottles',},
   // { amount: 5, items: 'Diaperbags'},
   // { amount: 10, items: 'Blankets'}
-  {amount: 0 , items: '',}
+  { amount: 0, items: "" }
 ];
-
 
 @Component({
   selector: "app-donor-dashboard",
@@ -53,9 +50,15 @@ export class DonorDashboardComponent implements OnInit {
   submitted = false;
   donor: Donor[];
   array: Object[] = [];
-  displayedColumns: string[] = [ "amount", "items", "editbutton", "deletebutton"];
+  displayedColumns: string[] = [
+    "amount",
+    "items",
+    "editbutton",
+    "deletebutton"
+  ];
   dataSource = new TableDataSource(this.donordashboardService);
   options: FormGroup;
+  id: number;
 
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
@@ -91,9 +94,7 @@ export class DonorDashboardComponent implements OnInit {
 
   donors = [];
 
-  
   ngOnInit() {
-
     /*this.donorDashboardService.getDonations().subscribe(data => {
       return data.map(obj => {
         let customDonor = {id: 0, donationItem: '', donationAmount: 0}
@@ -109,7 +110,7 @@ export class DonorDashboardComponent implements OnInit {
         return customDonor
       })
     });*/
-    
+
     this.addForm = this.formBuilder.group({
       id: [],
       options: [""],
@@ -122,13 +123,12 @@ export class DonorDashboardComponent implements OnInit {
     const donation: Donation = {
       donationOption: this.addForm.value.options,
       donationAmount: parseInt(this.addForm.value.amount)
-    }
+    };
     // stop here if form is invalid
     if (this.addForm.invalid) {
       return;
     }
 
-    
     //create donation
     this.loading = true;
     console.log("test");
@@ -146,43 +146,41 @@ export class DonorDashboardComponent implements OnInit {
           // this.alertService.error(error);
           this.loading = false;
         }
-        
       );
-    }
-      //delete donation
-  onDelete() {
-    this.donordashboardService.deleteDonation(this.donor).subscribe(data => {
-      this.array.push(data);
-    })
-    console.log("Donation deleted");
-    this.router.navigate(["/donordashboard"]);
   }
+  //delete donation
+  onDelete(id) {
+    this.donordashboardService.deleteDonation(id).subscribe(
+      data => {
+        this.array.push(data);
+      },
+      error => {},
+      () => {
+        console.log("Donation deleted");
+        console.log(id);
+        this.router.navigate(["/donordashboard"]);
+
+      }
+    );  
+    
+  }
+
+  //edit donation
 }
 export class TableDataSource extends DataSource<any> {
-
   constructor(private donorDashboardService: DonorDashboardService) {
     super();
-
-
   }
 
-
   connect(): any {
-  return this.donorDashboardService.getDonations();
-
- 
-}
-disconnect() {
-
-}
+    return this.donorDashboardService.getDonations();
+  }
+  disconnect() {}
 }
 @Component({
   selector: "dialog-data-example-dialog",
   templateUrl: "donor-dashboard-edit.html"
 })
-
 export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {
-
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }
