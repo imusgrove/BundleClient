@@ -41,7 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth/auth.service';
 import { DonorAuthService } from './donorAuth/donorAuth.service'
 import { DonorService } from './auth/donor-signup/donor.service'
-import { DialogDataExampleDialog } from './donor-dashboard/donor-dashboard.component'
+import { DonationEditDialogue } from './donor-dashboard/donor-dashboard.component'
 import { AuthGuard } from './auth/authGuard/auth.guard';
 import { UserService } from './auth/user-signup/user.service';
 import { DonorProfileService } from './donor-dashboard/donor-profile/donor-profile.service';
@@ -63,7 +63,7 @@ import { UserProfileComponent } from './user-dashboard/user-profile/user-profile
     UserDashboardComponent,
     DonorProfileComponent,
     UserProfileComponent,
-    DialogDataExampleDialog,
+    DonationEditDialogue,
   
   ],
   imports: [
@@ -73,7 +73,6 @@ import { UserProfileComponent } from './user-dashboard/user-profile/user-profile
     MatCardModule,
     MatCheckboxModule,
     MatButtonToggleModule,
-    MatDialogModule,
     MatFormFieldModule,
     MatGridListModule,
     MatIconModule,
@@ -87,6 +86,7 @@ import { UserProfileComponent } from './user-dashboard/user-profile/user-profile
     MatTableModule,
     MatToolbarModule,
     MatTooltipModule,
+    MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -110,7 +110,7 @@ import { UserProfileComponent } from './user-dashboard/user-profile/user-profile
   providers: [AuthService, DonorAuthService, DonorService, 
     AuthGuard, DonorProfileService, DonorDashboardService, DonorAuthService, FormControlName ],
   bootstrap: [AppComponent],
-  entryComponents: [ DialogDataExampleDialog ]
+  entryComponents: [ DonationEditDialogue ]
 
 })
 export class AppModule { }

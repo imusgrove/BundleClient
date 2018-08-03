@@ -9,7 +9,7 @@ import { map, subscribeOn } from "rxjs/operators";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Donor } from "./donation";
 import { DonorDashboardService } from "./donor-dashboard.service";
-import { MatDialog, MAT_DIALOG_DATA } from "@angular/material";
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { Router } from "@angular/router";
 import { first } from "rxjs/operators";
 import { DonorStateServiceService } from "../services/donor-state-service.service";
@@ -95,21 +95,6 @@ export class DonorDashboardComponent implements OnInit {
   donors = [];
 
   ngOnInit() {
-    /*this.donorDashboardService.getDonations().subscribe(data => {
-      return data.map(obj => {
-        let customDonor = {id: 0, donationItem: '', donationAmount: 0}
-        customDonor.id = obj.id
-        delete obj.id
-        for(let key in obj) {
-          if(obj[key] > 0) {
-            customDonor.donationItem = key
-            customDonor.donationAmount = obj[key]
-            break;
-          }
-        }
-        return customDonor
-      })
-    });*/
 
     this.addForm = this.formBuilder.group({
       id: [],
@@ -166,6 +151,12 @@ export class DonorDashboardComponent implements OnInit {
   }
 
   //edit donation
+  editDonation(): void {
+    const donationEdit = this.dialog.open(DonationEditDialogue, {
+      height: "200px",
+      width: "250px"
+    });
+  }
 }
 export class TableDataSource extends DataSource<any> {
   constructor(private donorDashboardService: DonorDashboardService) {
@@ -178,9 +169,19 @@ export class TableDataSource extends DataSource<any> {
   disconnect() {}
 }
 @Component({
-  selector: "dialog-data-example-dialog",
-  templateUrl: "donor-dashboard-edit.html"
+  selector: "donation-edit-dialogue",
+  templateUrl: "./donation-edit-dialogue.html",
+  styleUrls: ["./donation-edit-dialogue.css"]
 })
-export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+export class DonationEditDialogue {
+  constructor(public donationEdit: MatDialogRef<DonationEditDialogue>) {}
+
+  onEditSubmit(): void {
+    this.donationEdit.close();
+  }
+
+  ngOnInit() {
+
+  }
+
 }
