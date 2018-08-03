@@ -151,7 +151,7 @@ export class DonorDashboardComponent implements OnInit {
     }
       //delete donation
   onDelete() {
-    this.donordashboardService.deleteDonation(donation.id).subscribe(data => {
+    this.donordashboardService.deleteDonation(this.donor).subscribe(data => {
       this.array.push(data);
     })
     console.log("Donation deleted");
