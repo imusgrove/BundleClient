@@ -45,8 +45,10 @@ export class DonorDashboardService {
       //   catchError(this.handleError('createDonation', donation))
       // );
   }
-  updateDonation(donation: Donor): Observable<Donation> {
-    return this.http.put<Donation>(`${APIURL}/donation/updatedonation`, donation, this.httpOptions)
+
+  //update donation
+  updateDonation(donation: CustomDonor): Observable<CustomDonor> {
+    return this.http.put<CustomDonor>(`${APIURL}/donation/updatedonation`, donation, this.httpOptions)
   }
 
   deleteDonation(id:number) {
