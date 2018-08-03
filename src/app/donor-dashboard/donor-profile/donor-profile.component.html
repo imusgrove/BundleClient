@@ -23,43 +23,38 @@
           <mat-form-field class="donor-signup-component">
             <input matInput placeholder="Email" type="text" [(ngModel)]="email" name="email" class="profileForm"  />
           </mat-form-field>
-        </div>
-      
-        <div class="profileForm">
-          <mat-form-field class="donor-signup-component">
-            <input matInput placeholder="Password" type="password" class="profileForm" />
-          </mat-form-field>
         </div>  
         <div class="profileForm">
             <mat-form-field>
-            <input matInput placeholder="Address"  type="text" class="profileForm" />
+            <input matInput placeholder="Address"  type="text"
+            [(ngModel)]="address" name="address" class="profileForm" />
           </mat-form-field>
           </div>
           <div class="profileForm">
               <mat-form-field>
-              <input matInput placeholder="City"  type="text" class="profileForm" />
+              <input matInput placeholder="City"  type="text" [(ngModel)]="city" name="city" class="profileForm" />
             </mat-form-field>
             </div>
             <div class="profileForm">
                 <mat-form-field>
-                <input matInput placeholder="State"  type="text" class="profileForm" />
+                <input matInput placeholder="State"  type="text" [(ngModel)]="state" name="state" class="profileForm" />
               </mat-form-field>
               </div>
       
               <div class="profileForm">
                   <mat-form-field>
-                  <input matInput placeholder="ZipCode"  type="text" class="profileForm" />
+                  <input matInput placeholder="ZipCode"  type="text" [(ngModel)]="zipcode" name="zipcode" class="profileForm" />
                 </mat-form-field>
                 </div>
                 <div class="profileForm">
                     <mat-form-field>
-                    <input matInput placeholder="Phone Number"  type="text" class="profileForm" />
+                    <input matInput placeholder="Phone Number"  type="text" [(ngModel)]="phonenumber" name="phonenumber" class="profileForm" />
                   </mat-form-field> 
                   </div>
       </form>
       
       <div class="matButton-signup-card-signup">
-        <button mat-raised-button [disabled]="loading" class="submit" (click)=onSubmit()>Update</button>
+        <button mat-raised-button (click)=onUpdate()>Update</button>
       </div>
       <div class="matButton-profile-delete">
         <button mat-raised-button (click)=onDelete()>Delete Account</button>

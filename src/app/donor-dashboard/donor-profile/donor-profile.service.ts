@@ -26,8 +26,8 @@ export class DonorProfileService {
     return this.http.get<Donor>(`${APIURL}/donor/getdonor/` + id, this.httpOptions);
   }
 
-  updateDonor(id: number): Observable<Donor> {
-    return this.http.put<Donor>(`${APIURL}/donor/editdonor/` + id, this.httpOptions)
+  updateDonor(id, newInfo) {
+    return this.http.put(`${APIURL}/donor/editdonor/${id}`, newInfo)
   }
 
   deleteDonor(id: number) {

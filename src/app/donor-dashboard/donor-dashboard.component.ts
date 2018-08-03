@@ -88,7 +88,6 @@ export class DonorDashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.donorStateService);
     
     // this.donordashboardService.getDonations()
     // .subscribe(data =>{
@@ -137,7 +136,6 @@ export class DonorDashboardComponent implements OnInit {
 
     //   })
     // }
-    console.log(this.addForm);
   }
       
   // convenience getter for easy access to form fields

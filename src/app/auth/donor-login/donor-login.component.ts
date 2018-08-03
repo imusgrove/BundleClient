@@ -18,7 +18,7 @@ export class DonorLoginComponent implements OnInit {
     donor_username: string;
     donor_password: string;
 
-  constructor(private donorAuthService: DonorAuthService) {}
+  constructor(private donorAuthService: DonorAuthService, public router: Router) {}
 
   ngOnInit() {}
 
@@ -28,6 +28,7 @@ export class DonorLoginComponent implements OnInit {
           donor_password: this.donor_password
       }}
       this.donorAuthService.login(loginInfo);
+      this.router.navigate(["/donordashboard"]);
   }
 }
   

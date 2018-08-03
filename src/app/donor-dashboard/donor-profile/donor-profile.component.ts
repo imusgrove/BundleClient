@@ -7,6 +7,7 @@ import { DonorStateServiceService } from '../../services/donor-state-service.ser
 import { Donor } from '../../auth/donor-signup/donor';
 import { DonorAuthService } from '../../donorAuth/donorAuth.service';
 
+
 @Component({
   selector: 'app-donor-profile',
   templateUrl: './donor-profile.component.html',
@@ -25,23 +26,27 @@ export class DonorProfileComponent implements OnInit {
   phonenumber: string;
   array: Object[] = [];
   
-  constructor(public donorAuthService: DonorAuthService, private router: Router) { }
+  constructor(public donorAuthService: DonorAuthService, public donorProfileService: DonorProfileService, private router: Router) { }
   
 
   ngOnInit() {
 
     this.getDonorInfo();
-    console.log(localStorage)
   }
 
   getDonorInfo() {
     this.donorAuthService.getDonor(localStorage.id).subscribe(data => {
       let userInfo = Object.values(data);
-      console.log(userInfo)
+      // console.log(userInfo)
       this.firstname = userInfo[1],
       this.lastname = userInfo[2],
       this.username = userInfo[3],
-      this.email = userInfo[5]
+      this.email = userInfo[5],
+      this.address = userInfo[6],
+      this.city = userInfo[7],
+      this.state = userInfo[8],
+      this.zipcode = userInfo[9],
+      this.phonenumber = userInfo[10]
     })
   }
 
@@ -76,5 +81,24 @@ export class DonorProfileComponent implements OnInit {
     console.log("User deleted");
     this.router.navigate(["/donorlogin"]);
     localStorage.clear();
+  }
+
+  onUpdate() {
+    var newInfo = { donor: {
+      donor_fname: this.firstname,
+      donor_lname: this.lastname,
+      donor_username: this.username,
+      donor_email: this.email,
+      donor_address: this.address,
+      donor_city: this.city,
+      donor_state: this.state,
+      donor_zipCode: this.zipcode,
+      donor_phoneNumber: this.phonenumber
+    }}
+    this.donorProfileService.updateDonor(localStorage.id, newInfo).subscribe(data => {
+      console.log(data);
+      // this.array.push(data);
+    })
+    this.router.navigate(["/donordashboard"]);
   }
 }
