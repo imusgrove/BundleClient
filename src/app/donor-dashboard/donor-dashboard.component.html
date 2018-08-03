@@ -56,7 +56,7 @@
         </ng-container>
         <ng-container matColumnDef="deletebutton">
           <th mat-header-cell *matHeaderCellDef>Delete</th>
-          <td mat-cell *matCellDef="let Donor" >    <button mat-raised-button class="submit" id="tableDeleteButton">Delete Item</button></td>
+          <td mat-cell *matCellDef="let Donor" >    <button mat-raised-button class="submit"  id="tableDeleteButton" (click)=onDelete()>Delete Item</button></td>
         </ng-container>
           
           

@@ -46,9 +46,10 @@ export class DonorDashboardService {
       // );
   }
   updateDonation(donation: Donor): Observable<Donation> {
-    return this.http.put<Donation>(`{APIURL}/donation/updatedonation`, donation, this.httpOptions)
+    return this.http.put<Donation>(`${APIURL}/donation/updatedonation`, donation, this.httpOptions)
   }
-  deleteDonation(donation: Donor):  Observable<Donation> {
-    return this.http.delete<Donation>(`{APIURL}/donation/deletedonation`, this.httpOptions);
+
+  deleteDonation(id) {
+    return this.http.delete(`${APIURL}/donation/deletedonation/${id}`);
   }
 }

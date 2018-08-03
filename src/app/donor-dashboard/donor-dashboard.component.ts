@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Injector, Injectable } from "@angular/core";
+import { Component, OnInit, Inject, Injector, Injectable} from "@angular/core";
 import {
   BreakpointObserver,
   Breakpoints,
@@ -32,6 +32,8 @@ export interface CustomDonor {
   donationAmount: number
 }
 
+
+
 const DONATION_DATA: DonationList[] = [
   // {amount: 20, items: 'Bottles',},
   // { amount: 5, items: 'Diaperbags'},
@@ -49,10 +51,8 @@ export class DonorDashboardComponent implements OnInit {
   addForm: FormGroup;
   loading = false;
   submitted = false;
-
   donor: Donor[];
-  // editDonor: Donor; // the hero currently being edited
-
+  array: Object[] = [];
   displayedColumns: string[] = [ "amount", "items", "editbutton", "deletebutton"];
   dataSource = new TableDataSource(this.donordashboardService);
   options: FormGroup;
@@ -129,7 +129,7 @@ export class DonorDashboardComponent implements OnInit {
     }
 
     
-
+    //create donation
     this.loading = true;
     console.log("test");
     this.donordashboardService
@@ -148,10 +148,14 @@ export class DonorDashboardComponent implements OnInit {
         }
         
       );
-    //   this.donordashboardService.getDonationById(this.donations)
-    // .subscribe( data => {
-    //   this.donor = data
-    // })
+    }
+      //delete donation
+  onDelete() {
+    this.donordashboardService.deleteDonation(donation.id).subscribe(data => {
+      this.array.push(data);
+    })
+    console.log("Donation deleted");
+    this.router.navigate(["/donordashboard"]);
   }
 }
 export class TableDataSource extends DataSource<any> {
@@ -166,11 +170,7 @@ export class TableDataSource extends DataSource<any> {
   connect(): any {
   return this.donorDashboardService.getDonations();
 
-  //const newObject = Donor.data;
-    //   for (let prop in newObject) {
-    //     console.log(typeof(prop));
-    //     this.displayedColumns.push(prop)
-    // }
+ 
 }
 disconnect() {
 
