@@ -1,5 +1,5 @@
 export interface Donor {
-  // id?: number;
+  id?: number;
   amount?: number;
   used_clothing?: number;
   used_shoes?: number;

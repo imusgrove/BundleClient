@@ -4,12 +4,10 @@ import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Donor } from './donation';
 import { HttpErrorHandler, HandleError } from '../http-error-handler.service';
-import { DonorDashboardComponent, Donation } from './donor-dashboard.component';
+import { Donation, CustomDonor } from './donor-dashboard.component';
 import {APIURL} from '../../environments/environment.prod';
 
 // import { HttpModule } from '@angular/http'
-
-
 @Injectable()
 export class DonorDashboardService { 
 
@@ -21,9 +19,10 @@ export class DonorDashboardService {
       'Authorization': 'currentUser'
     })
   };
+
   //get all donations by donor id
-  getDonations(): Observable<Donor[]> {
-    return this.http.get<Donor[]>(`${APIURL}/donation/`, this.httpOptions);
+  getDonations(): Observable<CustomDonor[]> {
+    return this.http.get<CustomDonor[]>(`${APIURL}/donation/`, this.httpOptions);
   }
 
 
@@ -40,7 +39,7 @@ export class DonorDashboardService {
   //         //   catchError(this.handleError<Donor>('createDonation'))
   //         // );
   //     }
-  createDonation (donation: Donor): Observable<Donation> {
+  createDonation (donation: Donation): Observable<Donation> {
     return this.http.post<Donation>(`${APIURL}/donation/createdonation`, donation,this.httpOptions)
       // .pipe(
       //   catchError(this.handleError('createDonation', donation))
