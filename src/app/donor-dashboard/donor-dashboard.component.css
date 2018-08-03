@@ -15,10 +15,10 @@
     top: 5em;
   }
   table {
-    width: 30%;
+    width: 80%;
     height: 50%;
     margin-top: 5em; 
-    margin-left: 22em;
+    margin-left: 10em;
   }
   #sideNavForm{
     margin-top: 5em;
@@ -43,14 +43,14 @@
     margin-left: 16em;
   }
   #tableUpdateButton{
-    margin-top: 2em;
-    margin-left: 25em;
+    /* margin-top: 2em;
+    margin-left: 25em; */
     background-color: #ec528d;
     color: white;
   }
   #tableDeleteButton{
-    margin-top: 2em;
-    margin-left: 1em;
+    /* margin-top: 2em;
+    margin-left: 1em; */
     background-color: #ec528d;
     color: white;
   }  

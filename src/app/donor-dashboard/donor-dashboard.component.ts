@@ -20,12 +20,18 @@ export interface DonationList {
   items: string;
 }
 export interface Donation {
-  value: string;
-  viewValue: string;
+  donationOption: string;
+  donationAmount: number;
 }
 export interface DialogData {
   animal: "panda" | "unicorn" | "lion";
 }
+export interface CustomDonor {
+  id: number,
+  donationItem: string,
+  donationAmount: number
+}
+
 const DONATION_DATA: DonationList[] = [
   // {amount: 20, items: 'Bottles',},
   // { amount: 5, items: 'Diaperbags'},
@@ -47,7 +53,7 @@ export class DonorDashboardComponent implements OnInit {
   donor: Donor[];
   // editDonor: Donor; // the hero currently being edited
 
-  displayedColumns: string[] = ["select", "amount", "items"];
+  displayedColumns: string[] = [ "amount", "items", "editbutton", "deletebutton"];
   dataSource = new TableDataSource(this.donordashboardService);
   options: FormGroup;
 
@@ -56,7 +62,7 @@ export class DonorDashboardComponent implements OnInit {
     .pipe(map(result => result.matches));
   selectedValue: string;
 
-  donations: Donation[] = [
+  donations: any[] = [
     { value: "used_clothes", viewValue: "Clothes" },
     { value: "used_shoes", viewValue: "Shoes" },
     { value: "baby_food", viewValue: "Baby Food" },
@@ -67,10 +73,6 @@ export class DonorDashboardComponent implements OnInit {
     { value: "beds", viewValue: "Beds" },
     { value: "misc_item", viewValue: "MISC" }
   ];
-
-  // //setting donations to empty arry
-  // userDonations: DonationList[] = [];
-  
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -87,66 +89,39 @@ export class DonorDashboardComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    
-    // this.donordashboardService.getDonations()
-    // .subscribe(data =>{
-    //   // this.userDonations.push();
-    //   const newObject = data;
-    //   for (let prop in newObject) {
-    //     console.log(typeof(prop));
-    //     this.displayedColumns.push(prop)
-    // }
-    
-    //   console.log(newObject)
-      // this.userDonations = []
-    // })
-    
-      // this.donordashboardService.getDonationById(this.donorStateService.donor.id)
-      // .subscribe( data => {
-      //   console.log(data);
-      //   // this.donor = data
-      // })
-    
+  donors = [];
 
-    //      this.addForm = this.formBuilder.group({
-    //       id: [],
-    //        item: [''],
-    //       amount: []
-    //     .subscribe( data => {
-    //       // this.donor = this.donor.filter(d => d !== donors);
-    //     })
-    // });
+  
+  ngOnInit() {
+
+    /*this.donorDashboardService.getDonations().subscribe(data => {
+      return data.map(obj => {
+        let customDonor = {id: 0, donationItem: '', donationAmount: 0}
+        customDonor.id = obj.id
+        delete obj.id
+        for(let key in obj) {
+          if(obj[key] > 0) {
+            customDonor.donationItem = key
+            customDonor.donationAmount = obj[key]
+            break;
+          }
+        }
+        return customDonor
+      })
+    });*/
+    
     this.addForm = this.formBuilder.group({
       id: [],
-      item: [""],
+      options: [""],
       amount: []
     });
-  
-      //     .subscribe( data => {
-      //       // this.donor = this.donor.filter(d => d !== donors);
-    // editDonation(donors: Donor): void {
-    //   localStorage.removeItem("editDonorId");
-    //   localStorage.setItem("editDonorId", donors.id.toString());
-    //   // this.router.navigate(['edit-donor']);
-    // };
-    // addDonation(): void {
-    //   this.donordashboardService.createDonation(this.addForm.value)
-    //   .subscribe( data => {
-
-    //   })
-    // }
   }
-      
-  // convenience getter for easy access to form fields
-  // get f() { return this.addForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-    console.log(this.addForm.value);
-    const donation = {
-      used_shoes: parseInt(this.addForm.value.amount),
-      used_clothing: parseInt(this.addForm.value.amount)
+    const donation: Donation = {
+      donationOption: this.addForm.value.options,
+      donationAmount: parseInt(this.addForm.value.amount)
     }
     // stop here if form is invalid
     if (this.addForm.invalid) {
@@ -180,18 +155,34 @@ export class DonorDashboardComponent implements OnInit {
   }
 }
 export class TableDataSource extends DataSource<any> {
+
   constructor(private donorDashboardService: DonorDashboardService) {
     super();
+
+
   }
-  connect(): Observable<Donor[]> {
+
+
+  connect(): any {
   return this.donorDashboardService.getDonations();
+
+  //const newObject = Donor.data;
+    //   for (let prop in newObject) {
+    //     console.log(typeof(prop));
+    //     this.displayedColumns.push(prop)
+    // }
 }
-disconnect() {}
+disconnect() {
+
+}
 }
 @Component({
   selector: "dialog-data-example-dialog",
   templateUrl: "donor-dashboard-edit.html"
 })
+
 export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {
+
+  }
 }
