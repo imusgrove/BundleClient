@@ -23,9 +23,7 @@ export interface Donation {
   donationOption: string;
   donationAmount: number;
 }
-export interface DialogData {
-  animal: "panda" | "unicorn" | "lion";
-}
+
 export interface CustomDonor {
   id: number;
   donationItem: string;
