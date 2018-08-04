@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import {APIURL} from '../../../environments/environment.prod';
 import { User } from './user'
 
 @Injectable({
@@ -8,7 +8,7 @@ import { User } from './user'
 })
 export class UserService {
 
-    url = 'http://localhost:3000'
+    url = APIURL
 
   constructor(private http: HttpClient ) { }
 

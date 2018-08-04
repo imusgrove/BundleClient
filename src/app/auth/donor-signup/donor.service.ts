@@ -8,8 +8,7 @@ import { APIURL } from '../../../environments/environment.prod'
    providedIn: 'root'
 })
 export class DonorService {
-    url = 'http://localhost:3000'
-
+    url = APIURL
 
   constructor(private http: HttpClient ) { }
     getAll() {

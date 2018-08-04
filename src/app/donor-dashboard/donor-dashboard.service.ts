@@ -12,7 +12,6 @@ import {APIURL} from '../../environments/environment.prod';
 export class DonorDashboardService { 
 
   constructor(private http: HttpClient) {}
-  // donorUrl = 'http://localhost:3000/donation/createdonation';  // URL to web api
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',

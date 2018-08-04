@@ -8,7 +8,7 @@ import { Router } from '../../../node_modules/@angular/router';
 
 @Injectable()
 export class DonorAuthService {
-    url = 'http://localhost:3000'
+    url = APIURL
 
 
   constructor(private http: HttpClient, public router: Router) { }
