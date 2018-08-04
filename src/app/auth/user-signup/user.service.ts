@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {APIURL} from '../../../environments/environment.prod';
 import { User } from './user'
 
 @Injectable({
@@ -8,7 +7,7 @@ import { User } from './user'
 })
 export class UserService {
 
-    url = APIURL
+    url = 'https://tdm-bundleapi.herokuapp.com/'
 
   constructor(private http: HttpClient ) { }
 

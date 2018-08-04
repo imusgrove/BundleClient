@@ -408,7 +408,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../app-routing.module */ "./src/app-routing.module.ts");
-/* harmony import */ var _environments_environment_prod__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../environments/environment.prod */ "./src/environments/environment.prod.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -421,13 +420,12 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 // import {UserLoginComponent} from './user-login/user-login.component';
 var AuthService = /** @class */ (function () {
     function AuthService(http, router) {
         this.http = http;
         this.router = router;
-        this.url = _environments_environment_prod__WEBPACK_IMPORTED_MODULE_3__["APIURL"];
+        this.url = 'https://tdm-bundleapi.herokuapp.com/';
     }
     AuthService.prototype.login = function (donor_username, donor_password) {
         return this.http.post(this.url + "/donor/login", { donor_username: donor_username, donor_password: donor_password })
@@ -760,7 +758,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DonorService", function() { return DonorService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../environments/environment.prod */ "./src/environments/environment.prod.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -772,11 +769,10 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
-
 var DonorService = /** @class */ (function () {
     function DonorService(http) {
         this.http = http;
-        this.url = _environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"];
+        this.url = 'https://tdm-bundleapi.herokuapp.com/';
     }
     DonorService.prototype.getAll = function () {
         return this.http.get("/donors");
@@ -785,7 +781,7 @@ var DonorService = /** @class */ (function () {
         return this.http.get("/donor/" + id);
     };
     DonorService.prototype.register = function (donor) {
-        return this.http.post(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donor/createdonor", donor);
+        return this.http.post("https://tdm-bundleapi.herokuapp.com/donor/createdonor", donor);
     };
     DonorService.prototype.update = function (donor) {
         return this.http.put("/donor/" + donor.id, donor);
@@ -1079,7 +1075,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DonorDashboardService", function() { return DonorDashboardService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment.prod */ "./src/environments/environment.prod.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1089,7 +1084,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 // import { HttpModule } from '@angular/http'
@@ -1105,33 +1099,20 @@ var DonorDashboardService = /** @class */ (function () {
     }
     //get all donations by donor id
     DonorDashboardService.prototype.getDonations = function () {
-        return this.http.get(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donation/", this.httpOptions);
+        return this.http.get("https://tdm-bundleapi.herokuapp.com/donation/", this.httpOptions);
     };
-    // getDonationById(id: number) {
-    //   return this.http.get<Donor>(`${APIURL}/donation/${id}`, this.httpOptions)  ;
-    // }
-    // createDonation(donor: Donor[]) {
-    //   return this.http.post(this.donorUrl + '/createdonation' ,donor);
-    // }
-    // createDonation (donor: Donor): Observable<any> {
-    //       return this.http.post<Donor>(this.donorUrl, donor, this.httpOptions)
-    //         // .pipe( 
-    //         //   // tap((donor:Donor) => this.log(`added donor w/ id=${donor.id}`)),
-    //         //   catchError(this.handleError<Donor>('createDonation'))
-    //         // );
-    //     }
     DonorDashboardService.prototype.createDonation = function (donation) {
-        return this.http.post(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donation/createdonation", donation, this.httpOptions);
+        return this.http.post("https://tdm-bundleapi.herokuapp.com/donation/createdonation", donation, this.httpOptions);
         // .pipe(
         //   catchError(this.handleError('createDonation', donation))
         // );
     };
     //update donation
     DonorDashboardService.prototype.updateDonation = function (donation) {
-        return this.http.put(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donation/editdonation", donation, this.httpOptions);
+        return this.http.put("https://tdm-bundleapi.herokuapp.com/donation/editdonation", donation, this.httpOptions);
     };
     DonorDashboardService.prototype.deleteDonation = function (id) {
-        return this.http.delete(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donation/deletedonation/" + id, this.httpOptions);
+        return this.http.delete("https://tdm-bundleapi.herokuapp.com/donation/deletedonation/" + id, this.httpOptions);
     };
     DonorDashboardService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
@@ -1274,7 +1255,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DonorProfileService", function() { return DonorProfileService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../environments/environment.prod */ "./src/environments/environment.prod.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1284,7 +1264,6 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 var DonorProfileService = /** @class */ (function () {
@@ -1298,16 +1277,16 @@ var DonorProfileService = /** @class */ (function () {
         };
     }
     DonorProfileService.prototype.getDonors = function () {
-        return this.http.get(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donor/");
+        return this.http.get("https://tdm-bundleapi.herokuapp.com/donor/");
     };
     DonorProfileService.prototype.getDonorById = function (id) {
-        return this.http.get(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donor/getdonor/" + id, this.httpOptions);
+        return this.http.get("https://tdm-bundleapi.herokuapp.com/donor/getdonor/" + id, this.httpOptions);
     };
     DonorProfileService.prototype.updateDonor = function (id, newInfo) {
-        return this.http.put(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donor/editdonor/" + id, newInfo);
+        return this.http.put("https://tdm-bundleapi.herokuapp.com/donor/editdonor/" + id, newInfo);
     };
     DonorProfileService.prototype.deleteDonor = function (id) {
-        return this.http.delete(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donor/deletedonor/" + id, this.httpOptions);
+        return this.http.delete("https://tdm-bundleapi.herokuapp.com/donor/deletedonor/" + id, this.httpOptions);
     };
     DonorProfileService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
@@ -1332,8 +1311,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DonorAuthService", function() { return DonorAuthService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var _environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../environments/environment.prod */ "./src/environments/environment.prod.ts");
-/* harmony import */ var _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/@angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/@angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1346,15 +1324,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var DonorAuthService = /** @class */ (function () {
     function DonorAuthService(http, router) {
         this.http = http;
         this.router = router;
-        this.url = _environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"];
+        this.url = 'https://tdm-bundleapi.herokuapp.com/';
     }
     DonorAuthService.prototype.login = function (loginInfo) {
-        return this.http.post(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donor/login", loginInfo).subscribe(function (info) {
+        return this.http.post("https://tdm-bundleapi.herokuapp.com/donor/login", loginInfo).subscribe(function (info) {
             var data = Object.values(info);
             localStorage.setItem("token", data[2]);
             localStorage.setItem("username", data[0].donor_username);
@@ -1363,13 +1340,13 @@ var DonorAuthService = /** @class */ (function () {
         });
     };
     DonorAuthService.prototype.getDonor = function (id) {
-        return this.http.get(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donor/getdonor/" + id);
+        return this.http.get("https://tdm-bundleapi.herokuapp.com/donor/getdonor/" + id);
     };
     DonorAuthService.prototype.updateDonor = function (id, donorInfo) {
-        return this.http.put(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donor/editdonor/" + id, donorInfo);
+        return this.http.put("https://tdm-bundleapi.herokuapp.com/donor/editdonor/" + id, donorInfo);
     };
     DonorAuthService.prototype.deleteDonor = function (id) {
-        return this.http.delete(_environments_environment_prod__WEBPACK_IMPORTED_MODULE_2__["APIURL"] + "/donor/deletedonor/" + id);
+        return this.http.delete("https://tdm-bundleapi.herokuapp.com/donor/deletedonor/" + id);
     };
     DonorAuthService.prototype.logout = function () {
         // remove user from local storage to log user out
@@ -1377,7 +1354,7 @@ var DonorAuthService = /** @class */ (function () {
     };
     DonorAuthService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
-        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _node_modules_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
     ], DonorAuthService);
     return DonorAuthService;
 }());
@@ -2002,35 +1979,6 @@ var UserProfileComponent = /** @class */ (function () {
     return UserProfileComponent;
 }());
 
-
-
-/***/ }),
-
-/***/ "./src/environments/environment.prod.ts":
-/*!**********************************************!*\
-  !*** ./src/environments/environment.prod.ts ***!
-  \**********************************************/
-/*! exports provided: environment, APIURL */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "environment", function() { return environment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APIURL", function() { return APIURL; });
-var environment = {
-    production: true
-};
-var APIURL = "";
-switch (window.location.hostname) {
-    // this is the deployed angular application
-    case "tdm-bundleclient.herokuapp.com":
-        // this is the full url of your deployed API
-        APIURL = 'https://tdm-bundleapi.herokuapp.com/';
-        break;
-    default:
-        // this is the local host name of your API
-        APIURL = 'https://tdm-bundleapi.herokuapp.com/';
-}
 
 
 /***/ }),

@@ -3,18 +3,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
-import { APIURL } from '../../environments/environment.prod'
 import { Router } from '../../../node_modules/@angular/router';
 
 @Injectable()
 export class DonorAuthService {
-    url = APIURL
+    url = 'https://tdm-bundleapi.herokuapp.com/'
 
 
   constructor(private http: HttpClient, public router: Router) { }
 
   login(loginInfo) {
-      return this.http.post(`${APIURL}/donor/login`, loginInfo).subscribe(info => {
+      return this.http.post(`https://tdm-bundleapi.herokuapp.com/donor/login`, loginInfo).subscribe(info => {
           let data = Object.values(info);
           localStorage.setItem("token", data[2]);
           localStorage.setItem("username", data[0].donor_username);
@@ -24,15 +23,15 @@ export class DonorAuthService {
   }
 
   getDonor(id) {
-      return this.http.get(`${APIURL}/donor/getdonor/${id}`)
+      return this.http.get(`https://tdm-bundleapi.herokuapp.com/donor/getdonor/${id}`)
   }
 
   updateDonor(id, donorInfo) {
-      return this.http.put(`${APIURL}/donor/editdonor/${id}`, donorInfo)
+      return this.http.put(`https://tdm-bundleapi.herokuapp.com/donor/editdonor/${id}`, donorInfo)
   }
 
   deleteDonor(id) {
-      return this.http.delete(`${APIURL}/donor/deletedonor/${id}`)
+      return this.http.delete(`https://tdm-bundleapi.herokuapp.com/donor/deletedonor/${id}`)
   }
   
   logout() {

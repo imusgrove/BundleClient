@@ -7,14 +7,13 @@ import { catchError,  tap } from 'rxjs/operators';
 import { UserSignup } from './user-signup/user-signup';
 import { map } from 'rxjs/operators';
 import { AppRoutingModule } from '../../app-routing.module';
-import {APIURL} from '../../environments/environment.prod';
 // import {UserLoginComponent} from './user-login/user-login.component';
 
 @Injectable()
 export class AuthService {
     constructor(private http: HttpClient, private router: AppRoutingModule) { }
 
-    url = APIURL;
+    url = 'https://tdm-bundleapi.herokuapp.com/';
 
     login(donor_username: string, donor_password: string) {
         return this.http.post<any>(`${this.url}/donor/login`, {donor_username: donor_username, donor_password: donor_password })

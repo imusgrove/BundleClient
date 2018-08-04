@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Donor } from './donor';
-import { APIURL } from '../../../environments/environment.prod'
 
 @Injectable({
    providedIn: 'root'
 })
 export class DonorService {
-    url = APIURL
+    url = 'https://tdm-bundleapi.herokuapp.com/'
 
   constructor(private http: HttpClient ) { }
     getAll() {
@@ -20,7 +19,7 @@ export class DonorService {
     }
 
     register(donor: Donor) {
-        return this.http.post(`${APIURL}/donor/createdonor`, donor);
+        return this.http.post(`https://tdm-bundleapi.herokuapp.com/donor/createdonor`, donor);
     }
 
     update(donor: Donor) {
