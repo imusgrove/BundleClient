@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, Injector, Injectable } from "@angular/core";
+import { Component, OnInit, Inject, Injector, Injectable, Output, EventEmitter } from "@angular/core";
 import {
   BreakpointObserver,
   Breakpoints,
@@ -135,29 +135,25 @@ export class DonorDashboardComponent implements OnInit {
   }
   //delete donation
   onDelete(id) {
+    console.log('deleting')
     this.donordashboardService.deleteDonation(id).subscribe(
-      data => {
-        this.array.push(data);
-      },
+      data => {},
       error => {},
-      () => {
-        console.log("Donation deleted");
-        console.log(id);
-        this.router.navigate(["/donordashboard"]);
-
-      }
+      () => {}
     );  
     
   }
 
   //edit donation
-  editDonation(): void {
-    const donationEdit = this.dialog.open(DonationEditDialogue, {
-      height: "200px",
+  editDonation(data): void {
+    let donationEdit = this.dialog.open(DonationEditDialogue, {
+      data: data,
+      height: "300x",
       width: "250px"
     });
   }
 }
+
 export class TableDataSource extends DataSource<any> {
   constructor(private donorDashboardService: DonorDashboardService) {
     super();
@@ -168,20 +164,46 @@ export class TableDataSource extends DataSource<any> {
   }
   disconnect() {}
 }
+
+
+
+
 @Component({
   selector: "donation-edit-dialogue",
   templateUrl: "./donation-edit-dialogue.html",
   styleUrls: ["./donation-edit-dialogue.css"]
 })
 export class DonationEditDialogue {
-  constructor(public donationEdit: MatDialogRef<DonationEditDialogue>) {}
+  addForm: FormGroup;
+  edited = new EventEmitter;
+  constructor(
+    private donorDashboardService: DonorDashboardService,
+    public donationEdit: MatDialogRef<DonationEditDialogue>,
+    @Inject(MAT_DIALOG_DATA) public data: CustomDonor,
+    private formBuilder: FormBuilder
+  ) {}
 
-  onEditSubmit(): void {
-    this.donationEdit.close();
+  editDonation(data): void {
+    console.log(data.value)
+    this.donorDashboardService.updateDonation(data.value).subscribe(
+      next => {
+        this.edited.emit(true)
+      },
+      error => {
+        this.edited.emit(true)
+      },
+      () => {
+        this.donationEdit.close();
+      }
+    )
   }
 
   ngOnInit() {
-
+   this.addForm = this.formBuilder.group ({
+      id: this.data.id,
+      donationItem: this.data.donationItem,
+      donationAmount: this.data.donationAmount
+    });
   }
 
 }

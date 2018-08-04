@@ -48,10 +48,10 @@ export class DonorDashboardService {
 
   //update donation
   updateDonation(donation: CustomDonor): Observable<CustomDonor> {
-    return this.http.put<CustomDonor>(`${APIURL}/donation/updatedonation`, donation, this.httpOptions)
+    return this.http.put<CustomDonor>(`${APIURL}/donation/editdonation`, donation, this.httpOptions)
   }
 
-  deleteDonation(id:number) {
+  deleteDonation(id:number): Observable<any> {
     return this.http.delete(`${APIURL}/donation/deletedonation/${id}`, this.httpOptions);
   }
 }
