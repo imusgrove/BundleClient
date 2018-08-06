@@ -7,11 +7,7 @@ import { Router } from '../../../node_modules/@angular/router';
 
 @Injectable()
 export class DonorAuthService {
-<<<<<<< HEAD
-    url = 'https://tdm-bundleapi.herokuapp.com/'
-=======
     url = APIURL
->>>>>>> develop
 
 
   constructor(private http: HttpClient, public router: Router) { }

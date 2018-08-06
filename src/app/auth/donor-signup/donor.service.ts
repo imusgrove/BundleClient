@@ -7,12 +7,8 @@ import { Donor } from './donor';
    providedIn: 'root'
 })
 export class DonorService {
-<<<<<<< HEAD
-    url = 'https://tdm-bundleapi.herokuapp.com/'
-=======
     url = APIURL
 
->>>>>>> develop
 
   constructor(private http: HttpClient ) { }
     getAll() {

@@ -14,11 +14,7 @@ import { APIURL } from '../../environments/environment.prod';
 export class AuthService {
     constructor(private http: HttpClient, private router: AppRoutingModule) { }
 
-<<<<<<< HEAD
-    url = 'https://tdm-bundleapi.herokuapp.com/';
-=======
     url = APIURL;
->>>>>>> develop
 
     login(donor_username: string, donor_password: string) {
         return this.http.post<any>(`${APIURL}/donor/login`, {donor_username: donor_username, donor_password: donor_password })

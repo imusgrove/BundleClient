@@ -8,11 +8,7 @@ import { APIURL } from '../../../environments/environment.prod';
 })
 export class UserService {
 
-<<<<<<< HEAD
-    url = 'https://tdm-bundleapi.herokuapp.com/'
-=======
     url = APIURL
->>>>>>> develop
 
   constructor(private http: HttpClient ) { }
 
