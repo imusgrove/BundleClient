@@ -621,9 +621,9 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\junk_\Documents\Coding\Javascript\Projects\RedBadgeFinalTake2\BoJClient\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
-__webpack_require__(/*! C:\Users\junk_\Documents\Coding\Javascript\Projects\RedBadgeFinalTake2\BoJClient\src\theme.scss */"./src/theme.scss");
-module.exports = __webpack_require__(/*! C:\Users\junk_\Documents\Coding\Javascript\Projects\RedBadgeFinalTake2\BoJClient\src\styles.css */"./src/styles.css");
+__webpack_require__(/*! C:\Users\junk_\documents\coding\javascript\projects\redbadgefinaltake2\bojclient\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"./node_modules/@angular/material/prebuilt-themes/indigo-pink.css");
+__webpack_require__(/*! C:\Users\junk_\documents\coding\javascript\projects\redbadgefinaltake2\bojclient\src\theme.scss */"./src/theme.scss");
+module.exports = __webpack_require__(/*! C:\Users\junk_\documents\coding\javascript\projects\redbadgefinaltake2\bojclient\src\styles.css */"./src/styles.css");
 
 
 /***/ })
