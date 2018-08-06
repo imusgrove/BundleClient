@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError,  tap } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 import { Router } from '../../../node_modules/@angular/router';
-import { APIURL } from '../../../environments/environment.prod'
+import { APIURL } from '../../environments/environment.prod'
 
 @Injectable()
 export class DonorAuthService {
