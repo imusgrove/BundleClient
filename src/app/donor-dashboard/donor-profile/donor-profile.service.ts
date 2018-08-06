@@ -22,7 +22,7 @@ export class DonorProfileService {
   }
 
   getDonorById(id: number): Observable<Donor>{
-    return this.http.get<Donor>(`https://tdm-bundleapi.herokuapp.com/donor/getdonor/` + id, this.httpOptions);
+    return this.http.get<Donor>(`https://tdm-bundleapi.herokuapp.com/donor/getdonor/${id}`, this.httpOptions);
   }
 
   updateDonor(id, newInfo) {
@@ -30,6 +30,6 @@ export class DonorProfileService {
   }
 
   deleteDonor(id: number) {
-    return this.http.delete(`https://tdm-bundleapi.herokuapp.com/donor/deletedonor/` + id, this.httpOptions);
+    return this.http.delete(`https://tdm-bundleapi.herokuapp.com/donor/deletedonor/${id}`, this.httpOptions);
   }
 }

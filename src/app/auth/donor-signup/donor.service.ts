@@ -17,7 +17,7 @@ export class DonorService {
     }
 
     getById(id: number) {
-        return this.http.get(`/donor/` + id);
+        return this.http.get(`/donor/${id}`);
     }
 
     register(donor: Donor) {
@@ -25,10 +25,10 @@ export class DonorService {
     }
 
     update(donor: Donor) {
-        return this.http.put(`/donor/` + donor.id, donor);
+        return this.http.put(`/donor/${donor.id}`, donor);
     }
 
     delete(id: number) {
-        return this.http.delete(`/donor/` + id);
+        return this.http.delete(`/donor/${id}`);
     }
 }
