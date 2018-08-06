@@ -114,7 +114,6 @@ export class DonorDashboardComponent implements OnInit {
 
     //create donation
     this.loading = true;
-    console.log("test");
     this.donordashboardService
       .createDonation(donation)
       // this.donordashboardService.createDonation(this.addForm.value)
