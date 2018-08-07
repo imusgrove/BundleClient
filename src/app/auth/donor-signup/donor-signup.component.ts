@@ -52,7 +52,7 @@ export class DonorSignupComponent implements OnInit {
                 data => {
                     // this.alertService.success('Registration successful', true);
                     console.log(data);
-                    this.router.navigate(['/donorlogin']);
+                    this.router.navigate(['/donordashboard']);
                 },
                 error => {
                     // this.alertService.error(error);

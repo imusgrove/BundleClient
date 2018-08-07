@@ -14,6 +14,7 @@ import { DonorDashboardComponent } from './app/donor-dashboard/donor-dashboard.c
 import { AboutComponent } from './app/ui/about/about.component';
 import { ContactComponent } from './app/ui/contact/contact.component';
 import { DonorProfileComponent } from './app/donor-dashboard/donor-profile/donor-profile.component'
+import { AuthGuard } from './app/auth/authGuard/auth.guard';
 
 
 const routes: Route[] = [  
@@ -22,11 +23,11 @@ const routes: Route[] = [
   {path: 'donorlogin', component: DonorLoginComponent},
   // {path: 'usersignup', component: UserSignupComponent},
   {path: 'donorsignup', component: DonorSignupComponent},   
-  {path: 'donordashboard', component: DonorDashboardComponent},
+  {path: 'donordashboard', component: DonorDashboardComponent, canActivate: [AuthGuard]},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   // {path: 'userdashboard', component: UserDashboardComponent}, 
-  {path: 'profile', component: DonorProfileComponent}
+  {path: 'profile', component: DonorProfileComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
