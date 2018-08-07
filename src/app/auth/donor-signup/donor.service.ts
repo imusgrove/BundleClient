@@ -21,7 +21,13 @@ export class DonorService {
     }
 
     register(donor: Donor) {
-        return this.http.post(`https://tdm-bundleapi.herokuapp.com/donor/createdonor`, donor);
+        return this.http.post(`https://tdm-bundleapi.herokuapp.com/donor/createdonor`, donor).subscribe(info => {
+            let data = Object.values(info);
+            localStorage.setItem("token", data[2]);
+            localStorage.setItem("username", data[0].donor_username);
+            localStorage.setItem("id", data[0].id);
+            console.log(data)
+        });
     }
 
     update(donor: Donor) {
