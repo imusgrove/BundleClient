@@ -25,7 +25,7 @@
       </form>
       <form id="sideNavAmount" [formGroup]="addForm">
           <mat-form-field class="donation-amount">
-            <input matInput placeholder="Donation Amount" name="amount" (value)= "amount" formControlName="amount">
+            <input matInput placeholder="Donation Amount" name="amount" formControlName="amount">
           </mat-form-field>
         </form>
       <button mat-raised-button class="submit" (click)=onSubmit() id="listButton">Add to List</button>

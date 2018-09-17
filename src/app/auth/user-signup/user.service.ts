@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { User } from './user'
+import { APIURL } from '../../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-    url = 'http://localhost:3000'
+    url = APIURL
 
   constructor(private http: HttpClient ) { }
 
@@ -23,7 +23,7 @@ getById(id: number) {
 }
 
 register(user: User) {
-    return this.http.post(`${this.url}/user/createuser`, user);
+    return this.http.post(`${APIURL}/user/createuser`, user);
 }
 
 update(user: User) {

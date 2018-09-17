@@ -39,24 +39,12 @@ export class DonorSignupComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
-
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
         }
-
         this.loading = true;
         this.donorService.register(this.registerForm.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    // this.alertService.success('Registration successful', true);
-                    console.log(data);
-                    this.router.navigate(['/donorlogin']);
-                },
-                error => {
-                    // this.alertService.error(error);
-                    this.loading = false;
-                });
-    }
+        this.router.navigate(['/donordashboard']);
+    }  
 }

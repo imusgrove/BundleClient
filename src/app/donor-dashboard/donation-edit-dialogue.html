@@ -1,7 +1,7 @@
 <h1 mat-dialog-title>Edit Donation</h1>
 <form id="editForm" [formGroup]="addForm" mat-dialog-content>
     <mat-form-field class="donation-amount">
-      <input matInput (value)="donationAmount" name="donationAmount" formControlName="donationAmount">
+      <input matInput name="donationAmount" formControlName="donationAmount">
     </mat-form-field>
     <p>{{data.donationItem}}</p>
     <button mat-raised-button (click)="editDonation(addForm)">Submit</button>
