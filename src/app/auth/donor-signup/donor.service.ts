@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 
 import { Donor } from './donor';
 import { APIURL } from '../../../environments/environment.prod'
@@ -12,6 +12,17 @@ export class DonorService {
 
 
   constructor(private http: HttpClient ) { }
+
+  //nodemailer code
+  addNew(usercreds) {
+    const emailid = 'email=' + usercreds.email;            
+    this.http.post('http://localhost:8888/sendemail', emailid).subscribe((data) => {
+        if (data.json().sucess) {
+          console.log('mail sent');
+          }
+     });
+  }
+
     getAll() {
     return this.http.get<Donor[]>(`/donors`);
     }

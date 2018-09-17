@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {DonorService} from './auth/donor-signup/donor.service';
 
 
 @Component({
