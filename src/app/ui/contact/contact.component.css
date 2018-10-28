@@ -15,10 +15,10 @@ textarea {
 
 button {
     color: black;
-    background-color: #ff8cff;
+    background-color: rgb(224, 184, 213);
 }
 
 button:hover {
     background-color: white;
-    border: solid 1px #ff8cff;
+    border: solid 1px rgb(224, 184, 213);
 }

@@ -28,7 +28,7 @@ p {
 }
 
 .addButton {
-    background-color: #ff8cff;
+    background-color: #rgb(224, 184, 213);
     margin-left: 68%;
     color: #191919;
 }
@@ -46,7 +46,7 @@ mat-sidenav {
 }
 
 .reqButton {
-    background-color: #ff8cff;
+    background-color: rgb(224, 184, 213);
     color: #191919;
     height: 15%;
 }

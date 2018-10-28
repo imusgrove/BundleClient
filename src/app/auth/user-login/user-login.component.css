@@ -4,7 +4,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
-    background-color: #7cd9d9;
+    background-color: lightblue;
     border-radius: 50px;
     text-align: center;
 }
@@ -12,11 +12,11 @@
 button:hover {
     color: black;
     background-color: white;
-    border: 1px solid #ff8cff;
+    border: 1px solid rgb(224, 184, 213);
 }
 
 button {
-    background-color: #ff8cff;
+    background-color: rgb(224, 184, 213);
 }
 
 a {

@@ -31,7 +31,7 @@
   #listButton{
     margin-top: 4em;
     margin-left: 12em;
-    background-color: #ff8cff;
+    background-color: rgb(224, 184, 213);
   }
   #navTitle{
     margin-top: 2em;
@@ -44,14 +44,14 @@
   #tableUpdateButton{
     /* margin-top: 2em;
     margin-left: 25em; */
-    background-color: #ff8cff;
+    background-color: rgb(224, 184, 213);
   }
   #tableDeleteButton{
     /* margin-top: 2em;
     margin-left: 1em; */
-    background-color: #ff8cff;
+    background-color: rgb(224, 184, 213);
   }
   
   #profileButton {
-    background-color: #ff8cff;
+    background-color: rgb(224, 184, 213);
   }

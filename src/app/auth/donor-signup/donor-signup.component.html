@@ -2,7 +2,8 @@
   <mat-card class="cardForSignup">
       <h2>Donor Signup</h2>
       <form [formGroup]="registerForm">
-      <hr color="#ff8cff" />
+      <hr color="#rgb(224, 184, 213)" />
+      <!-- first name -->
       <div class="registerForm">
           <mat-form-field>
           <input matInput placeholder="First Name"  type="text" formControlName="donor_fname" class="registerForm" />
@@ -20,18 +21,19 @@
         <input matInput placeholder="Username" type="text" formControlName="donor_username" class="registerForm"  >
       </mat-form-field>
       </div>
-
+<!-- email -->
       <div class="registerForm">
         <mat-form-field class="donor-signup-component">
           <input matInput placeholder="Email" type="email" formControlName="donor_email" class="registerForm"  />
         </mat-form-field>
       </div>
-    
+    <!-- password -->
       <div class="registerForm">
         <mat-form-field class="donor-signup-component">
           <input matInput placeholder="Password" type="password" formControlName="donor_password" class="registerForm" />
         </mat-form-field>
-      </div>  
+      </div> 
+       <!--address‰-->
       <div class="registerForm"> 
       <mat-form-field class="donor-signup-component">
         <input matInput placeholder="Address" type="text" formControlName="donor_address" class="registerForm">

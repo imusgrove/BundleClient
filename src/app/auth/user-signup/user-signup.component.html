@@ -2,7 +2,7 @@
   <mat-card class="cardForSignup" >
     <h2>User Signup</h2>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <hr color="#ff8cff" />
+      <hr color="#rgb(224, 184, 213)" />
       <div class="form-group">
         <mat-form-field>
           <input matInput placeholder="First Name"  type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />

@@ -1,5 +1,5 @@
 button {
-    background-color: #ff8cff;
+    background-color: rgb(224, 184, 213);
 }
 
 .mat-dialog-actions {
@@ -7,7 +7,7 @@ button {
 }
 
 .mat-dialog-title {
-    background-color: #7cd9d9;
+    background-color: lightblue;
 }
 
 input {
